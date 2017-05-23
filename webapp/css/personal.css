@@ -81,6 +81,9 @@
 .icon-sandianshicaidan:before {
   content: "\e643"; }
 
+#Hmain {
+  background: #e8e8e8; }
+
 #box {
   height: 100%;
   display: flex;
@@ -187,13 +190,83 @@
         line-height: 0.78125rem;
         font-size: 0.3125rem;
         color: #565656; }
-    #box #Hmain #Hfoot {
-      padding-top: 0.078125rem;
-      width: 0.859375rem;
-      box-sizing: border-box;
-      text-align: center;
-      width: 100%;
-      background: #fff;
+  #box .btn-tijiao {
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    position: relative;
+    text-align: center;
+    margin-top: 0.15625rem; }
+    #box .btn-tijiao .btn-info {
+      display: block;
+      height: 0.625rem;
+      line-height: 0.625rem;
+      background: #fb3f3e;
+      border: 1px solid #ccc;
+      border-radius: 0.3125rem;
+      color: #FFF;
       font-size: 0.234375rem; }
-    #box #Hmain .foot-p {
-      line-height: 0.429688rem; }
+  #box .money {
+    width: 100%;
+    text-align: right;
+    height: 0.78125rem; }
+    #box .money .user-yue {
+      font-size: 0.28125rem;
+      line-height: 0.78125rem; }
+      #box .money .user-yue .user-money {
+        color: #fb3f3e; }
+  #box .user-email {
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    position: relative;
+    text-align: left;
+    margin-top: 0.15625rem;
+    background: #FFF; }
+  #box .user-b {
+    line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.28125rem;
+    color: #858585;
+    text-indent: 0;
+    margin-left: 0.15625rem;
+    margin-right: 0.21875rem;
+    width: auto; }
+  #box .use-email {
+    line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.28125rem;
+    color: #858585;
+    text-indent: 0;
+    width: auto; }
+  #box .user-pws {
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    position: relative;
+    text-align: left;
+    margin-top: 0.15625rem;
+    background: #FFF; }
+    #box .user-pws .use-ps {
+      width: 90%;
+      margin: 0 auto;
+      border-bottom: 1px solid #e3e3e3;
+      position: relative;
+      text-align: left;
+      background: #FFF; }
+      #box .user-pws .use-ps .use-pw {
+        border: 0; }
+    #box .user-pws .use-lab {
+      width: 90%;
+      height: 0.625rem;
+      margin: 0 auto;
+      border-bottom: 1px solid #e3e3e3;
+      position: relative;
+      text-align: left;
+      background: #FFF; }
+      #box .user-pws .use-lab label {
+        line-height: 0.625rem;
+        font-size: 0.3125rem; }
+        #box .user-pws .use-lab label .use-ra {
+          height: 0.25rem;
+          padding-top: 0.3125rem; }
