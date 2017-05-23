@@ -1,0 +1,18 @@
+/*重置样式表*/
+/*==========样式重置===========*/
+*{margin: 0;padding: 0;}
+
+ul,ol{
+	list-style:none;}
+img{
+	display:block;
+	border:0;}
+input{
+	outline:none;}
+
+
+a{
+	text-decoration:none;
+	}
+*{
+	box-sizing:border-box
