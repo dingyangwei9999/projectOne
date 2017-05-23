@@ -1,0 +1,76 @@
+html{height: 100%;}
+body,h1,h2,h3,h4,h5,h6,p,a,input,img,ul,li,ol,dl,dt,dd{
+	padding:0;
+	margin:0;}
+
+ul,ol{
+	list-style:none;}
+img{
+	display:block;
+	border:0;}
+input{
+	outline:none;}
+header,footer,section,nav{
+	display:block;}
+body{
+	font-size:12px;
+	font-family:"微软雅黑";
+	}
+a{
+	text-decoration:none;
+	color:#565656;}
+*{box-sizing:border-box;}
+.container{margin:0 auto;}
+
+.clearfix:after { content: ""; height: 0; display: block; 
+	clear: both; overflow: hidden; visibility: hidden; }
+
+
+@font-face {font-family: "iconfont";
+  src: url('../iconfont/font-index/iconfont.eot?t=1495266322376'); /* IE9*/
+  src: url('../iconfont/font-index/iconfont.eot?t=1495266322376#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../iconfont/font-index/iconfont.woff?t=1495266322376') format('woff'), /* chrome, firefox */
+  url('../iconfont/font-index/iconfont.ttf?t=1495266322376') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../iconfont/font-index/iconfont.svg?t=1495266322376#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wode:before { content: "\3575"; }
+
+.icon-gouwuche:before { content: "\e608"; }
+
+.icon-gouwuche1:before { content: "\e617"; }
+
+.icon-liebiao:before { content: "\e62e"; }
+
+.icon-sousuo-sousuo:before { content: "\e503"; }
+
+.icon-xin:before { content: "\e60b"; }
+
+.icon-sousuoliebiao:before { content: "\e62c"; }
+
+.icon-totop:before { content: "\e7c6"; }
+
+.icon-shouye:before { content: "\e621"; }
+
+
+
+//rem布局之后打开
+html{font-size:100px;}
+@media screen and (min-width:414px) {  
+	html,body,button,input,select,textarea { font-size:16px } 
+} 
+@media screen and (min-width:384px) {  
+	html,body,button,input,select,textarea {  font-size:14px  }  
+}  
+@media screen and (min-width:320px) {  
+ html,body,button,input,select,textarea { font-size:12px  }  
+}  

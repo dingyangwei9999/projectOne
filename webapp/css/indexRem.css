@@ -104,6 +104,28 @@ a {
   content: "\e621";
 }
 
+html {
+  font-size: 100px;
+}
+
+@media screen and (min-width: 414px) {
+  html, body, button, input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 384px) {
+  html, body, button, input, select, textarea {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  html, body, button, input, select, textarea {
+    font-size: 12px;
+  }
+}
+
 body, html {
   height: 100%;
 }
