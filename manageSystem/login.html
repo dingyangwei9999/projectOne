@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/managerCss/font-awesome.min.css" />
+
+	<link rel="stylesheet" href="../libs/managerCss/ace.min.css" />
+	<link rel="stylesheet" href="../libs/managerCss/ace-rtl.min.css" />
+	<link rel="stylesheet" href="../libs/managerCss/ace-skins.min.css" />
+    <link rel="stylesheet" href="../libs/managerCss/style.css"/>
+	<script type="text/javascript" src="../libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../libs/global/global.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/additional-methods.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+</head>
+<body class="login-layout">
+	<div class="logintop">    
+	    <span>欢迎后台管理界面平台</span>    
+	    <ul>
+		    <li><a href="#">帮助</a></li>
+		    <li><a href="#">关于</a></li>
+	    </ul>    
+	</div>
+    <div class="loginbody">
+		<div class="login-container">
+			<div class="center">
+			<h1>
+				<i class="icon-leaf green"></i>
+				<span class="orange">帮帮卖</span>
+				<span class="white">后台管理系统</span>
+			</h1>
+			<h4 class="white">Background Management System</h4>
+			</div>
+
+			<div class="space-6"></div>
+
+			<div class="position-relative">
+			<div id="login-box" class="login-box widget-box no-border visible">
+				<div class="widget-body">
+					<div class="widget-main">
+						<h4 class="header blue lighter bigger">
+							<i class="icon-coffee green"></i>
+							管理员登陆
+						</h4>
+
+						<div class="login_icon"><img src="../libs/font/login.png" /></div>
+
+						<form >
+							<fieldset>
+								<label class="block clearfix">
+									<span class="block input-icon input-icon-right">
+										<input type="text" class="form-control" placeholder="登录名"  name="name">
+										<i class="icon-user"></i>
+									</span>
+								</label>
+
+								<label class="block clearfix">
+									<span class="block input-icon input-icon-right">
+										<input type="password" class="form-control" placeholder="密码" name="password">
+										<i class="icon-lock"></i>
+									</span>
+								</label>
+
+								<div class="space"></div>
+
+								<div class="clearfix">
+									<label class="inline">
+										<input type="checkbox" class="ace">
+										<span class="lbl">保存密码</span>
+									</label>
+
+									<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+										<i class="icon-key"></i>
+										登陆
+									</button>
+								</div>
+
+								<div class="space-4"></div>
+							</fieldset>
+						</form>
+
+						<div class="social-or-login center">
+							<span class="bigger-110">通知</span>
+						</div>
+
+						<div class="social-login center">
+						本网站系统不再对IE8以下浏览器支持，请见谅。
+						</div>
+					</div><!-- /widget-main -->
+
+				<div class="toolbar clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="loginbm">版权所有  2017  <a href="">帮帮卖公司所有</a> </div>
+<strong></strong>
+<script type="text/javascript">
+	$(function(){
+		$('#login_btn').click(function(){
+			if(!$('form').valid()){
+				return false;
+			}
+			$.post(erp.baseUrl +  'login', {
+				name: $.trim($('input[name=name]').val()),
+				password: $.trim($('input[name=password]').val())
+			}, function(response){
+				if(response.status){
+					window.location.href = "index.html";
+				} else {
+					alert(response.message);
+				}
+			})
+		})
+	})
+</script>
+</body>
+
+</html>
