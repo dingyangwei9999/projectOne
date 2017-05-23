@@ -1,0 +1,27 @@
+#Htop {
+  position: fixed;
+  background: #F4F4F4;
+  z-index: 99;
+  top: 0;
+  height: 0.84rem;
+  text-align: center;
+  overflow: hidden;
+  width: 100%; }
+  #Htop .h_2 {
+    font-size: 0.4rem;
+    line-height: 0.84rem; }
+  #Htop .back {
+    position: absolute;
+    left: 0.24rem;
+    top: 0.20rem;
+    display: block;
+    height: 0.48rem;
+    font-size: 0.44rem; }
+  #Htop .index {
+    position: absolute;
+    right: 0.24rem;
+    top: 0.20rem;
+    display: block;
+    height: 0.48rem;
+    text-decoration: none;
+    font-size: 0.48rem; }

@@ -1,0 +1,210 @@
+@font-face {font-family: "iconfont";
+  src: url('../iconfont/iconfont.eot?t=1495422516048'); /* IE9*/
+  src: url('../iconfont/iconfont.eot?t=1495422516048#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../iconfont/iconfont.woff?t=1495422516048') format('woff'), /* chrome, firefox */
+  url('../iconfont/iconfont.ttf?t=1495422516048') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../iconfont/iconfont.svg?t=1495422516048#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:18px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuche:before { content: "\e632"; }
+
+.icon-meishi:before { content: "\e623"; }
+
+.icon-zhuanshi:before { content: "\e6ad"; }
+
+.icon-shuiguo:before { content: "\e622"; }
+
+.icon-fanhui:before { content: "\e666"; }
+
+.icon-yuerzhuanqu:before { content: "\e606"; }
+
+.icon-7tian:before { content: "\e607"; }
+
+.icon-xiangshang:before { content: "\e62b"; }
+
+.icon-meizhuang:before { content: "\e602"; }
+
+.icon-eye:before { content: "\e61c"; }
+
+.icon-yanjing:before { content: "\e614"; }
+
+.icon-bao:before { content: "\e8e1"; }
+
+.icon-icon:before { content: "\e657"; }
+
+.icon-lipin:before { content: "\e641"; }
+
+.icon-huojian:before { content: "\e62a"; }
+
+.icon-lingshi:before { content: "\e660"; }
+
+.icon-nongchanpin2:before { content: "\e673"; }
+
+.icon-shouyeshouye:before { content: "\e624"; }
+
+.icon-sousuo_sousuo:before { content: "\e601"; }
+
+.icon-shouye-shouye:before { content: "\e612"; }
+
+.icon-ziyuan:before { content: "\e629"; }
+
+.icon-nongzi:before { content: "\e668"; }
+
+.icon-sandianshicaidan:before { content: "\e643"; }
+
+
+
+#box{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background:#F4F4F4;
+	overflow:hidden;
+	
+	#Hmain{
+	flex: 1;
+ 	width: 100%;
+ 	overflow:hidden;
+  	.user_info{
+  	background: url(../images/default.jpg) center center;
+    background-size: 120%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding:0.1875rem;
+    box-sizing: border-box;
+    .user_img{
+	padding:0;
+	font-size: 1.4em;
+	float:left;
+	width: auto;
+    }
+    .user_xinxi{
+    	float:left;
+    	color: #fff;
+    	margin-left: 0.234375rem;
+    	.userxx{
+    	font-size:0.3125rem;
+    	}
+    	.userli{
+    		margin:0.15625rem auto;
+    		.jf{
+    			font-size:0.296875rem;
+    		}
+    		.s-vip{
+    			font-size:0.296875rem;
+    			padding:0.234375rem;
+    		}
+    	}
+    }
+  	}
+	
+	.list{
+	background: #fff;
+	box-sizing: border-box;
+    padding: 0 0.234375rem;
+    margin-bottom:0.15625rem;
+    li{
+    	height:0.78125rem;
+    	position: relative;
+    	.link-a{
+    display: block;
+    border-bottom: #e0e0e0 1px solid;
+    height: auto;
+    overflow: hidden;
+    padding-left: 0.671875rem;
+    font-size:0.3125rem;
+    height:0.78125rem;
+    line-height:0.78125rem;
+    color: #555;
+    text-decoration: none;
+    }
+    .zb{
+    	position: absolute;
+    	top:0.195312rem;
+    	font-size:0.375rem;
+    }
+    .yb{
+    	position: absolute;
+    	top:0.195312rem;
+    	right:0.195312rem;
+    	font-size:0.359375rem;
+    	transform: rotate(180deg);
+    }
+    }
+    
+	}
+	.user-tab{
+	height:100%;
+	box-sizing: border-box;
+	overflow:hidden;
+	height:1.25rem;
+	background: #fff;
+	margin-bottom: 0.15625rem;
+	.tab-ul{
+		border-top: 1px solid #e3e3e3;
+		border-bottom:1px solid #e3e3e3;
+		height:0.625rem;
+		width:100%;
+		overflow:hidden;
+		padding-left:0.015625rem;
+		.tab-li{
+		float:left;
+		width:33%;
+		height:0.625rem;
+		text-align:center;
+		border-right:1px solid #e3e3e3;
+		.tab1,.tab2,.tab3{
+		line-height:0.625rem;
+		font-size:0.3125rem;
+		}
+		
+	}
+	}
+	.shuju{
+		text-align:center;
+		line-height:0.625rem;
+		font-size:0.3125rem;
+		padding-left:0.078125rem;
+		color: #555;
+	}
+	}
+	.exit{
+		text-align:center;
+		box-sizing: border-box;
+		width:100%;
+		background:#FFF;
+		height:0.78125rem;
+		border-bottom:1px solid #e3e3e3;
+		.a-exit{
+			line-height:0.78125rem;
+			font-size:0.3125rem;
+			color:#565656;
+		}
+	}
+	
+	
+		#Hfoot{
+			padding-top:0.078125rem;
+			width:0.859375rem;
+			box-sizing: border-box;
+			text-align:center;
+			width:100%;
+			background:#fff;
+			font-size:0.234375rem;
+			}
+			.foot-p{
+				line-height:0.429688rem;
+			}
+	}
+	
+}
