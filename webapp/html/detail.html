@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>商品详情页</title>
+	<link rel="stylesheet" type="text/css" href="../css/detail.css">
+	<script src="../libs/swiper-3.4.2.min.js"></script>
+	<style>
+		
+	</style>
+<!-- 	<script>   
+		(function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                if(clientWidth>=640){
+		                    docEl.style.fontSize = '100px';
+		                }else{
+		                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+		                }
+		            };
+
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+	</script>  -->
+</head>
+<body>
+	<div id="box">
+		<!-- 这是头部 -->
+		<header id="Htop">
+			<a href="" class="iconfont icon-fanhui back"></a>
+			<h2 class="h_2">商品详情</h2>
+			<a class="iconfont icon-shouyeshouye index" href=""></a>
+		</header>
+		<main >
+		<!-- 轮播图 -->
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><img src="../img/1.jpg" alt=""></div>
+			        <div class="swiper-slide"><img src="../img/2.jpg" alt=""></div>
+			      
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			    
+			    <!-- 如果需要导航按钮 -->
+			   <!--  <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div> -->
+			    
+			    <!-- 如果需要滚动条 -->
+			    <!-- <div class="swiper-scrollbar"></div> -->
+			</div>
+			<!-- 介绍 -->
+			<div class="goods">
+				<div class="goods-title">
+					<h4 class="title">陕西阎良甜瓜 5斤</h4>
+					<a href="" class="like">
+						<i class="iconfont icon-lipin"></i><br>收藏
+					</a>
+				</div>
+				<div class="price">
+					<p>39.9</p>
+				</div>
+				<div class="Explain">
+					阎良甜瓜 |
+				</div>
+				<div class="contain">
+					<ul>
+						<li><a href="">商品描述</a></li>
+						<li><a href="">用户评论</a></li>
+					</ul>
+					<div class="detail">
+						<div class="m">
+							<div class="t">
+								<p class="d">商品描述<i>Detail</i></p>
+								<p>请注意：海南，西藏，新疆不发货，甜瓜在运输途中可能出现水分挥发，重量可能会少于5斤。</p>
+								<p>【产品名称】：阎良甜瓜</p>
+								<p>【产品规格】：4.8-5.2斤 4-6个</p>
+							</div>
+							<div class="img">
+								<img src="../img/1 (1).jpg" alt="">
+								<img src="../img/1 (2).jpg" alt="">
+								<img src="../img/1 (3).jpg" alt="">
+								<img src="../img/1 (4).jpg" alt="">
+								<img src="../img/1 (5).jpg" alt="">
+								<img src="../img/1 (6).jpg" alt="">
+								<img src="../img/1 (7).jpg" alt="">
+								<img src="../img/1 (8).jpg" alt="">
+								<img src="../img/1 (9).jpg" alt="">
+								<img src="../img/1 (10).jpg" alt="">
+								<img src="../img/1 (11).jpg" alt="">
+							</div>
+							</div>
+							<div class="comment">
+								<div class="t">
+									<p class="d">用户评价<i>Comment</i></p>
+								</div>
+								<div class="com">
+									<ul>
+										li
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+				</div>
+			</div>
+		</main>
+		<footer id="Hbottom">
+			<span class="l">
+				<a href="">
+					<i class="iconfont icon-gouwuche shop"></i>
+					<i class="shu">0</i>
+				</a>
+			</span>
+			<span class="r">
+				<a href="" class="buy">立即购买</a>
+				<a href="" class="car">加入购物车</a>
+			</span>
+			
+		</footer>
+	</div>
+
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    //自动播放
+    autoplay:2000,
+    //播放速度
+    speed:1000,
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    // 这样，即使我们滑动之后， 定时器也不会被清除
+　　autoplayDisableOnInteraction : false,
+    // 如果需要前进后退按钮
+    // nextButton: '.swiper-button-next',
+    // prevButton: '.swiper-button-prev',
+    
+    // 如果需要滚动条
+    // scrollbar: '.swiper-scrollbar',
+  })        
+  </script>
+</body>
+</html>
