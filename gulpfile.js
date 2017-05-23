@@ -4,16 +4,16 @@ var sass = require('gulp-sass');
 
 gulp.task('buildSass',function(){
 	//先查找文件所在位置
-	gulp.src('src/sass/*.scss')
+	gulp.src('webapp/sass/*.scss')
 	//通过pipe方法导入到gulp插件中实现编译
 	.pipe(sass({outputStyle:'expanded'}).on('error',sass.logError))
 	//文件输出
-	.pipe(gulp.dest('src/css'));
+	.pipe(gulp.dest('webapp/css'));
 })
 
 //监听文件修改  执行响应文件
 gulp.task('jtSass',function(){
-	gulp.watch('src/sass/*.scss',['buildSass']);
+	gulp.watch('webapp/sass/*.scss',['buildSass']);
 });
 
 // // 同步任务

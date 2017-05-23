@@ -1,0 +1,268 @@
+@charset "UTF-8";
+html {
+  height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, input, img, ul, li, ol, dl, dt, dd {
+  padding: 0;
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  border: 0;
+}
+
+input {
+  outline: none;
+}
+
+header, footer, section, nav {
+  display: block;
+}
+
+body {
+  font-size: 12px;
+  font-family: "微软雅黑";
+}
+
+a {
+  text-decoration: none;
+  color: #565656;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.clearfix:after {
+  content: "";
+  height: 0;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+@font-face {
+  font-family: "iconfont";
+  src: url("../iconfont/font-index/iconfont.eot?t=1495266322376");
+  /* IE9*/
+  src: url("../iconfont/font-index/iconfont.eot?t=1495266322376#iefix") format("embedded-opentype"), url("../iconfont/font-index/iconfont.woff?t=1495266322376") format("woff"), url("../iconfont/font-index/iconfont.ttf?t=1495266322376") format("truetype"), url("../iconfont/font-index/iconfont.svg?t=1495266322376#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wode:before {
+  content: "\3575";
+}
+
+.icon-gouwuche:before {
+  content: "\e608";
+}
+
+.icon-gouwuche1:before {
+  content: "\e617";
+}
+
+.icon-liebiao:before {
+  content: "\e62e";
+}
+
+.icon-sousuo-sousuo:before {
+  content: "\e503";
+}
+
+.icon-xin:before {
+  content: "\e60b";
+}
+
+.icon-sousuoliebiao:before {
+  content: "\e62c";
+}
+
+.icon-totop:before {
+  content: "\e7c6";
+}
+
+.icon-shouye:before {
+  content: "\e621";
+}
+
+body, html {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+.container header {
+  height: 44px;
+  position: relative;
+}
+
+.container header .search {
+  display: inline-block;
+  width: 90%;
+  position: relative;
+  height: 100%;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.container header .search #indexSearch {
+  height: 30px;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #F5F5F5;
+  border: none;
+  padding-left: 25px;
+}
+
+.container header .search i {
+  display: inline-block;
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: #BABABA;
+}
+
+.container header a {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  display: inline-block;
+  height: 100%;
+  width: 8%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.container header a i {
+  display: inline-block;
+  color: #666666;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.container .banner {
+  width: 100%;
+}
+
+.container .banner .swiper-container {
+  width: 100%;
+}
+
+.container .banner .swiper-container .swiper-slide {
+  width: 100%;
+}
+
+.container .banner .swiper-container .swiper-slide img {
+  width: 100%;
+}
+
+.container .nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container .nav ul li {
+  width: 20%;
+  height: 80px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.container .nav ul li img {
+  display: inline-block;
+  width: 40px;
+}
+
+.container .nav ul li p {
+  color: #808080;
+}
+
+.container .featuredProduct {
+  background-color: #EEEEEE;
+}
+
+.container .featuredProduct ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container .featuredProduct ul li {
+  border-bottom: 1px;
+  margin-bottom: 4px;
+  flex: 1;
+}
+
+.container .featuredProduct ul li img {
+  width: 100%;
+}
+
+.container .indexList h4 {
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border-top: 1px solid #CCCCCC;
+  color: #333333;
+}
+
+.container .indexList h4:nth-child(2) {
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.container .indexList ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6px;
+  justify-content: space-between;
+}
+
+.container .indexList ul li {
+  padding: 3px;
+  width: 49%;
+  border: 1px solid #E5E5E5;
+  margin-bottom: 6px;
+}
+
+.container .indexList ul li img {
+  width: 100%;
+}
+
+.container .indexList ul li > p {
+  display: inline-block;
+}
+
+.container .indexList ul li .indexListBottom {
+  display: block;
+}
+
+.container .indexList ul li .indexListBottom > p {
+  display: inline-block;
+}
