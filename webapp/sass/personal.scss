@@ -149,7 +149,6 @@
 	height:100%;
 	box-sizing: border-box;
 	overflow:hidden;
-	height:1.25rem;
 	background: #fff;
 	margin-bottom: 0.15625rem;
 	.tab-ul{
@@ -173,6 +172,7 @@
 	}
 	}
 	.shuju{
+    height:100%;
 		text-align:center;
 		line-height:0.625rem;
 		font-size:0.3125rem;

@@ -1,13 +1,5 @@
+app.get('/getproducts', function(request, response){})
 
+app.get('/getproductbyid', function(request, response){})
 
-exports.handle = function(app){
-	app.get('/delete',function(req,res){
-		res.send('yes');
-	})
-	app.get('/add',function(req,res){
-		res.send('yes');
-	})
-	app.get('/revisepassword',function(req,res){
-		res.send('yes');
-	})
-}
+app.get('/getproductbyname', function(request, response){})

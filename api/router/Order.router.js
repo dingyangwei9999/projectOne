@@ -1,13 +1,5 @@
+app.get('/getorders', function(request, response){})
 
+app.get('/getorderbyid', function(request, response){})
 
-exports.handle = function(app){
-	app.get('/getorders',function(req,res){
-		res.send('yes');
-	})
-	app.get('/getordersbyid',function(req,res){
-		res.send('yes');
-	})
-	app.get('/getordersbyname',function(req,res){
-		res.send('yes');
-	})
-}
+app.get('/getorderbyname', function(request, response){})

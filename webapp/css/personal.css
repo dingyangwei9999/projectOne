@@ -157,7 +157,6 @@
       height: 100%;
       box-sizing: border-box;
       overflow: hidden;
-      height: 1.25rem;
       background: #fff;
       margin-bottom: 0.15625rem; }
       #box #Hmain .user-tab .tab-ul {
@@ -176,6 +175,7 @@
             line-height: 0.625rem;
             font-size: 0.3125rem; }
       #box #Hmain .user-tab .shuju {
+        height: 100%;
         text-align: center;
         line-height: 0.625rem;
         font-size: 0.3125rem;

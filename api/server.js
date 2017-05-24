@@ -1,5 +1,5 @@
 var express = require('express');
 
-var router = require('./router/router.js');
+var Router = require('./router/Router.js');
 
-router.handle(express);
+Router.Register(express);
