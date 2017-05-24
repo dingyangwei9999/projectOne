@@ -1,0 +1,114 @@
+@import 'reset';
+
+body,html{
+	width:100%;
+	height:100%;
+	background-color:#f7f7f7;
+}
+.container{
+	max-width:640px;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	header{
+		height:64px;
+		width:100%;
+		display:flex;
+		background-color:#F4F4F4;
+		justify-content:space-between;
+		border-bottom:1px solid #ccc;
+		align-items:center;
+		color:#7D7D7D;
+		i{
+			font-size:36px;
+			margin:0 10px;
+		}
+		span{
+			font-size:22px;
+			font-family:"微软雅黑";
+		}
+	}
+	main{
+		flex:1;
+		background-color:#E8E8E8;
+	    .form{
+		    padding:20px;
+		    ul{
+		    	background: #fff;
+			    border-radius: 4px;
+			    border: #dadada 1px solid;
+			    li{
+			    	padding:12px 10px;
+			    	font-size:20px;
+					border-bottom:1px solid #e3e3e3;
+					color:#858585;
+			    	input{
+			    		border:none;
+			    		width:84%;
+			    		font-size:20px;
+			    		line-height:40px;
+			    	}
+			    	i{
+			    		font-size:25px;
+			    		cursor:pointer;
+			    	}
+			    }
+
+		    }
+		    >p{
+		    	line-height:50px;
+		    	padding:0 5px;
+		    	color:#333333;
+		    	a{
+		    		color:blue;
+		    	}
+		    	strong{
+		    		color:#aaa;
+		    	}
+		    }
+		    .find_psw{
+		    	font-size:14px;
+		    	display:flex;
+		    	justify-content:space-between;
+		    }
+		    button{
+		    	width:100%;
+		    	background: #fb3f3e;
+   				border-radius: 20px;
+   				line-height:40px;
+   				text-align:center;
+				border:none;
+				outline:none;
+				font-size:20px;
+				color:white;
+				cursor:pointer;
+		    }
+		    dl{
+		    	display:flex;
+		    	justify-content:space-between;
+		    	padding:10px;
+		    	dd{
+					text-align:center;
+					line-height:50px;
+					width:33%;
+					i{
+						font-size:40px;
+						color:#9e9e9e;
+					}
+					p{
+						color:#9e9e9e;
+					}
+		    	}
+		    }
+	    }
+		footer{
+			text-align:center;
+			font-size:14px;
+			line-height:20px;
+			width:100%;
+			background-color:white;
+		}
+	}
+
+}
