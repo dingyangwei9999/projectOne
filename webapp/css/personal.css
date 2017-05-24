@@ -84,6 +84,9 @@
 #Hmain {
   background: #e8e8e8; }
 
+.dibu-color {
+  color: orange; }
+
 #box {
   height: 100%;
   display: flex;
@@ -158,8 +161,6 @@
       background: #fff;
       margin-bottom: 0.15625rem; }
       #box #Hmain .user-tab .tab-ul {
-        border-top: 1px solid #e3e3e3;
-        border-bottom: 1px solid #e3e3e3;
         height: 0.625rem;
         width: 100%;
         overflow: hidden;
@@ -167,6 +168,7 @@
         #box #Hmain .user-tab .tab-ul .tab-li {
           float: left;
           width: 33%;
+          border-bottom: 1px solid #e3e3e3;
           height: 0.625rem;
           text-align: center;
           border-right: 1px solid #e3e3e3; }

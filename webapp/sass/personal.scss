@@ -61,7 +61,9 @@
 .icon-sandianshicaidan:before { content: "\e643"; }
 
 #Hmain{background:#e8e8e8;}
-
+.dibu-color{
+  color:orange;
+}
 #box{
 	height: 100%;
 	display: flex;
@@ -151,8 +153,6 @@
 	background: #fff;
 	margin-bottom: 0.15625rem;
 	.tab-ul{
-		border-top: 1px solid #e3e3e3;
-		border-bottom:1px solid #e3e3e3;
 		height:0.625rem;
 		width:100%;
 		overflow:hidden;
@@ -160,11 +160,13 @@
 		.tab-li{
 		float:left;
 		width:33%;
+    border-bottom:1px solid #e3e3e3;
 		height:0.625rem;
 		text-align:center;
 		border-right:1px solid #e3e3e3;
 		.tab1,.tab2,.tab3{
 		line-height:0.625rem;
+
 		font-size:0.3125rem;
 		}
 		
