@@ -13,10 +13,11 @@
   #Htop .back {
     position: absolute;
     left: 0.24rem;
-    top: 0.20rem;
+    top: 0.22rem;
     display: block;
     height: 0.48rem;
-    font-size: 0.44rem; }
+    font-size: 0.36rem;
+    color: #555; }
   #Htop .index {
     position: absolute;
     right: 0.24rem;
@@ -24,4 +25,5 @@
     display: block;
     height: 0.48rem;
     text-decoration: none;
-    font-size: 0.48rem; }
+    font-size: 0.48rem;
+    color: #555; }

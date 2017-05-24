@@ -14,29 +14,30 @@
 <body>
 <div id="box">
 <div style="height:0.84rem;"></div>
-	<header id="Htop"></header>
+	<header class="Htop"></header>
 	<div class="user-pws">
 	<ul>
 	<li class="use-lab">
-	<label class="lab" for="liuy"><input type="radio" class="use-ra" id="liuy">留言</label>
-	<label for="tous"><input type="radio" class="use-ra" id="tous">投诉</label>
-	<label for="xunw"><input type="radio" class="use-ra" id="xunw">询问</label>
-	<label for="showh"><input type="radio" class="use-ra" id="showh">售后</label>
-	<label for="qiug"><input type="radio" class="use-ra" id="qiug">求购</label>
+	<label class="lab" for="liuy"><input type="radio" name="客服" class="use-ra" id="liuy">留言</label>
+	<label for="tous"><input type="radio" name="客服" class="use-ra" id="tous">投诉</label>
+	<label for="xunw"><input type="radio" name="客服" class="use-ra" id="xunw">询问</label>
+	<label for="showh"><input type="radio" name="客服" class="use-ra" id="showh">售后</label>
+	<label for="qiug"><input type="radio" name="客服" class="use-ra" id="qiug">求购</label>
 	</li>
 	
 	<li class="use-ps">
-	<b class="user-b">新密码 :</b><input type="password" class="use-pw" id="newpw" placeholder="新密码">
+	<b class="user-b">主题 :</b><input type="password" class="use-pw" id="zhuti" placeholder="主题">
 	</li>
 
 	<li class="use-ps">
-	<b class="user-b">确认密码 :</b><input type="password" class="use-pw" id="repw" placeholder="确认密码" style="border-bottom:0;">
+	<b class="user-liub">留言 :</b>
+	<textarea class="text-area" placeholder="留言内容" cols="30" rows="4" wrap="virtual"></textarea>
 	</li>
 
 	</ul>
 	</div>
 	<div class="btn-tijiao kefu"><a href="" class="btn-info">确认修改</a></div>
-	<footer id="Hfoot"></footer>
+	<footer class="Hfoot"></footer>
 </div>
 </body>
 </html>

@@ -232,6 +232,23 @@
     margin-left: 0.15625rem;
     margin-right: 0.21875rem;
     width: auto; }
+  #box .text-area {
+    border: 0px;
+    padding-left: 0.15625rem;
+    font-size: 0.28125rem;
+    color: #858585;
+    resize: none; }
+  #box .user-liub {
+    line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.28125rem;
+    color: #858585;
+    text-indent: 0;
+    margin-left: 0.15625rem;
+    margin-right: 0.21875rem;
+    width: auto;
+    width: 100%;
+    display: block; }
   #box .use-email {
     line-height: 0.78125rem;
     font-weight: 400;
