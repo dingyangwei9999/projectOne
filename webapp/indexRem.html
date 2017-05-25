@@ -62,7 +62,7 @@
             //console.log(obj)
             var li = $('<li/>');
             li.html(`
-                <a href="#" class="indexListLink">
+                <a href="http://localhost:8080/webapp/html/detail.html?id=${obj._id}" class="indexListLink">
                  <img src="images/index/no_picture.jpg" dataimg="${obj.imgUrl}" class="indexListImage">
                  <p class="indexListName">${obj.goodsMsg}</p>
                 </a>
@@ -141,6 +141,10 @@
           })
         }
       )
+
+
+
+      
     })
   </script>
 </head>

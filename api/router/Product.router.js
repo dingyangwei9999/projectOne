@@ -18,6 +18,14 @@ exports.handle = function(app){
 	});
 
 
+	app.get('/details',function(req,res){
+		console.log(typeof req.query.productid)
+		var productId = parseInt(req.query.productid)
+		dbIndex.details(productId,res)
+	})
+
+
+
 	app.get('/getproductbyid',function(req,res){
 		res.send('yes');
 	})

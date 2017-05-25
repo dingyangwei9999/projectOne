@@ -51,3 +51,26 @@ var exists = function(name, res){
 	})	
 }
 exports.exists=exists;
+
+
+var details = function(name, res){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection('index', function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({_id:name}).toArray(function(err, docs){
+					//console.log(name)
+					//console.log(docs)
+					res.send(docs)
+				});
+			}
+			db.close();
+		})
+	})	
+}
+exports.details=details;
