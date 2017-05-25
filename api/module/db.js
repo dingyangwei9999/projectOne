@@ -2,29 +2,26 @@ var mongodb = require('mongodb');
 
 var server = new mongodb.Server('localhost', 27017);
 
-var db = new mongodb.Db('allGoods', server);
+var db = new mongodb.Db('manager', server);
 
-
-
-var getIndexData = function(_collection, data, res){
-
+var exists = function(_collection, data, key, callback){
 	db.open(function(error, db){
-
 		if(error){
 			console.log('connect db:', error);
 		}
+		//Account => 集合名（表名）
 		db.collection(_collection, function(error, collection){
 			if(error){
-				console.log(error);	
+				console.log(error)	
 			} else {
-				collection.find().toArray(function(err, docs){
-
-					//console.log(docs);
-					res.send(docs);
+				var obj = {};
+				obj[key] = data[key];
+				collection.find(obj).toArray(function(err, docs){
+					console.log(docs);
 				});
 			}
 			db.close();
 		})
 	})	
 }
-exports.getIndexData = getIndexData;
+exports.exists = exists;

@@ -2,13 +2,14 @@
 @import url("base.css");
 @import url("../iconfont/iconfont.css");
 @import url("../css/swiper-3.4.2.min.css");
+@import url("../iconfont/font-index/iconfont.css");
 * { padding: 0; margin: 0 auto; text-decoration: none; }
 
 body, html { height: 100%; margin: 0; padding: 0; z-index: -1; }
 
 #box { display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; -webkit-flex-direction: column; -moz-flex-direction: column; -ms-flex-direction: column; -o-flex-direction: column; flex-direction: column; height: 100%; flex-wrap: wrap; max-width: 640px; }
 
-#box header { height: 0.84rem; text-align: center; position: relative; background: #f4f4f4; width: 100%; z-index: 15; }
+#box header { height: 0.84rem; text-align: center; position: relative; background: #f4f4f4; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 15; }
 
 #box header .h_2 { font-size: 0.32rem; line-height: 0.84rem; font-weight: normal; }
 

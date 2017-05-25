@@ -3,6 +3,30 @@ require(['config'],function(){
 	require(['jquery','lazyload','fly','common','swiper'],function($,lazyload,fly,common,swiper){
 		$(function(){
 
+
+			//请求数据写进页面
+			var big_proa = location.search
+            var big_id = big_proa.split('=')[1]
+            var productid;
+            console.log(big_id)
+            $.ajax({
+              	type: "GET",
+             	url: "http://localhost:8080/details",
+             	data: {productid: big_id},
+             	success: function(msg){
+                 	console.log(msg[0])
+
+                	$('.lbt1').html(`<img src="../${msg[0].imgUrl}" alt="" class="swiperWrapper1">`)
+					$('.lbt2').html(`<img src="../${msg[0].imgUrl}" alt="" class="swiperWrapper1">`)
+              		}
+              		
+              		
+
+            });
+
+
+
+
 			// 顶部轮播图
 			var mySwiper = new Swiper ('.swiper-container', {
 			    direction: 'horizontal',
@@ -40,27 +64,7 @@ require(['config'],function(){
 			
 			});
 		
-			//选项
-			$('.center span').eq(0).addClass('active');
-			$('.center').on('click','span',function(){
-				$('.leixing').text($(this).text());
-				$(this).addClass('active').siblings().removeClass('active');
-
-			});
-
-			$('.miao').click(function(){
-				$('.m').show();
-				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
-				$('main').animate({scrollTop:h},100)
-				
-			})
-			$('.lun').click(function(){
-				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
-				$('main').animate({scrollTop:h},100)
-				$('.m').hide();
-				
-			})
-
+			
 
 
 			//吸顶效果
@@ -76,8 +80,37 @@ require(['config'],function(){
 				if(he > h){
 					a.css({"position":"fixed","top":"0.82rem"});
 				}else if(he <= h){
-					a.css({'position':''});
+					a.css({'position':'',});
 				}
+			});
+
+
+			$('.miao').click(function(){
+				$('.m').show();
+				a.css({"border-bottom":"none"})
+				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
+				$('main').animate({scrollTop:h},100)
+				$('.miao').css({"border-bottom":"0.02rem solid #fff"});
+				$('.lun').css({"border-bottom":"0.02rem solid #ccc"});
+				
+			})
+			$('.lun').click(function(){
+				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
+				$('main').animate({scrollTop:h},100)
+				$('.m').hide();
+				$('.lun').css({"border-bottom":"0.02rem solid #fff"});
+				$('.miao').css({"border-bottom":"0.02rem solid #ccc"})
+				
+			})
+
+
+
+			//选项
+			$('.center span').eq(0).addClass('active');
+			$('.center').on('click','span',function(){
+				$('.leixing').text($(this).text());
+				$(this).addClass('active').siblings().removeClass('active');
+
 			});
 
 
@@ -177,14 +210,6 @@ require(['config'],function(){
 					    }
 					});
 				}
-				
-			    
-
-	
-
-	
-			
-
 			
 		});
 	})
