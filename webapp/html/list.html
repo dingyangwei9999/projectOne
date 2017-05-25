@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>帮帮买</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/list.css">
+	<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="../css/font-index/iconfont.css">
+	<script src="../libs/lib/jquery-3.2.1.js"></script>
+	<script>
+		$(function(){
+			//将数据库中数据导入indexList
+      $.get('http://localhost:8080/allList',function(response){
+           console.log(response)
+          response.map(function(obj){
+            console.log(obj) 
+            var li = $('<li/>');
+            li.html(`
+					<a href=""><img src="../${obj.imgUrl}" alt=""></a>
+					<dt>
+						<h4>
+							<a href="" class="title-price">
+								${obj.goodsMsg}
+							</a>
+						</h4>
+					</dt>
+					<dd>
+						<span class="pri-left">
+							<strong class="prife-price">
+								<i>￥${obj.vipPrice}</i>
+							</strong>
+							<small class="ori-price">
+								<i>￥${obj.price}</i>
+							</small>
+						</span>
+					</dd>
+					<dd>
+						<span class="pri-right">
+							<i>销量:${obj.price}件</i>
+						</span>
+					</dd>
+				`)
+            $('.f-cb').append(li);
+
+
+
+          })
+        }
+      )
+		})
+	</script>
+</head>
+<body>
+	<div class="list">
+		<div class="wra">
+			<header class="Header clearfix fixed">
+			    	<a href="javascript:history.go(-1)" class="Return"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+			        <span class="Title">商品列表</span>
+			       	<a href="./" class="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</header>
+			<div class="nav">
+				<div class="daohang">	
+					<ul class="fir-ul">
+						<li>
+							<span class="sort">排序</span>
+							
+						</li>
+						<li>
+							<span class="screen">筛选</span>
+							
+						</li>
+						
+					</ul>
+					<ul class="sorts" style="display:none">
+						<li class="fir-sort">默认</li>
+						<li>销量<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li>人气<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li>价格<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+					</ul>
+					<ul class="screens" style="display:none">
+						<li>全部</li>
+						<li>至IN美妆</li>
+						<li>星级个护</li>
+						<li>格调育儿</li>
+						<li>口碑保健</li>
+						<li>美好味蕾</li>
+						<li>生活日常</li>
+						<li>年货</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="center">
+			<ul class="f-cb">
+				<!-- <li class="f-cb">
+					<a href=""><img src="../images/4.jpg" alt=""></a>
+					<dt>
+						<h4>
+							<a href="" class="title-price">
+								巴旦木奶油味扁桃仁500克
+							</a>
+						</h4>
+					</dt>
+					<dd>
+						<span class="pri-left">
+							<strong class="prife-price">
+								<i>￥33.00</i>
+							</strong>
+							<small class="ori-price">
+								<i>￥39.60</i>
+							</small>
+						</span>
+					</dd>
+					<dd>
+						<span class="pri-right">
+							<i>销量:0件</i>
+						</span>
+					</dd>
+				</li> -->
+			</ul>
+			<div class="footer">
+			<p>© 2005-2017 帮帮卖 版权所有，并保留所有权利。</p>
+			</div>
+		</div>
+		
+	</div>
+	<div class="indexToTop">
+	      <i class="iconfont icon-totop"></i>
+	</div>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="../js/list.js"></script>
+</body>
+</html>

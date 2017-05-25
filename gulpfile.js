@@ -16,6 +16,7 @@ gulp.task('buildSass',function(){
 //监听文件修改  执行响应文件
 gulp.task('jtSass',function(){
 	gulp.watch('webapp/sass/*.scss',['buildSass']);
+<<<<<<< HEAD
 =======
 var sass = require('gulp-sass'); 
 
@@ -72,6 +73,8 @@ gulp.task('comJS',function(){
 	// 监听js文件，如果有修改，则编译
 	gulp.watch('webapp/js/*.js',['compressJS']);
 >>>>>>> 7e1d08f1ba449a627989010960d260f258d70ce0
+=======
+>>>>>>> 28eeb2c9842b112ca07b6811cf63017462235305
 });
 
 // 同步任务

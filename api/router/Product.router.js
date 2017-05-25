@@ -25,6 +25,10 @@ exports.handle = function(app){
 	})
 
 
+	app.get('/allList',function(req,res){
+		console.log(req.body)
+		dbIndex.allList('index', req.body, res);
+	})
 
 	app.get('/getproductbyid',function(req,res){
 		res.send('yes');
