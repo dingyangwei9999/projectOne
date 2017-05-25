@@ -10,44 +10,90 @@
 	<script src="../libs/lib/jquery-3.2.1.js"></script>
 	<script>
 		$(function(){
-			//将数据库中数据导入indexList
-      $.get('http://localhost:8080/allList',function(response){
-           console.log(response)
-          response.map(function(obj){
-            console.log(obj) 
-            var li = $('<li/>');
-            li.html(`
-					<a href=""><img src="../${obj.imgUrl}" alt=""></a>
-					<dt>
-						<h4>
-							<a href="" class="title-price">
-								${obj.goodsMsg}
-							</a>
-						</h4>
-					</dt>
-					<dd>
-						<span class="pri-left">
-							<strong class="prife-price">
-								<i>￥${obj.vipPrice}</i>
-							</strong>
-							<small class="ori-price">
-								<i>￥${obj.price}</i>
-							</small>
-						</span>
-					</dd>
-					<dd>
-						<span class="pri-right">
-							<i>销量:${obj.price}件</i>
-						</span>
-					</dd>
-				`)
-            $('.f-cb').append(li);
+			//list页面接收参数
+			var big_proa=location.search
+            var big_id=big_proa.split('=')[1]
+            var productid;
+            var keywordCn = decodeURIComponent(big_id)
+            console.log(keywordCn)
 
+			if(big_proa == ''){
+				//将数据库中数据导入indexList
+				$.get('http://localhost:8080/allList',function(response){
+				       //console.log(response)
+				      response.map(function(obj){
+				        //console.log(obj) 
+				        var li = $('<li/>');
+				        li.html(`
+								<a href=""><img src="../${obj.imgUrl}" alt=""></a>
+								<dt>
+									<h4>
+										<a href="" class="title-price">
+											${obj.goodsMsg}
+										</a>
+									</h4>
+								</dt>
+								<dd>
+									<span class="pri-left">
+										<strong class="prife-price">
+											<i>￥${obj.vipPrice}</i>
+										</strong>
+										<small class="ori-price">
+											<i>￥${obj.price}</i>
+										</small>
+									</span>
+								</dd>
+								<dd>
+									<span class="pri-right">
+										<i>销量:${obj.price}件</i>
+									</span>
+								</dd>
+							`)
+				        $('.f-cb').append(li);
+				      })
+				    }
+				)
+			}else{
+				$.ajax({
+	              	type: "GET",
+	              	url: "http://localhost:8080/keywordSearch",
+	              	data: {keywordbl: keywordCn},
+	              	success: function(msg){
+	                 console.log(msg);
+	                 	 msg.map(function(obj){
+				        //console.log(obj) 
+				        var li = $('<li/>');
+				        li.html(`
+								<a href=""><img src="../${obj.imgUrl}" alt=""></a>
+								<dt>
+									<h4>
+										<a href="" class="title-price">
+											${obj.goodsMsg}
+										</a>
+									</h4>
+								</dt>
+								<dd>
+									<span class="pri-left">
+										<strong class="prife-price">
+											<i>￥${obj.vipPrice}</i>
+										</strong>
+										<small class="ori-price">
+											<i>￥${obj.price}</i>
+										</small>
+									</span>
+								</dd>
+								<dd>
+									<span class="pri-right">
+										<i>销量:${obj.price}件</i>
+									</span>
+								</dd>
+							`)
+				        $('.f-cb').append(li);
+				      })
+	              	}
 
-
-          })
-        }
-      )
+	            });
+			}
 		})
 	</script>
 </head>
