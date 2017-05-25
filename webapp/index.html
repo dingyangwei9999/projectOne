@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>首页</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<script src="libs/lib/jquery-3.2.1.js"></script>
+  <script src="../libs/global/global.js"></script>
+  <script src="libs/swiper-3.4.2.min.js"></script>
+
+  <script>
+    $(function(){
+
+      //轮播图
+      var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        //自动播放
+        autoplay:2000,
+       //播放速度
+        speed:650,
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
+        // 这样，即使我们滑动之后， 定时器也不会被清除
+      　autoplayDisableOnInteraction : false,
+  
+      })       
+
+
+
+      //toTop滚轮滑动时出现
+      $(window).scroll(function () {
+        //console.log($(window).scrollTop())D:\jsdzt
+        if ($(window).scrollTop() >= 800) {
+          $('.indexToTop').show();
+        }else if($(window).scrollTop() < 800){
+          $('.indexToTop').hide();
+        }
+      });
+
+
+
+      //toTop点击事件回到顶部
+      $('.indexToTop').on('click',function(){
+          //创建定时器
+         timer=setInterval(function(){
+          //获取滚动条高度
+          var ostop=document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+          //每次上升高度的20%
+          var speed=Math.ceil(ostop/5);
+          //每次上升当前高度的80%
+          document.documentElement.scrollTop=document.body.scrollTop=ostop-speed;
+          //如果高度为0，清除定时器
+          if(ostop==0){
+           clearInterval(timer);
+          } 
+         },30); 
+      })
+
+      //将数据库中数据导入indexList
+      $.get(erp.baseUrl+'getproduct',function(response){
+           //console.log(response)
+          response.map(function(obj){
+            //console.log(obj)
+            var li = $('<li/>');
+            li.html(`
+                <a href="http://localhost:8080/webapp/html/detail.html?id=${obj._id}" class="indexListLink">
+                 <img src="images/index/no_picture.jpg" dataimg="${obj.imgUrl}" class="indexListImage">
+                 <p class="indexListName">${obj.goodsMsg}</p>
+                </a>
+                <p class="indexListPriceNow">￥${obj.vipPrice}</p>
+                <p class="indexListPriceOriginal"><s>￥${obj.price}</s></p>
+                <span class="indexListBottom">
+                   <i class="iconfont icon-xin"></i>
+                   <p class="salesVolume">销量${obj.sales}件</p>
+                </span>`)
+            $('.indexListUl').append(li);
+             //实现图片懒加载
+              var lazyload = {
+              init : function(opt){
+                var that = this;
+                var op = {
+                    anim: true,
+                    extend_height:100
+                };
+                // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
+                $.extend(op,opt);
+                // 调用lazyload.img.init(op)函数
+                that.img.init(op);
+
+              },
+              
+              img : {
+                init : function(n){
+
+                  var that = this;
+                  //console.log(n);
+
+                  // 要加载的图片是不是在指定窗口内
+                  function inViewport( el ) {
+                      // 当前窗口的顶部
+                    var top = window.pageYOffset
+                    // 当前窗口的底部
+                    var btm = window.pageYOffset + window.innerHeight
+                    // 元素所在整体页面内的y轴位置
+                    var elTop = $(el).offset().top;
+                    // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
+                    return elTop >= top && elTop - n.extend_height <= btm
+                  }
+
+                  // 滚动事件里判断，加载图片
+                   $(window).bind('scroll', function() {
+                      $('img').each(function(index,node) {
+                        var $this = $(this)
+                        if(!$this.attr('dataimg')){
+                          return
+                        }
+                        if ( !inViewport(this) ) return
+                        act($this)
+
+                      })
+                    }).trigger('scroll')
+
+                   // 展示图片
+                   function act(_self){
+                          // 已经加载过了，则中断后续代码
+                       if (_self.attr('loaded')) return;
+                        var img = new Image(), original = _self.attr('dataimg')
+                        // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
+                        img.onload = function() {
+                            _self.attr('src', original).removeClass('lazy');
+                            n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
+                        }
+                        // 当你设置img.src的时候，浏览器就在发送图片请求了
+                        original && (img.src = original);
+                         _self.attr('loaded', true);
+                   }
+                }
+              }
+            };
+            lazyload.init();
+          })
+        }
+      )
+
+
+
+     
+      //点击搜素框，跳转到list，并传关键字到list
+      $('#indexSearch').on('keydown', function(e){
+        //console.log(e.keyCode)
+        if(e.keyCode === 13){
+            var _keyword = $('#indexSearch').val();
+            console.log(_keyword)
+            window.location.href = 'html/list.html?keyword='+ _keyword +'';
+            
+          }
+      })
+     
+      
+      
+    })
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+     <div class="search">
+       <input type="text" id="indexSearch" name="indexSearch" placeholder="韩国芦荟胶">
+       <i class="iconfont icon-sousuo-sousuo"></i>
+     </div> 
+     <a href="http://localhost:8080/webapp/html/categoryListings.html#"><i class="iconfont icon-sousuoliebiao"></i></a>
+    </header>
+    <div class="banner">
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-1.jpg"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-2.jpg"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-3.jpg"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-4.jpg"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-5.jpg"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-1.png">
+            <p>口碑优选</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-2.png">
+            <p>生态农品</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-3.png">
+            <p>精选水果</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-4.png">
+            <p>休闲零食</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-5.png">
+            <p>生活用品</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-6.png">
+            <p>助农优品</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-7.png">
+            <p>育儿保健</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-8.png">
+            <p>美妆个护</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html">
+            <img src="images/index/nav/index-nav-9.png">
+            <p>试吃试用</p>
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/indexNavInListKf.html">
+            <img src="images/index/nav/index-nav-10.png">
+            <p>联系客服</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="featuredProduct">
+      <ul>
+        <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=42">
+            <img src="images/index/featuredProduct/index-featuredProduct-1.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=18">
+            <img src="images/index/featuredProduct/index-featuredProduct-2.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=73">
+            <img src="images/index/featuredProduct/index-featuredProduct-3.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=127">
+            <img src="images/index/featuredProduct/index-featuredProduct-4.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=38">
+            <img src="images/index/featuredProduct/index-featuredProduct-5.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=11">
+            <img src="images/index/featuredProduct/index-featuredProduct-6.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="http://localhost:8080/webapp/html/detail.html?id=42">
+            <img src="images/index/featuredProduct/index-featuredProduct-7.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-8.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-9.png">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-10.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-11.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-12.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-13.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-14.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-15.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-16.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-17.jpg">
+          </a>
+        </li>
+         <li>
+          <a href="#">
+            <img src="images/index/featuredProduct/index-featuredProduct-18.jpg">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="indexList">
+      <div class="indexListTop">
+        <h4>主题馆</h4>
+        <h4>特卖</h4>
+        <div class="indexListBox">
+          <ul class="indexListUl">
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <ul>
+        <li>
+          <a href="#">
+            <i class="iconfont icon-shouye"></i>
+            <p>首页</p>
+          </a>
+        </li>
+        <li>
+          <a href="html/list.html">
+            <i class="iconfont icon-liebiao"></i>
+            <p>所有商品</p>
+          </a>
+        </li>
+        <li>
+          <a href="html/cart.html">
+            <i class="iconfont icon-gouwuche"></i>
+            <p>购物车</p>
+          </a>
+        </li>
+        <li>
+          <a href="html/login.html">
+            <i class="iconfont icon-wode"></i>
+            <p>我的</p>
+          </a>
+        </li>
+      </ul>
+    </footer>
+    <div class="indexToTop">
+      <i class="iconfont icon-totop"></i>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,580 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("../iconfont/iconfont.eot?t=1495422516048");
+  /* IE9*/
+  src: url("../iconfont/iconfont.eot?t=1495422516048#iefix") format("embedded-opentype"), url("../iconfont/iconfont.woff?t=1495422516048") format("woff"), url("../iconfont/iconfont.ttf?t=1495422516048") format("truetype"), url("../iconfont/iconfont.svg?t=1495422516048#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuche:before {
+  content: "\e632";
+}
+
+.icon-meishi:before {
+  content: "\e623";
+}
+
+.icon-zhuanshi:before {
+  content: "\e6ad";
+}
+
+.icon-shuiguo:before {
+  content: "\e622";
+}
+
+.icon-fanhui:before {
+  content: "\e666";
+}
+
+.icon-yuerzhuanqu:before {
+  content: "\e606";
+}
+
+.icon-7tian:before {
+  content: "\e607";
+}
+
+.icon-xiangshang:before {
+  content: "\e62b";
+}
+
+.icon-meizhuang:before {
+  content: "\e602";
+}
+
+.icon-eye:before {
+  content: "\e61c";
+}
+
+.icon-yanjing:before {
+  content: "\e614";
+}
+
+.icon-bao:before {
+  content: "\e8e1";
+}
+
+.icon-icon:before {
+  content: "\e657";
+}
+
+.icon-lipin:before {
+  content: "\e641";
+}
+
+.icon-huojian:before {
+  content: "\e62a";
+}
+
+.icon-lingshi:before {
+  content: "\e660";
+}
+
+.icon-nongchanpin2:before {
+  content: "\e673";
+}
+
+.icon-shouyeshouye:before {
+  content: "\e624";
+}
+
+.icon-sousuo_sousuo:before {
+  content: "\e601";
+}
+
+.icon-shouye-shouye:before {
+  content: "\e612";
+}
+
+.icon-ziyuan:before {
+  content: "\e629";
+}
+
+.icon-nongzi:before {
+  content: "\e668";
+}
+
+.icon-sandianshicaidan:before {
+  content: "\e643";
+}
+
+#Hmain {
+  background: #e8e8e8;
+}
+
+.dibu-color {
+  color: orange;
+}
+
+.pp-font {
+  font-size: 0.3125rem;
+}
+
+.pp-font a {
+  color: #555;
+  text-decoration: none;
+}
+
+#personal-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: #F4F4F4;
+  overflow: hidden;
+}
+
+#personal-box #Hmain {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+#personal-box #Hmain .user_info {
+  background: url(../images/default.jpg) center center;
+  background-size: 120%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0.1875rem;
+  box-sizing: border-box;
+}
+
+#personal-box #Hmain .user_info .user_img {
+  padding: 0;
+  font-size: 1.4em;
+  float: left;
+  width: auto;
+}
+
+#personal-box #Hmain .user_info .user_xinxi {
+  float: left;
+  color: #fff;
+  margin-left: 0.234375rem;
+}
+
+#personal-box #Hmain .user_info .user_xinxi .userxx {
+  font-size: 0.3125rem;
+}
+
+#personal-box #Hmain .user_info .user_xinxi .userli {
+  margin: 0.15625rem auto;
+}
+
+#personal-box #Hmain .user_info .user_xinxi .userli .jf {
+  font-size: 0.296875rem;
+}
+
+#personal-box #Hmain .user_info .user_xinxi .userli .s-vip {
+  font-size: 0.296875rem;
+  padding: 0.234375rem;
+}
+
+#personal-box #Hmain .list {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 0.234375rem;
+  margin-bottom: 0.15625rem;
+}
+
+#personal-box #Hmain .list li {
+  height: 0.78125rem;
+  position: relative;
+}
+
+#personal-box #Hmain .list li .link-a {
+  display: block;
+  border-bottom: #e0e0e0 1px solid;
+  height: auto;
+  overflow: hidden;
+  padding-left: 0.671875rem;
+  font-size: 0.3125rem;
+  height: 0.78125rem;
+  line-height: 0.78125rem;
+  color: #555;
+  text-decoration: none;
+}
+
+#personal-box #Hmain .list li .zb {
+  position: absolute;
+  top: 0.195312rem;
+  font-size: 0.375rem;
+}
+
+#personal-box #Hmain .list li .yb {
+  position: absolute;
+  top: 0.195312rem;
+  right: 0.195312rem;
+  font-size: 0.359375rem;
+  transform: rotate(180deg);
+}
+
+#personal-box #Hmain .user-tab {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 0.15625rem;
+}
+
+#personal-box #Hmain .user-tab .tab-ul {
+  height: 0.625rem;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 0.015625rem;
+}
+
+#personal-box #Hmain .user-tab .tab-ul .tab-li {
+  float: left;
+  width: 33%;
+  border-bottom: 1px solid #e3e3e3;
+  height: 0.625rem;
+  text-align: center;
+  border-right: 1px solid #e3e3e3;
+}
+
+#personal-box #Hmain .user-tab .tab-ul .tab-li .tab1, #personal-box #Hmain .user-tab .tab-ul .tab-li .tab2, #personal-box #Hmain .user-tab .tab-ul .tab-li .tab3 {
+  line-height: 0.625rem;
+  font-size: 0.3125rem;
+}
+
+#personal-box #Hmain .user-tab .shuju {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.15625rem;
+}
+
+#personal-box #Hmain .user-tab .shuju .perindexListUl {
+  overflow: hidden;
+  width: 100%;
+}
+
+#personal-box #Hmain .user-tab .shuju .perindexListUl .personalgodsli {
+  float: left;
+  width: 48%;
+  margin: 0 1% 0.8em;
+  border: 1px solid #e5e5e5;
+}
+
+#personal-box #Hmain .user-tab .shuju .perindexListUl .personalgodsli img {
+  width: 100%;
+  height: auto;
+}
+
+#personal-box #Hmain .user-tab .shuju .perindexListUl .personalgodsli .godslink {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.265625rem;
+}
+
+#personal-box #Hmain .user-tab .shuju .perindexListUl .personalgodsli .godmoney {
+  font-size: 0.234375rem;
+  color: red;
+}
+
+#personal-box #Hmain .exit {
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  background: #FFF;
+  height: 0.78125rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+#personal-box #Hmain .exit .a-exit {
+  line-height: 0.78125rem;
+  font-size: 0.3125rem;
+  color: #565656;
+}
+
+#personal-box .btn-tijiao {
+  width: 100%;
+  margin: 0 auto;
+  border: 0;
+  position: relative;
+  text-align: center;
+  margin-top: 0.15625rem;
+}
+
+#personal-box .btn-tijiao .del-adress, #personal-box .btn-tijiao .qr-adress {
+  display: block;
+  float: left;
+  width: 40%;
+  height: 0.625rem;
+  line-height: 0.625rem;
+  background: #e87e04;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  color: #FFF;
+  font-size: 0.234375rem;
+}
+
+#personal-box .btn-tijiao .del-left {
+  background: #5babe6;
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
+#personal-box .btn-tijiao .btn-info {
+  display: block;
+  height: 0.625rem;
+  line-height: 0.625rem;
+  background: #fb3f3e;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  color: #FFF;
+  font-size: 0.234375rem;
+}
+
+#personal-box .money {
+  width: 100%;
+  text-align: right;
+  height: 0.78125rem;
+}
+
+#personal-box .money .user-yue {
+  font-size: 0.28125rem;
+  line-height: 0.78125rem;
+}
+
+#personal-box .money .user-yue .user-money {
+  color: #fb3f3e;
+}
+
+#personal-box .user-email {
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  position: relative;
+  text-align: left;
+  margin-top: 0.15625rem;
+  background: #FFF;
+}
+
+#personal-box .user-b {
+  line-height: 0.78125rem;
+  font-weight: 400;
+  font-size: 0.28125rem;
+  color: #858585;
+  text-indent: 0;
+  margin-left: 0.15625rem;
+  margin-right: 0.21875rem;
+  width: auto;
+}
+
+#personal-box .text-area {
+  border: 0px;
+  padding-left: 0.15625rem;
+  font-size: 0.28125rem;
+  color: #858585;
+  resize: none;
+}
+
+#personal-box .user-liub {
+  line-height: 0.78125rem;
+  font-weight: 400;
+  font-size: 0.28125rem;
+  color: #858585;
+  text-indent: 0;
+  margin-left: 0.15625rem;
+  margin-right: 0.21875rem;
+  width: auto;
+  width: 100%;
+  display: block;
+}
+
+#personal-box .use-email {
+  line-height: 0.78125rem;
+  font-weight: 400;
+  font-size: 0.28125rem;
+  color: #858585;
+  text-indent: 0;
+  width: auto;
+  border: 0;
+}
+
+#personal-box .user-pws {
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  position: relative;
+  text-align: left;
+  margin-top: 0.15625rem;
+  background: #FFF;
+}
+
+#personal-box .user-pws .use-ps {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #e3e3e3;
+  position: relative;
+  text-align: left;
+  background: #FFF;
+}
+
+#personal-box .user-pws .use-ps .use-pw {
+  border: 0;
+}
+
+#personal-box .user-pws .use-lab {
+  width: 90%;
+  height: 0.625rem;
+  margin: 0 auto;
+  border-bottom: 1px solid #e3e3e3;
+  position: relative;
+  text-align: left;
+  background: #FFF;
+}
+
+#personal-box .user-pws .use-lab label {
+  line-height: 0.625rem;
+  font-size: 0.3125rem;
+}
+
+#personal-box .user-pws .use-lab label .use-ra {
+  height: 0.25rem;
+  padding-top: 0.3125rem;
+}
+
+#personal-box .user-addressadd, #personal-box .now-address {
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  position: relative;
+  text-align: left;
+  margin-top: 0.15625rem;
+  background: #FFF;
+}
+
+#personal-box .user-addressadd .use-addli, #personal-box .user-addressadd .use-xiangxiadress, #personal-box .user-addressadd .now-addli, #personal-box .user-addressadd .now-xiangxiadress, #personal-box .now-address .use-addli, #personal-box .now-address .use-xiangxiadress, #personal-box .now-address .now-addli, #personal-box .now-address .now-xiangxiadress {
+  width: 90%;
+  border-bottom: 1px solid #e3e3e3;
+  position: relative;
+}
+
+#personal-box .user-addressadd .use-addli .user-addb, #personal-box .user-addressadd .use-addli .now-addb, #personal-box .user-addressadd .use-xiangxiadress .user-addb, #personal-box .user-addressadd .use-xiangxiadress .now-addb, #personal-box .user-addressadd .now-addli .user-addb, #personal-box .user-addressadd .now-addli .now-addb, #personal-box .user-addressadd .now-xiangxiadress .user-addb, #personal-box .user-addressadd .now-xiangxiadress .now-addb, #personal-box .now-address .use-addli .user-addb, #personal-box .now-address .use-addli .now-addb, #personal-box .now-address .use-xiangxiadress .user-addb, #personal-box .now-address .use-xiangxiadress .now-addb, #personal-box .now-address .now-addli .user-addb, #personal-box .now-address .now-addli .now-addb, #personal-box .now-address .now-xiangxiadress .user-addb, #personal-box .now-address .now-xiangxiadress .now-addb {
+  line-height: 0.78125rem;
+  font-weight: 400;
+  font-size: 0.28125rem;
+  color: #858585;
+  text-indent: 0;
+  margin-left: 0.15625rem;
+  margin-right: 0.21875rem;
+  width: auto;
+}
+
+#personal-box .user-addressadd .use-addli .use-addname, #personal-box .user-addressadd .use-addli .use-addphone, #personal-box .user-addressadd .use-addli .now-addname, #personal-box .user-addressadd .use-addli .now-addphone, #personal-box .user-addressadd .use-xiangxiadress .use-addname, #personal-box .user-addressadd .use-xiangxiadress .use-addphone, #personal-box .user-addressadd .use-xiangxiadress .now-addname, #personal-box .user-addressadd .use-xiangxiadress .now-addphone, #personal-box .user-addressadd .now-addli .use-addname, #personal-box .user-addressadd .now-addli .use-addphone, #personal-box .user-addressadd .now-addli .now-addname, #personal-box .user-addressadd .now-addli .now-addphone, #personal-box .user-addressadd .now-xiangxiadress .use-addname, #personal-box .user-addressadd .now-xiangxiadress .use-addphone, #personal-box .user-addressadd .now-xiangxiadress .now-addname, #personal-box .user-addressadd .now-xiangxiadress .now-addphone, #personal-box .now-address .use-addli .use-addname, #personal-box .now-address .use-addli .use-addphone, #personal-box .now-address .use-addli .now-addname, #personal-box .now-address .use-addli .now-addphone, #personal-box .now-address .use-xiangxiadress .use-addname, #personal-box .now-address .use-xiangxiadress .use-addphone, #personal-box .now-address .use-xiangxiadress .now-addname, #personal-box .now-address .use-xiangxiadress .now-addphone, #personal-box .now-address .now-addli .use-addname, #personal-box .now-address .now-addli .use-addphone, #personal-box .now-address .now-addli .now-addname, #personal-box .now-address .now-addli .now-addphone, #personal-box .now-address .now-xiangxiadress .use-addname, #personal-box .now-address .now-xiangxiadress .use-addphone, #personal-box .now-address .now-xiangxiadress .now-addname, #personal-box .now-address .now-xiangxiadress .now-addphone {
+  border: 0;
+}
+
+#personal-box .user-addressadd .use-addli .user-xiangxi, #personal-box .user-addressadd .use-addli .now-xiangxi, #personal-box .user-addressadd .use-xiangxiadress .user-xiangxi, #personal-box .user-addressadd .use-xiangxiadress .now-xiangxi, #personal-box .user-addressadd .now-addli .user-xiangxi, #personal-box .user-addressadd .now-addli .now-xiangxi, #personal-box .user-addressadd .now-xiangxiadress .user-xiangxi, #personal-box .user-addressadd .now-xiangxiadress .now-xiangxi, #personal-box .now-address .use-addli .user-xiangxi, #personal-box .now-address .use-addli .now-xiangxi, #personal-box .now-address .use-xiangxiadress .user-xiangxi, #personal-box .now-address .use-xiangxiadress .now-xiangxi, #personal-box .now-address .now-addli .user-xiangxi, #personal-box .now-address .now-addli .now-xiangxi, #personal-box .now-address .now-xiangxiadress .user-xiangxi, #personal-box .now-address .now-xiangxiadress .now-xiangxi {
+  line-height: 0.78125rem;
+  font-weight: 400;
+  font-size: 0.28125rem;
+  color: #858585;
+  text-indent: 0;
+  margin-left: 0.15625rem;
+  margin-right: 0.21875rem;
+  width: 100%;
+  display: block;
+}
+
+#personal-box .user-addressadd .use-addli .text-xiangxi, #personal-box .user-addressadd .use-addli .nows-xiangxi, #personal-box .user-addressadd .use-xiangxiadress .text-xiangxi, #personal-box .user-addressadd .use-xiangxiadress .nows-xiangxi, #personal-box .user-addressadd .now-addli .text-xiangxi, #personal-box .user-addressadd .now-addli .nows-xiangxi, #personal-box .user-addressadd .now-xiangxiadress .text-xiangxi, #personal-box .user-addressadd .now-xiangxiadress .nows-xiangxi, #personal-box .now-address .use-addli .text-xiangxi, #personal-box .now-address .use-addli .nows-xiangxi, #personal-box .now-address .use-xiangxiadress .text-xiangxi, #personal-box .now-address .use-xiangxiadress .nows-xiangxi, #personal-box .now-address .now-addli .text-xiangxi, #personal-box .now-address .now-addli .nows-xiangxi, #personal-box .now-address .now-xiangxiadress .text-xiangxi, #personal-box .now-address .now-xiangxiadress .nows-xiangxi {
+  border: 0px;
+  padding-left: 0.15625rem;
+  font-size: 0.28125rem;
+  color: #858585;
+  resize: none;
+}
+
+#personal-box .showaddress {
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  position: relative;
+  text-align: left;
+  margin-top: 0.15625rem;
+  background: #FFF;
+}
+
+#personal-box .showaddress .showaddress-li {
+  width: 100%;
+  border-bottom: 1px solid #e3e3e3;
+  position: relative;
+  overflow: hidden;
+}
+
+#personal-box .showaddress .showaddress-li .adresslink {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  position: relative;
+}
+
+#personal-box .showaddress .showaddress-li .touxiangxi {
+  overflow: hidden;
+  width: 100%;
+}
+
+#personal-box .showaddress .showaddress-li .address-name, #personal-box .showaddress .showaddress-li .adress-phone {
+  float: left;
+  margin-right: 0.234375rem;
+  color: red;
+  font-size: 0.328125rem;
+}
+
+#personal-box .showaddress .showaddress-li .adress-xiangxi {
+  font-size: 0.328125rem;
+}
+
+#personal-box .showaddress .showaddress-li .addyb {
+  position: absolute;
+  right: 0.15625rem;
+  top: 0.234375rem;
+  transform: rotate(180deg);
+}
+
+#personal-box #main1, #personal-box #main2 {
+  background: #FFF;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.15625rem;
+}
+
+#personal-box #main1 .perindexListUl, #personal-box #main2 .perindexListUl {
+  overflow: hidden;
+  width: 100%;
+}
+
+#personal-box #main1 .perindexListUl .weifukuanli, #personal-box #main2 .perindexListUl .weifukuanli {
+  float: left;
+  width: 48%;
+  margin: 0 1% 0.8em;
+  border: 1px solid #e5e5e5;
+}
+
+#personal-box #main1 .perindexListUl .weifukuanli img, #personal-box #main2 .perindexListUl .weifukuanli img {
+  width: 100%;
+  height: auto;
+}
+
+#personal-box #main1 .perindexListUl .weifukuanli .weifukuanlink, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanlink {
+  display: inline-block;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.3125rem;
+}
+
+#personal-box #main1 .perindexListUl .weifukuanli .weifukuanmoney, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanmoney {
+  font-size: 0.3125rem;
+  color: red;
+}

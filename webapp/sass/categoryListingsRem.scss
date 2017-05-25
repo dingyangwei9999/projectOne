@@ -1,0 +1,132 @@
+@import 'commonRem';
+body,html{height: 100%;}
+.container{
+	// display: -webkit-flex;
+	// display: -moz-flex;
+	// display: -ms-flex;
+	// display: -o-flex;
+	// display:flex;
+	// flex-direction:column;
+	background-color: #F4F4F4;
+}
+.container{
+	border:0.015625rem solid #E3E3E4;
+	header{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display:flex;
+		height: 0.671875rem;
+		width: 100%;
+		justify-content:space-between;
+		padding-left:0.265625rem;
+		padding-right:0.265625rem;
+		border-bottom:0.015625rem solid #D9D9D9;
+		a{
+			display:inline-block;
+			height: 0.671875rem;
+			i{
+				display:inline-block;
+				height: 0.671875rem;
+				line-height: 0.671875rem;
+				color:#7F7F7F;
+				font-size:20px;
+			}
+		}
+		p{
+			display:inline-block;
+			height: 0.671875rem;
+			line-height: 0.671875rem;
+			font-size:15px;
+			color:#7D7D7D;
+		}
+	}
+	.cLBody{
+		.cLBodyBox{
+			height: 100%;
+			width: 100%;
+			.cLBodyBoxClassic{
+				border-bottom:0.015625rem solid #D9D9D9;
+				.cLBodyBoxClassicTop{
+					height: 0.46875rem;
+					padding-left:0.09375rem;
+					line-height: 0.46875rem;
+					border-bottom:0.015625rem solid #D9D9D9;
+					border-top:0.015625rem solid #D9D9D9;
+					span{
+						display:inline-block;
+						height: 0.28125rem;
+						padding-left:0.171875rem;
+						border-left:0.03125rem solid #F59D2B;
+						line-height: 0.28125rem;
+						color:#555555;
+						font-size:16px;
+					}
+				}
+				&>ul{
+					background-color: #FFF;
+					display:flex;
+					flex-wrap: wrap;
+					padding-top:0.078125rem;
+					li{
+						width: 25%;
+						padding:0.078125rem;
+						padding-bottom:0.078125rem;
+						text-align:center;
+						a{
+							display:inline-block;
+							text-align:center;
+							img{
+								display:inline-block;
+								width: 1.09375rem;
+								height: 1.09375rem;
+								box-shadow: 0.03125rem 0.03125rem 0 0 #eee;
+							}
+							p{
+								display:block;
+								width: 100%;
+								text-align:center;
+								margin-top:0.046875rem;
+								margin-bottom:0.046875rem;
+								color:#333333;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	footer{
+		height: 1.03125rem;
+		background-color: #FFF;
+		text-align:center;
+		line-height: 0.390625rem;
+		padding-top:0.15625rem;
+		p{
+			font-size:12px;
+			color:#333;
+			i{
+				font-size:14px;
+				color:#333;
+			}
+		}
+	}
+	.indexToTop{
+		display:none;
+		opacity:0.8;
+		position:fixed;
+		bottom:0.796875rem;
+		right:0.21875rem;
+		width: 0.6875rem;
+		height: 0.6875rem;
+		border-radius:50%;
+		background-color: #FF4D4D;
+		text-align:center;
+		line-height: 0.6875rem;
+		i{
+			font-size:24px;
+			color:white;
+		}
+	}
+}

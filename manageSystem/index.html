@@ -5,34 +5,142 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>管理员首页</title>
 	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="iconfont/iconfont.css">
 	<script type="text/javascript" src="../libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../libs/jquery/jquery.form.js"></script>
 	<script type="text/javascript" src="../libs/global/global.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/additional-methods.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+	<script type="text/javascript" src="../libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
 </head>
 <body>
+	<div id="modal-overlay"> 
+		<div class="modal-data">
+			<h3>添加商品</h3>
+			<form>
+			<p><label for="goodsname">*商品编号:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodsnum" name="id"></p>
+			<p><label for="goodsname">*商品名称:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodsname" name="goodsMsg"></p>
+			<p><label for="goodsname">*商品类型:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodstype" name="kinds"></p>
+			<p><label for="goodsname">*原 价:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodsprice" name="price"></p>
+			<p><label for="goodsname">*VIP价:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodsvip" name="vipPrice"></p>
+			<p><label for="goodsname">*图片名:</label>
+			<input type="text" style="height:20px;width:300px;" class="form-control required goodsurl" name="imgUrl"></p>
+			<p style="width:80%;"><label for="goodsname">*商品图片:</label>
+			<input type="file" name="photos" value="上传图片"></p>
+			<p><button class="sure">确定</button><span class="close">关闭</span></p>
+			</form>	
+		</div>
+	</div>
 	<div class="container">
 		<div id="header">
-			
+			<h1>帮帮卖后台管理系统</h1>
+			<p>
+				<span class="time">
+					<strong id="time"></strong>
+				</span>
+				<span class="user">
+					欢迎光临,<strong>admin</strong>
+					<i class="iconfont icon-xiala1"></i>
+					<ul class="admin_set">
+						<li>
+							<a href="javascript:;">设置</a>
+						</li>
+						<li>
+							<a href="javascript:;">个人资料</a>
+						</li>
+						<li >
+							<a href="javascript:;">退出</a>
+						</li>
+					</ul>
+				</span>
+			</p>
 		</div>
 		<div id="main">
-			<div class="main_left"></div>
-			<div class="main_right"></div>
+			<div class="main_left">
+				<h4>帮帮卖后台管理系统</h4>
+				<ul>
+					<li>
+						<i class="iconfont icon-shouyeshouye"></i>
+						<a href="#">系统首页</a>
+					</li>
+					<li class="goods_mng">
+						<i class="iconfont icon-chanpin"></i>
+						<a href="#">商品管理</a>
+						<span class="iconfont icon-xiala1"></span>
+						
+					</li>
+					<ul class="prt_mng">
+						<li><a href="#">商品列表</a></li>
+						<li><a href="#">评论管理</a></li>
+						<li><a href="#">分类管理</a></li>
+					</ul>
+					<li class="user_mng">
+						<i class="iconfont icon-huiyuan"></i>
+						<a href="#">会员管理</a>
+						<span class="iconfont icon-xiala1"></span>
+					</li>
+					<ul class="vip_mng">
+						<li><a href="#">会员列表</a></li>
+						<li><a href="#">积分管理</a></li>
+						<li><a href="#">浏览记录</a></li>
+						<li><a href="#">收藏管理</a></li>
+					</ul>
+					<li>
+						<i class="iconfont icon-guanliyuan"></i>
+						<a href="#">交易管理</a>
+						<span class="iconfont icon-xiala1"></span>
+					</li>
+				</ul>
+			</div>
+			<div class="main_right" style="padding:20px;">
+				<fieldset style="padding:20px;">
+					<legend style="margin-left:20px;padding:0 5px;">搜索查询</legend>
+					<label for="name">产品ID或类别</label>
+					<input type="text" placeholder="输入产品ID或类别" style="outline:none;height:20px;" class="keywords">
+					<span style="font-size:12px;padding:5px;background:blue;border-radius:6px;cursor:pointer;color:white;" class="btn_search">
+					<i class="iconfont icon-search"></i>查询</span>
+					<button class="btn_modle" style="margin-right:20px;float:right;cursor:pointer;border-radius:5px;border:none;outline:none;padding:10px;background-color:orange">
+						+添加商品
+					</button>
+					<button style="margin-right:20px;cursor:pointer;float:right;border-radius:5px;border:none;outline:none;padding:10px;background-color:red">
+						<i class="iconfont icon-shanchu"></i>删除商品
+					</button>
+				</fieldset>
+				<div style="overflow-y:auto;height:400px;margin-top:10px;">
+					<table style="overflow-y:auto;height:400px;width:100%;text-align:center;border-collapse:collapse;">
+						<thead style="background-color:#ddd;">
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>商品ID</th>
+								<th>商品图片</th>
+								<th>商品名称</th>
+								<th>原价</th>
+								<th>现价</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
 		</div>
 		<div id="footer">
-			
+			<p class="l_f">版权所有：广东帮帮卖软件  广ICP备11011739号</p>
+          <p class="r_f">地址：广州市天河区元岗路110号  邮编：****** 技术支持：XXXX</p>
 		</div>
 	</div>
 	
 	<h1></h1>
-	<script type="text/javascript">
-		$(function(){
-			$.get(erp.baseUrl + 'getsession', function(response){
-				if(!response.status){
-					window.location.href = 'login.html';
-				} else {
-					$('h1').text(response.data);
-				}
-			})
-		})
-	</script>
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
