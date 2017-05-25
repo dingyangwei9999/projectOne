@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{text-decoration: none;}
+ul{list-style: none;}
+body {
+    background: #f7f7f7;
+    color: #555;
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 640px;
+    font-family: "微软雅黑",Microsoft Yahei;
+}
+.f-cb { zoom: 1; }
+
+.f-cb:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: ""; }
+img{
+    
+    width: 100%;
+    height: auto;
+}
+.list{width: 100%;}
+.wra{width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0; 
+    max-width: 640px;   
+}
+.Header{
+
+    width: 100%;
+    
+    background: #f4f4f4;
+    height: 3.7em;
+    border-bottom: .1em solid #cccccc;
+    position: relative;
+    margin:0 auto;
+}
+.Title {
+    padding: 0 3.7em;
+    line-height: 2.87em;
+    display: block;
+    color: #7d7d7d;
+    font-size: 1.3em;
+    text-align: center;
+}
+.Return, .Home {
+    width: 3.7em;
+    height: 3.7em;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.Return {
+    left: 0;
+}
+.Home{
+    right:0;
+}
+a .fa-chevron-left{
+    text-align: center;
+    padding-top:0.61em;
+    font-size:1.67em;
+    color: #555;
+    width: 2em;
+    height: 1.75em;
+    background-size: 17em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.89em 0 0 -1em;
+}
+a .fa-home{
+    text-align: center;
+    margin:auto;
+    padding-top:0.61em;
+    font-size:1.67em;
+    color: #555;
+    width: 2em;
+    height: 1.75em;
+    background-size: 17em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.89em 0 0 -1em;
+}
+.nav{
+    width: 100%;
+    .daohang{
+        .fir-ul{
+            background: #e7e7e7;
+        }
+        //display:flex;
+        ul{
+            background:#fff;
+            display:flex;
+            li:first-child{
+                border-left:none;
+            }
+            li{
+                
+                border-bottom:1px solid #ccc;
+                flex:1;
+                span{
+                    color: #000;
+                    display: block;
+                    margin: 0.42em 0;
+                    padding: 0.42em 0;
+                    border-left: #ccc 1px solid;
+                    text-align: center;
+                }
+
+            }
+        }
+        .sorts{
+            width: 100%;
+            display:flex;
+            .fir-sort{
+                margin-left:2em;
+            }
+            li{
+                display:inline-block;
+                width: 21%; 
+                height: auto;
+                line-height: 1;
+                padding: 0.76em 0;
+                border-bottom:none;            
+            }
+        }
+        .screens{
+            width: 100%;
+            li{
+                display:inline-block;
+                width: 28%;
+                text-align: center;
+                height: 2.5em;
+                line-height: 2.5em;
+                margin: 1.25em 2% 0;
+                padding: 0;
+                border: 0;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                background: #e7e7e7;
+                color: #444;
+                -webkit-border-radius: 0.17em;
+                -moz-border-radius: 0.17em;
+                -o-border-radius: 0.17em;
+                border-radius: 0.17em;
+            }
+        }
+    }
+}
+.center{
+    background-color:#fff;
+    padding-top: 7.5em;
+    ul{
+        width: 100%;
+        li{
+            float: left;
+            width: 47%;
+            margin: 0 1% 0.8em;
+            border: 1px solid #e5e5e5;
+            padding: 0;
+            clear: none;
+            height: auto;
+            background-color: #fff;
+            .title-price{
+                float: none;
+                padding-bottom: 0.4em;
+            }
+            .pri-left{
+                
+                .prife-price{
+                   color: #fb3f3e !important;
+                   font-size: 1em;
+                   font-weight: normal; 
+                }
+                .ori-price{
+                   text-decoration: line-through; 
+                }
+            }
+            .pri-right{
+                float: right;
+                margin-right: 0.3em;
+                color: #888;
+            }
+        }
+    }
+}
+.footer p {
+    width: 100%;
+    padding: 0.5em 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.indexToTop{
+    display:none;
+    opacity:0.7;
+    position:fixed;
+    bottom:4.6em;
+    right:1em;
+    width: 3.34em;
+    height: 3.34em;
+    border-radius:50%;
+    background-color: #F00;
+    text-align:center;
+    line-height: 3.34em;
+    i{
+        margin:auto;
+        font-size:2em;
+        line-height: 1.75em;
+        color:white;
+    }
+}
