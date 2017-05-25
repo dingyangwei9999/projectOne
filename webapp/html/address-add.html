@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>地址管理</title>
+	<title>新增地址</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <script type="text/javascript" src="../libs/common/global.js"></script>
 <script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script>
@@ -17,11 +17,28 @@
 <div id="personal-box">
 <div style="height:0.84rem;"></div>
 	<header class="Htop">
+	
 	</header>
-	<div class="showbbbox">
+	<div class="user-addressadd">
+	<ul>
 
+	<li class="use-addli">
+	<b class="user-addb">收货人 :</b><input type="text" class="use-addname" id="addname" placeholder="收货人名称">
+	</li>
+
+
+	<li class="use-addli">
+	<b class="user-addb">手机号 :</b><input type="phone" class="use-addphone" id="addphone" placeholder="手机号">
+	</li>
+
+	<li class="use-xiangxiadress">
+	<b class="user-xiangxi">详细地址 ：</b>
+	<textarea class="text-xiangxi" placeholder="详细地址" cols="30" rows="4" wrap="virtual"></textarea>
+	</li>
+
+	</ul>
 	</div>
-	<div class="btn-tijiao"><a href="address-add.html" class="btn-info add-address">新增收货地址</a></div>
+	<div class="btn-tijiao"><a  class="btn-info dq-address">新增收货地址</a></div>
 	<footer class="Hfoot"></footer>
 </div>
 </body>

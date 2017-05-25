@@ -64,7 +64,14 @@
 .dibu-color{
   color:orange;
 }
-#box{
+.pp-font{
+  font-size:0.3125rem;
+  a{
+  color: #555;
+  text-decoration: none;
+  }
+}
+#personal-box{
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -165,19 +172,39 @@
 		border-right:1px solid #e3e3e3;
 		.tab1,.tab2,.tab3{
 		line-height:0.625rem;
-
 		font-size:0.3125rem;
 		}
 		
 	}
 	}
 	.shuju{
-    height:100%;
-		text-align:center;
-		line-height:0.625rem;
-		font-size:0.3125rem;
-		padding-left:0.078125rem;
-		color: #555;
+    width:100%;
+    overflow:hidden;
+    padding:0.15625rem;
+    .perindexListUl{
+      overflow:hidden;
+      width:100%;
+      .personalgodsli{
+        float:left;
+        width:48%;
+        margin: 0 1% 0.8em;
+        border: 1px solid #e5e5e5;
+            img{
+              width: 100%;
+              height: auto;
+            } 
+        .godslink{
+          display:block;
+          color: #555;
+          text-decoration: none;
+          font-size:0.265625rem;
+        }
+        .godmoney{
+          font-size:0.234375rem;
+          color:red;
+        }    
+      }
+    }
 	}
 	}
 	.exit{
@@ -197,12 +224,29 @@
 	}
 	// 按钮
 	.btn-tijiao{
-	width: 90%;
+	width: 100%;
     margin: 0 auto;
     border: 0;
     position: relative;
     text-align: center;
     margin-top: 0.15625rem;
+  .del-adress,.qr-adress{
+    display: block;
+    float:left;
+    width:40%;
+    height: 0.625rem;
+    line-height: 0.625rem;
+    background: #e87e04;
+    border: 1px solid #ccc;
+    border-radius: 0.3125rem;
+    color: #FFF;
+    font-size: 0.234375rem;
+  }
+  .del-left{
+    background: #5babe6;
+    margin-left:5%;
+    margin-right:10%;
+  }
 
 	.btn-info{
 	display:block;
@@ -276,6 +320,7 @@
     color: #858585;
     text-indent: 0;
     width: auto;
+    border:0;
 	}
 
 	//修改密码
@@ -318,6 +363,139 @@
 
    		}
 		}
-
+  
 	}
+
+  //新增收货地址
+  .user-addressadd,.now-address{
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    position: relative;
+    text-align: left;
+    margin-top: 0.15625rem;
+    background: #FFF;
+    .use-addli,.use-xiangxiadress,.now-addli,.now-xiangxiadress{
+    width: 90%;
+    border-bottom: 1px solid #e3e3e3;
+    position: relative;
+    .user-addb,.now-addb{
+      line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.28125rem;
+    color: #858585;
+    text-indent: 0;
+    margin-left: 0.15625rem;
+    margin-right: 0.21875rem;
+    width: auto;
+    }
+    .use-addname,.use-addphone,.now-addname,.now-addphone{
+      border:0;
+    }
+    .user-xiangxi,.now-xiangxi{
+    line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.28125rem;
+    color: #858585;
+    text-indent: 0;
+    margin-left: 0.15625rem;
+    margin-right: 0.21875rem;
+    width: 100%;
+    display: block;
+      }
+    .text-xiangxi,.nows-xiangxi{
+    border: 0px;
+    padding-left: 0.15625rem;
+    font-size: 0.28125rem;
+    color: #858585;
+    resize: none;
+    }
+    }
+
+  }
+
+//显示的收货地址
+.showaddress{
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    position: relative;
+    text-align: left;
+    margin-top: 0.15625rem;
+    background: #FFF;
+    .showaddress-li{
+     width: 100%;
+    border-bottom: 1px solid #e3e3e3;
+    position: relative;
+    overflow:hidden;
+    .adresslink{
+      display:block;
+      color: #555;
+      text-decoration: none;
+      position: relative;
+    }
+    .touxiangxi{
+          overflow:hidden;
+          width:100%;
+        }   
+    .address-name,.adress-phone{
+      float:left;
+      margin-right:0.234375rem;
+      color:red;
+      font-size:0.328125rem;
+    }
+    .adress-xiangxi{
+      font-size:0.328125rem;
+    }
+    .addyb{
+      position: absolute;
+      right:0.15625rem;
+      top:0.234375rem;
+      transform: rotate(180deg);
+    }
+    }
+}
+
+#main1,#main2{
+  background:#FFF;
+  width:100%;
+  overflow:hidden;
+  padding:0.15625rem;
+  .perindexListUl{
+      overflow:hidden;
+      width:100%;
+      .weifukuanli{
+        float:left;
+        width:48%;
+        margin: 0 1% 0.8em;
+        border: 1px solid #e5e5e5;
+            img{
+              width: 100%;
+              height: auto;
+            } 
+        .weifukuanlink{
+          display:inline-block;
+          color: #555;
+          text-decoration: none;
+          font-size:0.3125rem;
+        }
+        .weifukuanmoney{
+          font-size:0.3125rem;
+          color:red;
+        }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+//这里不用管他  
 }

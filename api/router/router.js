@@ -3,6 +3,7 @@ var path = require('path');
 var AccountRouter = require('./Account.router.js');
 var ProductRouter = require('./Product.router.js');
 var GoodRouter = require('./GOOD.router.js');
+
 exports.Register = function(express){
 	var app = express();
 

@@ -2,7 +2,7 @@ var mongodb = require('mongodb');
 
 var server = new mongodb.Server('localhost', 27017);
 
-var db = new mongodb.Db('fuck', server);
+var db = new mongodb.Db('bbm', server);
 
 
 

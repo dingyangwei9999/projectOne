@@ -2,7 +2,7 @@ var mongodb = require('mongodb');
 
 var server = new mongodb.Server('localhost', 27017);
 
-var db = new mongodb.Db('1000phone', server);
+var db = new mongodb.Db('bbm', server);
 
 var exists = function(_collection, data, key, callback){
 	db.open(function(error, db){
