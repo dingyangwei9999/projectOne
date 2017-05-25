@@ -18,7 +18,6 @@ var exists = function(_collection, data, key, callback){
 				obj[key] = data[key];
 				collection.find(obj).toArray(function(err, docs){
 					console.log(docs);
-					callback(docs[0]);
 				});
 			}
 			db.close();
