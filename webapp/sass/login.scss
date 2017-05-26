@@ -1,0 +1,145 @@
+@import 'reset';
+*{
+	margin: 0 auto;
+}
+body,html{
+	width:100%;
+	height:100%;
+	background-color:#f7f7f7;
+}
+.container{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+	height: 100%;
+	flex-wrap: wrap;
+	max-width:640px;
+	header{
+		height:0.84rem;
+		width:100%;
+		display:flex;
+		background-color:#F4F4F4;
+		justify-content:space-between;
+		border-bottom:0.02rem solid #ccc;
+		align-items:center;
+		color:#7D7D7D;
+		i{
+			font-size:0.5rem;
+			margin:0 0.2rem;
+			color: #888;
+		}
+		.fanhui{
+			font-size:0.4rem;
+		}
+		span{
+			font-size:0.32rem;
+			
+		}
+	}
+	main{
+		flex: 1;
+	 	width: 100%;
+	  	overflow-x:hidden;
+	  	overflow-y:auto;
+		background-color:#E8E8E8;
+	    .form{
+	    	
+		    padding:0.2rem;
+		    ul{
+		    	background: #fff;
+			    border-radius: 0.08rem;
+			    border: #dadada 0.02rem solid;
+			    margin-top: 0.2rem;
+			    li{
+			    	padding:0.24rem 0.2rem;
+			    	font-size:0.28rem;
+					border-bottom:0.02rem solid #e3e3e3;
+					color:#858585;
+					label{
+						font-size:0.26rem;
+			    		
+					}
+			    	input{
+			    		border:none;
+			    		width:77%;
+			    		font-size:0.26rem;
+			    		
+			    	}
+			    	i{
+			    		font-size:0.32rem;
+			    		cursor:pointer;
+			    	}
+			    }
+
+		    }
+		    >p{
+		    	line-height:1.0rem;
+		    	padding:0 0.1rem;
+		    	color:#333333;
+		    	strong{
+		    		font-size: 0.26rem;
+		    		a{
+		    			color:blue;
+		    		}
+		    	}
+		    	
+		    }
+		    .fast{
+		    	font-size:0.26rem;
+		    }
+		    button{
+		    	width:100%;
+		    	background: #fb3f3e;
+   				border-radius: 0.3rem;
+   				line-height:0.6rem;
+   				text-align:center;
+				border:none;
+				outline:none;
+				font-size:0.3rem;
+				color:white;
+				cursor:pointer;
+		    }
+		   .find_psw{
+		   		display:flex;
+				justify-content:space-bewteen;
+		   		a{
+					color:blue;
+					font-size:0.24rem;
+		   		}
+		   }
+		    dl{
+		    	display:flex;
+		    	justify-content:space-between;
+		    	padding:0.2rem;
+		    	dd{
+					text-align:center;
+					line-height:0.64rem;
+					width:33%;
+					i{
+						font-size:0.68rem;
+						color:#9e9e9e;
+					}
+					p{
+						color:#9e9e9e;
+						font-size: 0.24rem;
+					}
+		    	}
+		    }
+	    }
+		footer{
+			text-align:center;
+			font-size:0.24rem;
+			line-height:0.4rem;
+			width:100%;
+			background-color:white;
+		}
+	}
+
+}

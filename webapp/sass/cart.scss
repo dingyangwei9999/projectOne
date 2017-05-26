@@ -1,0 +1,67 @@
+@import 'reset';
+*{
+	margin:0 auto;
+}
+body,html{
+	width:100%;
+	height:100%;
+	background-color:#f7f7f7;
+}
+
+.container{
+	max-width:640px;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	header{
+		height:0.84rem;
+		width:100%;
+		display:flex;
+		background-color:#F4F4F4;
+		justify-content:space-between;
+		border-bottom:0.02rem solid #ccc;
+		align-items:center;
+		color:#7D7D7D;
+		i{
+			font-size:0.5rem;
+			margin:0 0.2rem;
+			color: #888;
+		}
+		.fanhui{
+			font-size:0.4rem;
+		}
+		span{
+			font-size:0.32rem;
+			
+		}
+	}
+	main{
+		flex:1;
+		display:flex;
+		flex-direction:column;
+		section{
+			line-height:1.0rem;
+			text-align:center;
+			i{
+				font-size:4.0rem;
+				line-height:6.0rem;
+				color:#aaa;
+			}
+			button{
+				width:30%;
+				background: #fb3f3e;
+   				border-radius: 0.4rem;
+   				line-height:0.8rem;
+   				text-align:center;
+				border:none;
+				outline:none;
+				font-size:0.4rem;
+				color:white;
+				cursor:pointer;
+			}
+		}
+		
+		
+	}
+}

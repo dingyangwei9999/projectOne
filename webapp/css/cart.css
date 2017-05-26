@@ -1,0 +1,116 @@
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+img {
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+body {
+  font-family: "微软雅黑";
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+header, nav, article, aside, section, footer, main {
+  display: block;
+  width: 100%;
+}
+
+* {
+  margin: 0 auto;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 640px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container header {
+  height: 0.84rem;
+  width: 100%;
+  display: flex;
+  background-color: #F4F4F4;
+  justify-content: space-between;
+  border-bottom: 0.02rem solid #ccc;
+  align-items: center;
+  color: #7D7D7D;
+}
+
+.container header i {
+  font-size: 0.5rem;
+  margin: 0 0.2rem;
+  color: #888;
+}
+
+.container header .fanhui {
+  font-size: 0.4rem;
+}
+
+.container header span {
+  font-size: 0.32rem;
+}
+
+.container main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container main section {
+  line-height: 1.0rem;
+  text-align: center;
+}
+
+.container main section i {
+  font-size: 4.0rem;
+  line-height: 6.0rem;
+  color: #aaa;
+}
+
+.container main section button {
+  width: 30%;
+  background: #fb3f3e;
+  border-radius: 0.4rem;
+  line-height: 0.8rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 0.4rem;
+  color: white;
+  cursor: pointer;
+}

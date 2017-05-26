@@ -10,8 +10,8 @@ exports.handle = function(express){
 	userRouter.handle(app);
 	orderRouter.handle(app);
 	productRouter.handle(app);
-
+	productRouter.photo(app);
 	app.use(express.static(path.join(path.resolve(__dirname, '../../'), '/')));
 
-	app.listen(8080);
+	app.listen(888);
 }

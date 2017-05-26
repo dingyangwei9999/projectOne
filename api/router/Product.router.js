@@ -1,13 +1,63 @@
+/*
+	产品路由控制
+ */
+var db = require('../module/productdb.js');
+var apiResult = require('../module/apiResult.js');
 
+var bodyParser = require('body-parser');
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+//如果要使用session，需要单独包含这个模块
+var session = require('express-session');
 exports.handle = function(app){
+	app.get('/getsession', function(req, res){
+		console.log(req.session);
+		res.setHeader('Access-Control-Allow-Origin','*');
+		res.send(apiResult(req.session.name != null, null, req.session.name));
+	})
 	app.get('/getproduct',function(req,res){
-		res.send('yes');
+		res.setHeader('Access-Control-Allow-Origin','*');
+		db.output('goods', res);
+		
 	})
-	app.get('/getproductbyid',function(req,res){
-		res.send('yes');
+	app.post('/searchproduct',urlencodedParser,function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
+		db.searchproduct('goods', req.body,res);
+
 	})
-	app.get('/getproductbyname',function(req,res){
-		res.send('yes');
+	app.post('/addproduct',urlencodedParser,function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
+		db.addproduct('goods', req.body, 'id', function(data){
+			if(!data.length){
+				res.send(apiResult(true,'插入成功'));
+			}else{
+				res.send(apiResult(false,'插入失败'));
+			}
+		});
 	})
+}
+
+var multer = require ('multer');
+
+// var upload = multer({ dest:  "./upload" }); 
+
+var storage = multer.diskStorage({  
+  destination: function (req, file, cb) {  
+    cb(null, '../upload')  
+  },  
+  filename: function (req, file, cb) {  
+      var fileFormat = (file.originalname).split(".");
+      cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1]);    
+  }  
+}) 
+
+var upload = multer({ storage: storage })
+
+exports.photo = function(app){
+	app.post('/upload', upload.array('photos', 12), function(req, res) {
+		res.setHeader('Access-Control-Allow-Origin','*');
+		console.log(req.files);  
+		console.log(req.body); 	 	
+	 	res.send(JSON.stringify(req.files)); 
+	});
 }
