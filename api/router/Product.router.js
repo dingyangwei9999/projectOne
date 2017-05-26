@@ -37,7 +37,7 @@ exports.handle = function(app){
 		});
 	});
 	app.get('/getproduct',function(req,res){
-		dbIndex.getIndexData('index', res);
+		dbIndex.getIndexData('list',req.body, res);
 		//res.send('yes');
 	});
 	//关键字搜索
@@ -45,16 +45,25 @@ exports.handle = function(app){
 		//console.log(req.query.keywordbl)
 		dbIndex.exists(req.query.keywordbl,res)
 
+	});
+	app.get('/allkeywordSearch',function(req,res){
+		//console.log(req.query.keywordbl)
+		dbIndex.allexists(req.query.keywordbl,res)
+
 		
 	});
 	//详情页请求
+	app.post('/details',urlencodedParser,function(req,res){
+		console.log(req.body);
+		db.details(req.body,res);
 
-	app.get('/details',function(req,res){
-		console.log(typeof req.query.productid)
-		var productId = parseInt(req.query.productid)
-		dbIndex.details(productId,res)
 	})
+	app.get('/navKeywordSearch',function(req,res){
+		console.log(req.query.navKeyword)
+		dbIndex.navSearch(req.query.navKeyword,res)
 
+		
+	});
 	//列表页请求
 	app.get('/allList',function(req,res){
 

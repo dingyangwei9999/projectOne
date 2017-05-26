@@ -111,8 +111,34 @@ var resetpsw = function(_collection, data,key,callback){
 				collection.find({email:data[key]}).toArray(function(err, docs){
 					console.log(docs)
 					if(docs[0]){
-						collection.remove(docs);
-						collection.insert(data);
+						collection.update({email:data[key]},{$set:{password:data.password}});
+						callback(docs);
+						db.close();
+					}else{
+						callback(null);
+						db.close();
+					}
+					
+				});
+			}
+			
+		})
+	})	
+}
+var resetemail = function(_collection, data,key,callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error);	
+			} else {
+				collection.find({username:data[key]}).toArray(function(err, docs){
+					console.log(docs,data)
+					if(docs[0]){
+						collection.update({username:data[key]},{$set:{email:data.email}});
 						callback(docs);
 						db.close();
 					}else{
@@ -130,3 +156,4 @@ exports.register = register;
 exports.loginc = loginc;
 exports.findpsw = findpsw;
 exports.resetpsw = resetpsw;
+exports.resetemail = resetemail;

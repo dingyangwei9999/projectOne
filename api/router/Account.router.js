@@ -55,7 +55,7 @@ exports.handle = function(app){
 		userdb.loginc('user', req.body, function(data){
 			console.log(data);
 			if(data){
-				res.send(apiResult(true,'登录成功'));
+				res.send(apiResult(true,'登录成功',data));
 			} else if(data == 0){
 				res.send(apiResult(false, '登录失败','用户名不正确'));
 			}else {

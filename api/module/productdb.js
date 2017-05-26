@@ -74,6 +74,28 @@ var searchproduct = function(_collection,data,res){
 		})
 	})	
 }
+var details = function(name, res){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection('list', function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+
+				collection.find({id:Number(name.id)}).toArray(function(err, docs){
+					res.send(docs)
+					db.close();
+				});
+			}
+			
+		})
+	})	
+}
+exports.details=details;
+
 exports.output = output;
 exports.addproduct = addproduct;
 exports.searchproduct = searchproduct;

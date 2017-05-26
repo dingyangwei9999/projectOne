@@ -12,6 +12,9 @@ body,html{height: 100%;}
 .container{
 	border:1px solid #E3E3E4;
 	header{
+		position:fixed;
+		top:0;
+		background-color: #F4F4F4;
 		display: -webkit-flex;
 		display: -moz-flex;
 		display: -ms-flex;
@@ -43,6 +46,7 @@ body,html{height: 100%;}
 		}
 	}
 	.cLBody{
+		margin-top:42px;
 		.cLBodyBox{
 			height: 100%;
 			width: 100%;

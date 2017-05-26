@@ -3,16 +3,18 @@
 body,html{height: 100%;}
 .container{
 	height:100%;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display:flex;
-	flex-direction:column;
+	// display: -webkit-flex;
+	// display: -moz-flex;
+	// display: -ms-flex;
+	// display: -o-flex;
+	// display:flex;
+	// flex-direction:column;
 }
 .container{
 	border:1px solid #E3E3E4;
 	header{
+		position:fixed;
+		top:0;
 		height: 43px;
 		width: 100%;
 		line-height: 43px;
@@ -37,6 +39,7 @@ body,html{height: 100%;}
 		}
 	}
 	.indexNavInBanner{
+		margin-top:43px;
 		img{width: 100%}
 	}
 	.indexList{

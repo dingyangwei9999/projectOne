@@ -1,22 +1,25 @@
 require(['personal-config'],function(){
     require(['jquery'],function($){
-    	var $Htitle = $('title').html();
+
+      var $Htitle = $('title').html();
         $('.Htop').load('../html/personal-header.html',function(){
-        	return $('.h_2').html($Htitle);
+          return $('.h_2').html($Htitle);
         });
         $('.Hfoot').load('../html/personal-footer.html');
 
+      var obj=JSON.parse(localStorage.getItem("user"));
+      console.log(window.localStorage.getItem("user"));
+       $('.userxx').html(obj.username);
         //首页
         if($Htitle==='个人中心'){
           //判断有没有注册
-      // $.get(erp.baseUrl+'login' , function(response){
-      //  if(!response.status){
-      //    window.location.href = 'login.html';
-      //  } else {
-      //    $('userxx').text(response.data);
-      //  }
-      //  console.log(response)
-      // });
+     
+      //退出的时候删除本地存储
+      $('a-exit').click(function(){
+      var perval = window.localStorage.getItem("user"); 
+      window.localStorage.removeItem(perval);
+      alert('退出成功');
+      })
           //获取到用户的浏览记录
           $.post(erp.baseUrl+'personal_index',function(response){
              console.log(response);
@@ -52,7 +55,7 @@ require(['personal-config'],function(){
          //点击三个导航栏的时候变色
         $('.tab-ul').on('click','>li',function(){
 
-        	$(this).addClass('dibu-color').siblings().removeClass('dibu-color');
+          $(this).addClass('dibu-color').siblings().removeClass('dibu-color');
             var idx = $(this).index();
             if(idx == 2){
             //点击查看浏览记录
@@ -62,11 +65,7 @@ require(['personal-config'],function(){
             }
         });
   
-    //退出的时候删除本地存储
-  // $('a-exit').click(function(){
-  //   var perval = sessionStorage.getItem("key"); 
-  //   sessionStorage.removeItem(perval);
-  // })
+    
 var nowname;
   var nowphone;
   var nowadress;
@@ -91,7 +90,7 @@ var nowname;
               console.log(li);
               ul.addClass('showccc').append(li);
               $('.showbbbox').addClass('showaddress').append(ul);
-             
+              
             });
      })
    }
@@ -109,6 +108,7 @@ var nowname;
       address: textxiangxi},function(response){
         console.log(response);
       })
+    alert('添加成功');
   })
 
   //修改地址
@@ -176,6 +176,48 @@ var nowname;
           });
   }
 
+  //修改密码
+    if($Htitle==='修改密码'){
+
+      var usename = obj.username;
+      var usepsw = obj.password;
+      $('.changepws').click(function(){
+        var ypw = $('#ypw').val();
+        var newpw = $('#newpw').val();
+        var repw = $('#repw').val();
+        if(ypw===''||newpw===''||repw===''){
+          return alert('输入的内容不能为空');
+        }
+        if(ypw!=usepsw){
+          return alert('你输入的原密码不正确');
+        }
+        if(newpw!=repw){
+          return alert('新输入的密码和再次输入的不相同');
+        }
+        
+        $.post(erp.baseUrl+'resetpsw',{username: usename,password:newpw},function(response){
+        console.log(response);
+      })
+      })
+      
+    }
+    if($Htitle==='个人资料'){
+      $('.btn-info').click(function(){
+        usename = obj.username;
+        var useemail = $('.use-email').val();
+        if(useemail==''){
+          return alert('不能为空');
+        }
+        if(!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(useemail)){
+      alert('请输入正确的邮箱');
+      return false;
+          }
+        $.post(erp.baseUrl+'resetemail',{username: usename,email:useemail},function(response){
+        console.log(response);
+      })
+        alert('修改成功');
+      })
+    }
 
 
 

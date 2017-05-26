@@ -12,10 +12,15 @@ $(function(){
 			},function(res){
 				if(res.status){
 					alert('登陆成功');
+					var obj = {"username": name,"password":psw};
+						obj = JSON.stringify(obj);
+						window.localStorage.setItem("user", obj);
 					if($('.chance :checkbox').prop('checked')){
-						localStorage.setItem("user", {username:name});
+						var obj = {"username": name,"password":psw};
+						obj = JSON.stringify(obj);
+						window.localStorage.setItem("user", obj);
 					}
-					location.href = 'personal.html';
+					window.location.href = '../html/personal.html';
 				}else{
 					alert(res.data);
 				}
@@ -24,5 +29,11 @@ $(function(){
 			alert('用户名和密码不能少于6位');
 		}
 		
+	});
+	$('.icon-shouye-shouye').click(function(){
+		location.href = '../index.html';
+	})
+	$('.fanhui').click(function(){
+		location.href = 'javascript:history.go(-1)';
 	})
 })

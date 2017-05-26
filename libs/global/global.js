@@ -1,3 +1,3 @@
 var erp = erp || {};
 
-erp.baseUrl = 'http://127.0.0.1:8080/';
+erp.baseUrl = 'http://localhost:8080/';

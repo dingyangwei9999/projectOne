@@ -13,6 +13,7 @@ exports.handle = function(app){
 	app.get('/revisepassword',function(req,res){
 		res.send('yes');
 	})
+	//找回密码
 	app.post('/findpsw',urlencodedParser,function(req,res){
 		res.setHeader('Access-Control-Allow-Origin','*');
 		usedb.findpsw('user',req.body,'email',function(data){
@@ -26,9 +27,17 @@ exports.handle = function(app){
 			
 		})
 	})
+	//修改密码
 	app.post('/resetpsw',urlencodedParser,function(req,res){
 		res.setHeader('Access-Control-Allow-Origin','*');
 		usedb.resetpsw('user',req.body,'email',function(data){
+			res.send(apiResult(true, '修改成功','修改成功'));
+		})
+	})
+	app.post('/resetemail',urlencodedParser,function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
+		usedb.resetemail('user',req.body,'username',function(data){
+			
 			res.send(apiResult(true, '修改成功','修改成功'));
 		})
 	})

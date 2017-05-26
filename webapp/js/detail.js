@@ -3,6 +3,29 @@ require(['config'],function(){
 	require(['jquery','lazyload','fly','common','swiper'],function($,lazyload,fly,common,swiper){
 		$(function(){
 
+
+			//根据传进来的id请求数据
+			var big_proa=location.search
+            var big_id=big_proa.split('=')[1]
+            var productid;
+            // console.log(big_id)
+            console.log(big_id)
+            $.post(erp.baseUrl + "details",{id:big_id},function(res){
+            	console.log(res)
+            	$('.lbt1').html(`<img src="../images/${res[0].img}" alt="" class="swiperWrapper1">`);
+					$('.lbt2').html(`<img src="../images/${res[0].img}" alt="" class="swiperWrapper1">`);
+					$('.title').html();
+					$('.price p').html(`${res[0].vipPrice}`);
+					$('.shuo').html();
+					$('.img').html();
+					$('.kucun').html();
+					$('.spName').html();
+					$('.span1').html();
+					$('.span2').html();
+					$('.span3').html();
+            })
+
+
 			// 顶部轮播图
 			var mySwiper = new Swiper ('.swiper-container', {
 			    direction: 'horizontal',
@@ -48,16 +71,41 @@ require(['config'],function(){
 
 			});
 
+
+	
+
+			$('.center span').each(function(i){
+			   if($('.center span').eq(i).html()==""){
+				$('.center span').eq(i).hide();
+				}
+			});
+
+
+			// console.log(($('.img img').attr('src','')))
+			// $('.img img').each(function(i){
+			//    if($('.img img').eq(i).attr('src',"")){
+			// 	$('.img img').eq(i).hide();
+			// 	}
+			// });
+
+
+
 			$('.miao').click(function(){
 				$('.m').show();
 				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
 				$('main').animate({scrollTop:h},100)
+				$('.miao').css({"border-bottom":"1px solid #fff"});
+				$('.lun').css({"border-bottom":"1px solid #ccc"});
+				$('.xi').css({"border-bottom":"none"});
 				
 			})
 			$('.lun').click(function(){
 				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
 				$('main').animate({scrollTop:h},100)
 				$('.m').hide();
+				$('.lun').css({"border-bottom":"1px solid #fff"});
+				$('.miao').css({"border-bottom":"1px solid #ccc"});
+				$('.xi').css({"border-bottom":"none"});
 				
 			})
 
@@ -116,9 +164,9 @@ require(['config'],function(){
 			
 
 			$('.buy').click(function(){
-				console.log(555)
+				// console.log(555)
 				if(flag ==false){
-					$('.zhe').stop().animate({top:'45%'},300);
+					$('.zhe').stop().animate({top:'42%'},300);
 					$('.hei').stop().fadeIn(300);
 					flag = true;
 
@@ -128,10 +176,10 @@ require(['config'],function(){
 			$('.car').click(function(event){
 				
 				if(flag ==false){
-					$('.zhe').stop().animate({top:'45%'},300);
+					$('.zhe').stop().animate({top:'42%'},300);
 					$('.hei').stop().fadeIn(300);
 					flag = true;
-					console.log(555)
+					// console.log(555)
 
 				}
 				else if(flag == true){
@@ -177,9 +225,27 @@ require(['config'],function(){
 					    }
 					});
 				}
-				
-			    
-
+				//点击加入购物车
+			    $('.car').click(function(){
+			    	var user = JSON.parse(localStorage('user'));
+			    	if(!user.length){
+			    		alert('请先登录');
+			    		location.href = 'login.html';
+			    		return false;
+			    	}
+			    	
+			    	var userid = user.userId;
+			    	var qty = $('.shu').val();
+			    	var cartGoods = {
+			    		userId:userid,
+			    		id:big_id,
+			    		qty:qty
+			    	}
+			    	$.post(erp.baseUrl + 'cartgoods',cartGoods,function(res){
+			    		
+			    	})
+			    	window.localStorage.setItem('cartGoods',cartGoods);
+			    })
 				
 				
 	            
