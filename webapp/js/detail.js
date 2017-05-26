@@ -244,7 +244,7 @@ require(['config'],function(){
 			    	$.post(erp.baseUrl + 'cartgoods',cartGoods,function(res){
 			    		
 			    	})
-			    	window.localStorage.setItem('cartGoods',cartGoods);
+			    	// window.localStorage.setItem('cartGoods',cartGoods);
 			    })
 				
 				

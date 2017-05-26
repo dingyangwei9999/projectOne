@@ -19,7 +19,7 @@ var getIndexData = function(_collection, data, res){
 			} else {
 				collection.find().toArray(function(err, docs){
 
-					console.log(docs);
+					
 					
 					res.send(docs);
 					db.close();
@@ -91,7 +91,7 @@ var navSearch = function(name, res){
 				//var reg = new RegExp("^.*"+name+"\.*$","i");
 				collection.find({navKeyWord:name}).toArray(function(err, docs){
 				    res.send(docs);
-					 console.log(docs);
+					
 				});
 			}
 			db.close();
@@ -114,8 +114,7 @@ var details = function(name, res){
 				console.log(error)	
 			} else {
 				collection.find({id:name}).toArray(function(err, docs){
-					//console.log(name)
-					//console.log(docs)
+					
 					res.send(docs)
 				});
 			}
