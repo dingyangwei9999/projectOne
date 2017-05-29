@@ -1,6 +1,9 @@
+/*
+	用户地址管理
+ */
 var db = require('./db.js')();
-
-var exists = function(_collection, data, key, callback){
+//添加用户地址
+var addSite = function(_collection,data,callback){
 	db.open(function(error, db){
 		if(error){
 			console.log('connect db:', error);
@@ -9,19 +12,17 @@ var exists = function(_collection, data, key, callback){
 		db.collection(_collection, function(error, collection){
 			if(error){
 				console.log(error)	
-			} else {
-				var obj = {};
-				obj[key] = data[key];
-				collection.find(obj).toArray(function(err, docs){
-					callback(docs[0])
-				});
-			}
+			} 
+
+			collection.insert(data);
 			db.close();
+			
+			
 		})
 	})	
 }
-
-var save = function(_collection, data){
+//获取用户地址
+var getSite = function(_collection,data,callback){
 	db.open(function(error, db){
 		if(error){
 			console.log('connect db:', error);
@@ -30,13 +31,17 @@ var save = function(_collection, data){
 		db.collection(_collection, function(error, collection){
 			if(error){
 				console.log(error)	
-			} else {
-				collection.insert(data);
-			}
-			db.close();
+			} 
+			collection.find({userId:data.userId}).toArray(function(err,docs){
+				if(err){
+					console.log('getSite:',err);
+				}
+				callback(docs);
+				db.close();
+			})		
+			
 		})
-	})
+	})	
 }
-
-exports.exists = exists;
-exports.save = save;
+exports.addSite = addSite;
+exports.getSite = getSite;

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="../css/font-index/iconfont.css">
 	<script src="../libs/lib/jquery-3.2.1.js"></script>
+	<script src="../../libs/global/global.js"></script>
 	<script>
 		$(function(){
 			//list页面接收参数
@@ -21,7 +22,7 @@
 
 			if(big_proa == ''){
 				//将数据库中数据导入indexList
-				$.get('http://localhost:8080/allList',function(response){
+				$.get(erp.baseUrl + 'allList',function(response){
 				       console.log(response)
 				      response.map(function(obj){
 				        //console.log(obj) 
@@ -58,7 +59,7 @@
 			}else if(allKeyWord == "keyword"){
 				$.ajax({
 	              	type: "GET",
-	              	url: "http://localhost:8080/keywordSearch",
+	              	url: erp.baseUrl + "keywordSearch",
 	              	data: {keywordbl: keywordCn},
 	              	success: function(msg){
 	                console.log(msg);
@@ -98,7 +99,7 @@
 			}else if(allKeyWord == "allKeyWord"){
 				$.ajax({
 	              	type: "GET",
-	              	url: "http://localhost:8080/allkeywordSearch",
+	              	url: erp.baseUrl + "allkeywordSearch",
 	              	data: {keywordbl: keywordCn},
 	              	success: function(msg){
 	                console.log(msg);

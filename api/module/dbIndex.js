@@ -1,10 +1,4 @@
-var mongodb = require('mongodb');
-
-var server = new mongodb.Server('localhost', 27017);
-
-var db = new mongodb.Db('bbm', server);
-
-
+var db = require('./db.js')();
 
 var getIndexData = function(_collection, data, res){
 
@@ -138,8 +132,6 @@ var allList = function(_collection, data, res){
 			} else {
 		 		collection.find().toArray(function(err,docs){
 					
-					console.log(docs);
-					console.log(111)
 					res.send(docs);
 					db.close();
 				});

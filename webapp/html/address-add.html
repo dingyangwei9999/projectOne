@@ -10,8 +10,72 @@
 	<link rel="stylesheet" type="text/css" href="../css/personal.css">
 	<script type="text/javascript" src="../libs/jquery-3.1.1/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
-	
-	
+	<script>
+		$.ajax({
+			type:"get",
+			url:"city.json",
+			success: function(data){
+				var provinceData = [];
+				var cityData = [];
+				var countyData = [];
+				var cityDataDetails = [];
+				var countyDataDetails = [];
+				data.forEach(function(val,ind){
+					//console.log(val.item_code.substring(2))
+					if(val.item_code.substring(2) == "0000"){
+						provinceData.push(val)
+					}else if(val.item_code.substring(4) == "00"){
+						cityData.push(val)
+					}else{
+						countyData.push(val)
+					}
+				})
+				
+				// console.log(provinceData);
+				// console.log(cityData);
+				// console.log(countyData);
+				
+				for(var i = 0;i<provinceData.length;i++){
+					$("#province").append('<option value='+provinceData[i].item_code+'>'+provinceData[i].item_name+'</option>')
+				}
+				
+				$("#province").change(function(){
+					$("#city").html('<option value="000000">----市、县级市----</option>');
+					$("#county").html('<option value="000000">----地级市----</option>');
+					cityDataDetails = [];
+					
+					var provinceValue = $("#province")[0].value;
+					cityData.forEach(function(val,ind){
+						if(val.item_code.substring(0,2) == provinceValue.substring(0,2)){
+							cityDataDetails.push(val)
+						}
+					})
+					for(var i = 0;i<cityDataDetails.length;i++){
+						$("#city").append('<option value='+cityDataDetails[i].item_code+'>'+cityDataDetails[i].item_name+'</option>')
+					}
+					
+				})
+				
+				$("#city").change(function(){
+					$("#county").html('<option value="000000">----地级市----</option>');
+					countyDataDetails = [];
+					
+					var cityValue = $("#city")[0].value;
+					countyData.forEach(function(val,ind){
+						if(val.item_code.substring(0,4) == cityValue.substring(0,4)){
+							countyDataDetails.push(val)
+						}
+					})
+					for(var i = 0;i<countyDataDetails.length;i++){
+						$("#county").append('<option value='+countyDataDetails[i].item_code+'>'+countyDataDetails[i].item_name+'</option>')
+					}
+					
+				})
+
+				
+			}
+		});
+	</script>
 </head>
 <body>
 <div id="personal-box">
@@ -30,7 +94,19 @@
 	<li class="use-addli">
 	<b class="user-addb">手机号 :</b><input type="phone" class="use-addphone" id="addphone" placeholder="手机号">
 	</li>
-
+	<li class="use-addli">
+		<b class="user-addb">地址 :</b>
+		<br/>
+		<select name="" id="province" class="province">
+			<option value="000000">--省--</option>
+		</select>
+		<select name="" id="city" class="city">
+			<option value="000000">--市--</option>
+		</select>
+		<select name="" id="county" class="county">
+			<option value="000000">-区县-</option>
+		</select>
+	</li>
 	<li class="use-xiangxiadress">
 	<b class="user-xiangxi">详细地址 ：</b>
 	<textarea class="text-xiangxi" placeholder="详细地址" cols="30" rows="4" wrap="virtual"></textarea>

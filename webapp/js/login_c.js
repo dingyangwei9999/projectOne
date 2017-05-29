@@ -10,13 +10,15 @@ $(function(){
 				username:name,
 				password:psw
 			},function(res){
+				console.log(res.data);
 				if(res.status){
 					alert('登陆成功');
-					var obj = {"username": name,"password":psw};
+
+					var obj = {"username": name,"userId":res.data};
 						obj = JSON.stringify(obj);
 						window.localStorage.setItem("user", obj);
 					if($('.chance :checkbox').prop('checked')){
-						var obj = {"username": name,"password":psw};
+						var obj = {"username": name,"userId":res.data};
 						obj = JSON.stringify(obj);
 						window.localStorage.setItem("user", obj);
 					}

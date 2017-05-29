@@ -1,11 +1,7 @@
 /*
 	产品数据处理
  */
-var mongodb = require('mongodb');
-
-var server = new mongodb.Server('localhost', 27017);
-
-var db = new mongodb.Db('bbm', server);
+var db = require('./db.js')();
 
 var addproduct = function(_collection, data, key,callback){
 	db.open(function(error, db){

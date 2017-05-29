@@ -7,16 +7,16 @@ ul{list-style: none;}
 body {
     background: #f7f7f7;
     color: #555;
-    font-size: 18px;
+    font-size: 12px;
     margin: 0 auto;
     max-width: 640px;
-    font-family: "微软雅黑",Microsoft Yahei;
+    font-weight:normal;
+    font-family: "微软雅黑";
 }
 .f-cb { zoom: 1; }
 i{font-style: normal;}
 .f-cb:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: ""; }
 img{
-    
     width: 100%;
     height: auto;
 }
@@ -24,7 +24,6 @@ img{
 .wra{width: 100%;
     position: fixed;
     z-index: 99;
-    //height: 1.25rem;
     top: 0; 
     max-width: 640px;   
 }
@@ -59,40 +58,9 @@ img{
     margin:0 auto;
     line-height: 2.5rem;
     font-weight:normal;
-    //width: 4rem;
-    //height: 4rem;
-    //position: absolute;
-    //top: 0;
-    //z-index: 1;
+    
 }
 
-// a .fa-chevron-left{
-//     text-align: center;
-//     padding-top:0.5rem;
-//     font-size:1.81rem;
-//     color: #555;
-//     width: 2.18rem;
-//     height: 1.9rem;
-//     background-size: 17rem;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     margin: -1.01rem 0 0 -1.14rem;
-// }
-// a .fa-home{
-//     text-align: center;
-//     margin:auto;
-//     padding-top:0.5rem;
-//     font-size:1.81rem;
-//     color: #555;
-//     width: 2.18rem;
-//     height: 1.9rem;
-//     background-size: 17rem;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     margin: -1.01rem 0 0 -1.14rem;
-// }
 .nav{
     width: 100%;
     .daohang{
@@ -118,7 +86,7 @@ img{
                     //padding: 0.48rem 0;
                     border-left: #ccc 1px solid;
                     text-align: center;
-                    font-size:16px;
+                    font-size:14px;
                 }
                 .sort{
                     border:0;
@@ -129,7 +97,7 @@ img{
         .sorts{
             width: 100%;
             display:flex;
-            font-size:16px;
+            font-size:14px;
             .active{
                 color: #f59d2b;
                 border-bottom: #f59d2b 0.15rem solid;
@@ -150,14 +118,14 @@ img{
         }
         .screens{
             width: 100%;
-            font-size:16px;
+            font-size:14px;
             padding-bottom:0.8rem;
             li{
                 display:inline-block;
                 width: 28%;
                 text-align: center;
-                height: 2.9rem;
-                line-height: 2.9rem;
+                height: 1.9rem;
+                line-height: 1.9rem;
                 margin: 1.43rem 2% 0;
                 padding: 0;
                 border: 0;
@@ -178,27 +146,29 @@ img{
     background-color:#fff;
     padding-top: 5.6rem;
     ul{
-        width: 100%;
+        display:flex;
+        flex-wrap: wrap;
+        padding:6px;
+        margin-bottom:50px;
+        justify-content:space-between;
         li{
-            float: left;
+            padding:3px;
             width: 47%;
-            margin: 0 1% 1rem;
-            border: 1px solid #e5e5e5;
-            padding: 0;
-            clear: none;
-            height: auto;
-            background-color: #fff;
+            border:1px solid #E5E5E5;
+            margin-bottom:6px;
+            background-color: #FFF;
             dt{
-                a{font-size:13px;line-height:13px;display:block;height:2.64rem;overflow:hidden;}
+                display:inline-block;
+                margin-top:0.046875rem;
+                margin-bottom:0.046875rem;
+                a{font-weight:normal;font-size:13px;line-height:16px;display:block;height:2.64rem;overflow:hidden;}
             }
             .title-price{
-                float: none;
                 padding-bottom: 0.46rem;
             }
             .pri-left{
-                
                 .prife-price{
-                   color: #fb3f3e !important;
+                   color: #fb3f3e;
                    font-size: 0.6rem;
                    font-style: normal; 
                 }
@@ -209,14 +179,63 @@ img{
                 }
             }
             .pri-right{
+                margin-top: 0.34rem;
+                display:block;
+                width: 100%;
+                text-align:right;
                 font-size:0.55rem;
-                float: right;
                 margin-right: 0.34rem;
                 color: #888;
             }
         }
     }
+    // ul{
+            
+    //         li{
+    //             padding:3px;
+    //             width: 47%;
+    //             border:1px solid #E5E5E5;
+    //             margin-bottom:6px;
+    //             a{
+    //                 display:inline-block;
+    //                 margin-bottom:6px;
+    //                 p{
+    //                     color:#555555;
+    //                 }
+    //             }
+    //             img{width: 100%;margin-bottom:4px;}
+    //             &>p{
+    //                 display:inline-block;
+    //             }
+    //             .indexListPriceNow{
+    //                 color:#FB3F3E;
+    //             }
+    //             .indexListPriceOriginal{
+    //                 color:#888888;
+    //             }
+    //             .indexListBottom{
+    //                 display:block;
+    //                 margin-top:6px;
+    //                 text-align:right;
+    //                 i{
+    //                     font-size:8px;
+    //                     color:#888888;
+    //                 }
+    //                 &>p{
+    //                     display:inline-block;
+    //                     color:#888888;
+    //                 }
+    //             }
+    //         }
+    //     }
 }
+
+
+
+
+
+
+
 .footer p {
     width: 100%;
     padding: 0.57rem 0;
@@ -226,22 +245,20 @@ img{
 }
 
 .indexToTop{
-    display:none;
-    opacity:0.7;
-    position:fixed;
-    bottom:5.26rem;
-    right:1.14rem;
-    width: 3.82rem;
-    height: 3.82rem;
-    border-radius:50%;
-    background-color: #F00;
-    text-align:center;
-    line-height: 3.82rem;
-    i{
-        margin:auto;
-        font-size:2.29rem;
-        line-height: 2rem;
-        color:white;
+        display:none;
+        opacity:0.8;
+        position:fixed;
+        bottom:51px;
+        right:14px;
+        width: 44px;
+        height: 44px;
+        border-radius:50%;
+        background-color: #FF4D4D;
+        text-align:center;
+        line-height: 44px;
+        i{
+            font-size:24px;
+            color:white;
+        }
     }
-}
 

@@ -54,15 +54,14 @@ exports.handle = function(app){
 	});
 	//详情页请求
 	app.post('/details',urlencodedParser,function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
 		console.log(req.body);
 		db.details(req.body,res);
 
 	})
 	app.get('/navKeywordSearch',function(req,res){
 		console.log(req.query.navKeyword)
-		dbIndex.navSearch(req.query.navKeyword,res)
-
-		
+		dbIndex.navSearch(req.query.navKeyword,res)	
 	});
 	//列表页请求
 	app.get('/allList',function(req,res){
