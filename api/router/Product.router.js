@@ -16,19 +16,19 @@ exports.handle = function(app){
 		res.setHeader('Access-Control-Allow-Origin','*');
 		res.send(apiResult(req.session.name != null, null, req.session.name));
 	})
-	// app.get('/getProduct',function(req,res){
-	// 	res.setHeader('Access-Control-Allow-Origin','*');
-	// 	db.output('goods', res);
+	app.get('/getProduct',function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
+		db.output('allgoods', res);
 		
-	// })
+	})
 	app.post('/searchproduct',urlencodedParser,function(req,res){
 		res.setHeader('Access-Control-Allow-Origin','*');
-		db.searchproduct('goods', req.body,res);
+		db.searchproduct('allgoods', req.body,res);
 
 	})
 	app.post('/addproduct',urlencodedParser,function(req,res){
 		res.setHeader('Access-Control-Allow-Origin','*');
-		db.addproduct('goods', req.body, 'id', function(data){
+		db.addproduct('allgoods', req.body, 'id', function(data){
 			if(!data.length){
 				res.send(apiResult(true,'插入成功'));
 			}else{
@@ -74,7 +74,6 @@ exports.handle = function(app){
 
 var multer = require ('multer');
 
-// var upload = multer({ dest:  "./upload" }); 
 
 var storage = multer.diskStorage({  
   destination: function (req, file, cb) {  
@@ -86,13 +85,13 @@ var storage = multer.diskStorage({
   }  
 }) 
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 
 exports.photo = function(app){
-	app.post('/upload', upload.array('photos', 12), function(req, res) {
+	app.post('/upload', upload.fields([{name:'picture',acount:2},{name:'banner',acount:4},{name:'photo',acount:18}]), function(req, res) {
 		res.setHeader('Access-Control-Allow-Origin','*');
-		console.log(req.files);  
-		console.log(req.body); 	 	
+		// console.log(req.files);  
+		// console.log(req.body); 	 	
 	 	res.send(JSON.stringify(req.files)); 
 	});
 }

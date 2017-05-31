@@ -1,21 +1,22 @@
 $(function(){
-	$.get(erp.baseUrl + 'getsession',{},function(res){
+	// $.get(erp.baseUrl + 'getsession',{},function(res){
 		
-	})
+	// })
 	//获取数据库中已有商品  显示到页面
 	$.get(erp.baseUrl + 'getProduct',function(response){
+		// console.log(response);
 		var res = JSON.parse(response);
 		$('tbody').html(res.map(function(item){
 			return `<tr>
-						<td><input type="checkbox"></td>
-						<td>${item.id}</td>
-						<td><img src="../webapp/images/${item.img}" alt="" style="width:40px;"/></td>
-						<td>${item.goodsMsg}</td>
-						<td>${item.price}</td>
-						<td>${item.vipPrice}</td>
-						<td>状态</td>
-						<td><i class="iconfont icon-xiugai"></i>修改
-							<i class="iconfont icon-shanchu"></i>删除
+						<td style="width:5%;"><input type="checkbox"></td>
+						<td style="width:5%;">${item.id}</td>
+						<td style="width:10%;"><img src="../upload/${item.pic}" alt="" style="width:40px;"/></td>
+						<td style="width:40%;">${item.goodsMsg}</td>
+						<td style="width:10%;color:#bbb;"><del>￥${Number(item.price).toFixed(2)}</del></td>
+						<td style="width:10%;color:red;">￥${Number(item.vipPrice).toFixed(2)}</td>
+						<td style="width:10%;color:green;">已启用</td>
+						<td style="width:10%;"><span class="chgGoods"><i class="iconfont icon-xiugai"></i>修改</span>
+							<span class="delGoods"><i class="iconfont icon-shanchu"></i>删除</span>
 						</td>
 					</tr>`
 		}))
@@ -32,65 +33,30 @@ $(function(){
 		return str; 
 	}
 	setInterval(function(){$('#time').html(currentTime)},1000);
+	//添加商品
+	$('.btn_modle').click(function(){
+		location.href = 'add-product.html';
+	})
 	//点击出现功能板块
 	$('.user').click(function(){
 		$('.admin_set').toggle();
-	})
+	});
 	$('.user_mng').click(function(){
 		$('.vip_mng').toggle();
 		$(this).css('background-color','#ddd');
-	})
+	});
 	$('.goods_mng').click(function(){
 		$('.prt_mng').toggle();
 		$(this).css('background-color','#ddd');
-	})
-	$('.btn_modle').click(function(){
-		overlay();
-	})
-	$('.close').click(function(){
-		overlay();
-	})
-	//添加商品并显示到页面
-	$('.sure').click(function(e){
-		var _goodsname = $('.goodsname').val();
-		var _goodsnum = $('.goodsnum').val();
-		var _goodstype = $('.goodstype').val();
-		var _goodsprice = $('.goodsprice').val();
-		var _goodsvip = $('.goodsvip').val();
-		var _goodsurl = $('.goodsurl').val();
-		$('form').ajaxSubmit({
-			type: 'post',
-			url: erp.baseUrl + 'upload',
-			clearForm:true,
-			success:function(data){
-                console.log(data);
-                var res = JSON.parse(data);
-                var imgurl = res[0].filename;
-                $.post(erp.baseUrl + 'addproduct',{
-					id:_goodsnum,
-					img:imgurl,
-					kind1:_goodstype,
-					goodsMsg:_goodsname,
-					price:_goodsprice,
-					vipPrice:_goodsvip
-				},function(response){
-					console.log(response);
-					if(response.status){
-						$('<tr><td><input type="checkbox"></td><td>'+Number(_goodsnum)+'</td><td><img src="../upload/'+imgurl+'" alt="" style="width:40px;"/></td><td>'+_goodsname+'</td><td>'+_goodsprice+'</td><td>'+_goodsvip+'</td><td>状态</td><td><i class="iconfont icon-xiugai"></i>修改<i class="iconfont icon-shanchu"></i>删除</td></tr>').appendTo('tbody');
-						overlay();
-					}else{
-						alert('商品ID重复,请确认录入商品');
-					}
-		});
-            },
-            error:function(XmlHttpRequest,textStatus,errorThrown){
-                console.log(XmlHttpRequest);
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-		})
-		e.preventDefault();		
 	});
+	$('.delGoods').mouseenter(function(){
+		$(this).css('color','red');
+		console.log()
+	})
+	//点击删除
+	$('.iconfont').click(function(){
+
+	})
 	//查询  商品  并显示到页面
 	$('.btn_search').click(function(){
 		var keyword = $('.keywords').val();
@@ -102,23 +68,19 @@ $(function(){
 			console.log(res);
 			$('tbody').html(res.map(function(item){
 			return `<tr>
-						<td><input type="checkbox"></td>
-						<td>${item.id}</td>
-						<td><img src="../webapp/images/${item.img}" alt="" style="width:40px;"/></td>
-						<td>${item.goodsMsg}</td>
-						<td>${item.price}</td>
-						<td>${item.vipPrice}</td>
-						<td>状态</td>
-						<td><i class="iconfont icon-xiugai"></i>修改
+						<td style="width:5%;"><input type="checkbox"></td>
+						<td style="width:5%;">${item.id}</td>
+						<td style="width:10%;"><img src="../upload/${item.pic}" alt="" style="width:40px;"/></td>
+						<td style="width:40%;">${item.goodsMsg}</td>
+						<td style="width:10%;color:#bbb;"><del>￥${Number(item.price).toFixed(2)}</del></td>
+						<td style="width:10%;color:red;">￥${Number(item.vipPrice).toFixed(2)}</td>
+						<td style="width:10%;color:green;">已启用</td>
+						<td style="width:10%;"><i class="iconfont icon-xiugai"></i>修改
 							<i class="iconfont icon-shanchu"></i>删除
 						</td>
 					</tr>`
-		}))
+			}))
 		})
 	})
-	//模态框弹出  消失
-	function overlay(){
-	    var e1 = document.getElementById('modal-overlay');			
-	    e1.style.visibility =  (e1.style.visibility == "visible"  ) ? "hidden" : "visible";
-	}
+	
 })

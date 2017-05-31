@@ -173,3 +173,6 @@ a:hover{
 	width:80%;
 	height:100%;
 }
+.main_right table tr td{
+	cursor:pointer;
+}

@@ -28,7 +28,7 @@ $(function(){
 							<span><em class="change_goods">√</em></span>
 							<span class="goods_img"><img src="${item.img}" alt="商品图"></span>
 							<span>
-								<p>${item.name}</p>
+								<p class="goods_name" data-number="${item.goodsId}">${item.name}</p>
 								<p class="norms"><strong>${item.spName}</strong><small>${item.standard}</small></p>
 								<div class="next">
 									<strong>￥${Number(item.price).toFixed(2)}</strong>
@@ -87,7 +87,7 @@ $(function(){
 						totalPrice();
 					}
 					judgeCheck();
-				})
+				});
 				//点击全选  变化
 				$('footer em').click(function(){
 					if($(this).prop('class') == 'allcheck'){
@@ -110,6 +110,19 @@ $(function(){
 				//减数量
 				$('.decrease_goods').click(function(){
 					changeQty(this);
+				})
+				//修改数量并失去焦点
+				$('.change_num :text').change(function(){
+					//获取该商品种类
+					var standard = $(this).closest('div').siblings('.norms').find('small').text();
+					var currentNum = $(this).val();
+					//存入数据库
+					$.post(erp.baseUrl + 'updategoods',{userId:userid,standard:standard,qty:currentNum},function(res){});
+				});
+				//点击商品  跳到对应的详情页
+				$('.goods_name').click(function(){
+					var goodsid = $(this).attr('data-number');
+					window.location.href = 'detail.html?id=' + goodsid;
 				})
 				var orderId = 0;
 				//点击结算

@@ -39,7 +39,7 @@ var output = function(_collection, res){
 					if(err){
 						console.log(err);
 					}
-					res.end(JSON.stringify(docs));
+					res.send(JSON.stringify(docs));
 					db.close();
 				});
 			}
@@ -57,8 +57,8 @@ var searchproduct = function(_collection,data,res){
 				console.log(error)	
 			} else {
 				console.log(data);
-				
-				collection.find({'$or':[{id:Number(data.keyword)},{kind1:data.keyword},{kind2:data.keyword},{keyword:data.keyword}]}).toArray(function(err,dos){	
+				var reg = new RegExp("^.*"+data.keyword+"\.*$","i");
+				collection.find({goodsMsg:{$regex:reg}}).toArray(function(err,dos){	
 					if(err){
 						console.log(err);
 					}
