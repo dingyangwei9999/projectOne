@@ -16,6 +16,10 @@ body, html {
   z-index: -1;
 }
 
+img {
+  display: block;
+}
+
 #box {
   display: -webkit-flex;
   display: -moz-flex;
@@ -117,8 +121,8 @@ body, html {
   position: relative;
   left: 0;
   display: block;
-  line-height: 0.7rem;
-  font-size: 0.3rem;
+  line-height: 0.4rem;
+  font-size: 0.25rem;
 }
 
 #box main .goods .like {
@@ -132,13 +136,31 @@ body, html {
   line-height: 0.4rem;
 }
 
+#box main .goods .price {
+  width: 100%;
+  height: 0.5rem;
+}
+
 #box main .goods .price p {
   font-size: 0.36rem;
   color: #fb3f3e;
   font-weight: bold;
+  float: left;
 }
 
 #box main .goods .price p:before {
+  content: '￥';
+}
+
+#box main .goods .price .yuan {
+  font-size: 0.25rem;
+  color: #bbb;
+  float: left;
+  margin-left: 0.3rem;
+  text-decoration: line-through;
+}
+
+#box main .goods .price .yuan:before {
   content: '￥';
 }
 
@@ -442,14 +464,17 @@ body, html {
 }
 
 #box .zhe .xuan .top .tu {
-  width: 2.12rem;
-  height: 2.12rem;
+  width: 2rem;
+  height: 2rem;
   float: left;
+  margin-bottom: 0.2rem;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 #box .zhe .xuan .top .tu img {
-  width: 2.12rem;
-  height: 2.12rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 #box .zhe .xuan .top .clo-btn {
@@ -492,18 +517,19 @@ body, html {
 
 #box .zhe .xuan .center p {
   font-size: 0.26rem;
-  margin-top: 0.12rem;
+  margin: 0.2rem;
 }
 
 #box .zhe .xuan .center span {
   display: inline-block;
-  width: 30%;
+  padding: 0 0.4rem;
   height: 0.56rem;
   border: 0.02rem solid #878787;
   text-align: center;
   line-height: 0.56rem;
-  font-size: 0.24rem;
+  font-size: 0.20rem;
   margin-top: 0.16rem;
+  margin-left: 0.1rem;
 }
 
 #box .zhe .xuan .center .b {

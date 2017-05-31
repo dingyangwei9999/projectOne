@@ -11,6 +11,9 @@ body,html{
 	z-index:-1;
 	// font-size: 100px;
 }
+img{
+  display: block;
+}
 #box{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -106,8 +109,8 @@ body,html{
 				left:0;
 				display:block;
 				// height:.7rem;
-				line-height:0.7rem;
-				font-size: 0.3rem;
+				line-height:0.4rem;
+				font-size: 0.25rem;
 				
 			}
 			.like{
@@ -121,10 +124,24 @@ body,html{
 				line-height: 0.4rem;
 			}
 			.price{
+				width:100%;
+				height:0.5rem;
 				p{
 					font-size:0.36rem;
 					color: #fb3f3e;
 					font-weight:bold;
+					float:left;
+					&:before{
+						content:'￥';
+					}
+				}
+				.yuan{
+					font-size:0.25rem;
+					color: #bbb;
+					//font-weight:bold;
+					float:left;
+					margin-left:0.3rem;
+					text-decoration:line-through;
 					&:before{
 						content:'￥';
 					}
@@ -440,12 +457,15 @@ body,html{
 				border-bottom: 0.02rem dotted #B3B3B3;
 				
 				.tu{
-					width: 2.12rem;
-					height: 2.12rem;
+					width: 2rem;
+					height: 2rem;
 					float:left;
+					margin-bottom:0.2rem;
+					border-radius:1rem;
+					overflow:hidden;
 					img{
-						width: 2.12rem;
-						height: 2.12rem;
+						width: 2rem;
+						height: 2rem;
 					}
 				}
 				.clo-btn{
@@ -484,17 +504,19 @@ body,html{
 	   //  		overflow-x: hidden;
 				p{
 					font-size: 0.26rem;
-					margin-top: 0.12rem;
+					margin: 0.2rem;
 				}
 				span{
 					display: inline-block;
-					width: 30%;
+					//min-width: 30%;
+					padding:0 0.4rem;
 					height: 0.56rem;
 					border: 0.02rem solid #878787;
 					text-align: center;
 					line-height: 0.56rem;
-					font-size: 0.24rem;
+					font-size: 0.20rem;
 					margin-top: 0.16rem;
+					margin-left:0.1rem;
 				}
 				.b{
 				margin-top: 0.4rem;

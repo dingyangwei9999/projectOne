@@ -16,11 +16,11 @@ exports.handle = function(app){
 		res.setHeader('Access-Control-Allow-Origin','*');
 		res.send(apiResult(req.session.name != null, null, req.session.name));
 	})
-	app.get('/getProduct',function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
-		db.output('allgoods', res);
+	// app.get('/getProduct',function(req,res){
+	// 	res.setHeader('Access-Control-Allow-Origin','*');
+	// 	db.output('allgoods', res);
 		
-	})
+	// })
 	app.post('/searchproduct',urlencodedParser,function(req,res){
 		res.setHeader('Access-Control-Allow-Origin','*');
 		db.searchproduct('allgoods', req.body,res);

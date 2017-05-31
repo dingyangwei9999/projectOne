@@ -6,6 +6,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="../css/indexNavInList.css">
 	<script src="../libs/lib/jquery-3.2.1.js"></script>
+	<script src="../../libs/global/global.js"></script>
 	<script>   
 		$(function(){
 			//-------------------
@@ -16,7 +17,7 @@
             console.log(big_id)
             $.ajax({
               	type: "GET",
-             	url: "http://localhost:8080/navKeywordSearch",
+             	url: erp.baseUrl + "navKeywordSearch",
              	data: {navKeyword: navKeywordCn},
              	success: function(msg){
                  	console.log(msg)
@@ -24,7 +25,7 @@
                  	$('.indexNavInListKeyword').html(msg[0].navKeyWord)
                 	msg.map(function(obj){
                 		var li = $('<li/>');
-                		li.html(`<a href="http://localhost:8080/webapp/html/detail.html?id=${obj.id}" class="indexListLink">
+                		li.html(`<a href="detail.html?id=${obj.id}" class="indexListLink">
 	                 <img src="../images/index/no_picture.jpg" dataimg="../images/${obj.img}" class="indexListImage">
 	                 <p class="indexListName">${obj.goodsMsg}</p>
 	                </a>

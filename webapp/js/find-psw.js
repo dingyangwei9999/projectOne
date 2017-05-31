@@ -38,5 +38,12 @@ $(function(){
 			alert('邮箱格式不正确');
 		}
 		
+	});
+	//返回首页以及返回上一页
+	$('.icon-shouye-shouye').click(function(){
+		location.href = '../index.html';
+	})
+	$('.fanhui').click(function(){
+		location.href = 'javascript:history.go(-1)';
 	})
 })

@@ -68,10 +68,10 @@
     
           for(var i=0;i<=13;i++){
 
-            //console.log(response[i])
+            // console.log(JSON.parse(response));
             var li = $('<li/>');
             li.html(`
-                <a href=${erp.baseUrl}"webapp/html/detail.html?id=${response[i].id}" class="indexListLink">
+                <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
                  <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
                  <p class="indexListName">${response[i].goodsMsg}</p>
                 </a>
@@ -154,7 +154,7 @@
                 //console.log(response[i])
                 var li = $('<li/>');
                 li.html(`
-                    <a href=${erp.baseUrl}"webapp/html/detail.html?id=${response[i].id}" class="indexListLink">
+                    <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
                      <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
                      <p class="indexListName">${response[i].goodsMsg}</p>
                     </a>

@@ -162,8 +162,9 @@ body,html{
 								display:inline;
 								margin-left:0.12rem;
 								border:1px solid #ccc;
+								padding-bottom:0.02rem;
 								b{
-									padding:0 0.06rem;
+									padding:0 0.06rem 0.02rem 0.06rem;
 								}
 								b:first-child{
 									border-right:1px solid #ccc;

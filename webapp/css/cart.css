@@ -227,10 +227,11 @@ body, html {
   display: inline;
   margin-left: 0.12rem;
   border: 1px solid #ccc;
+  padding-bottom: 0.02rem;
 }
 
 .container main .car-goodslist ul li span:last-child .next .change_num b {
-  padding: 0 0.06rem;
+  padding: 0 0.06rem 0.02rem 0.06rem;
 }
 
 .container main .car-goodslist ul li span:last-child .next .change_num b:first-child {

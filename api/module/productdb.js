@@ -76,13 +76,13 @@ var details = function(name, res){
 			console.log('connect db:', error);
 		}
 		//Account => 集合名（表名）
-		db.collection('list', function(error, collection){
+		db.collection('details', function(error, collection){
 			if(error){
 				console.log(error)	
 			} else {
 
-				collection.find({id:Number(name.id)}).toArray(function(err, docs){
-					res.send(docs)
+				collection.find({id:name.id}).toArray(function(err, docs){
+					res.send(docs);
 					db.close();
 				});
 			}
