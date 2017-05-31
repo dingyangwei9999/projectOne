@@ -13,25 +13,7 @@
 	</style>
 	<script>   
 		$(function(){
-			//-------------------
-			var big_proa=location.search
-            var big_id=big_proa.split('=')[1]
-            var productid;
-            console.log(big_id)
-            $.ajax({
-              	type: "GET",
-             	url: "http://localhost:8080/details",
-             	data: {productid: big_id},
-             	success: function(msg){
-                 	console.log(msg[0])
-
-                	$('.lbt1').html(`<img src="../${msg[0].imgUrl}" alt="" class="swiperWrapper1">`)
-					$('.lbt2').html(`<img src="../${msg[0].imgUrl}" alt="" class="swiperWrapper1">`)
-              		}
-              		
-              		
-
-            });
+			
 		})
 	</script> 
 </head>
@@ -39,7 +21,7 @@
 	<div id="box">
 		<!-- 这是头部 -->
 		<header id="Htop">
-			<a href="" class="iconfont icon-fanhui back"></a>
+			<a href="javascript:history.go(-1)" class="iconfont icon-fanhui back"></a>
 			<h2 class="h_2">商品详情</h2>
 			<a class="iconfont icon-shouyeshouye index" href=""></a>
 		</header>
@@ -84,7 +66,7 @@
 						<div class="m">
 							<div class="t">
 								<p class="d">商品描述<i>Detail</i></p>
-								<p>请注意：海南，西藏，新疆不发货，甜瓜在运输途中可能出现水分挥发，重量可能会少于5斤。<br>【产品名称】：阎良甜瓜<br>【产品规格】：4.8-5.2斤 </p>
+								<p class="shuo">请注意：海南，西藏，新疆不发货，甜瓜在运输途中可能出现水分挥发，重量可能会少于5斤。<br>【产品名称】：阎良甜瓜<br>【产品规格】：4.8-5.2斤 </p>
 								
 							</div>
 							<div class="img">
@@ -181,15 +163,18 @@
 					</div>
 					<div class="txt">
 						<p class="price">39.90</p>
-						<p>库存 1995件</p>
-						<p>请选择：<span class="leixing">白肉五斤</span></p>
+						<p class="kucun">库存 1995件</p>
+						<p>请选择：<span class="leixing"></span></p>
 					</div>
 					<span class="clo-btn">&times;</span>
 				</div>
 				<div class="center">
-						<p>阎良甜瓜：</p>
-						<span>红肉5斤</span>
-						<span>白肉5斤</span>
+						<p class="spName">阎良甜瓜：</p>
+						<span class="span1"></span>
+						<span class="span2"></span>
+						<span class="span3"></span>
+						
+						
 						<div class="b">
 						<a class="cut">-</a>
 						<input type="text" value="1" class="count">
@@ -201,7 +186,7 @@
 			</div>	
 			</div>
 		<div class="indexToTop">
-			<i class="iconfont icon-xiangshang"></i>
+			<i class="iconfont icon-totop"></i>
 		</div>
 		<div class="hei1">
 			

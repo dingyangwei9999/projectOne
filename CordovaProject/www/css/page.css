@@ -1,0 +1,7 @@
+﻿*{font-size:12px;}
+.header{height:38px; text-align:center; background-color:#ff6a00; line-height:38px; color:#f2e8e8; width:100%;}
+.header>*{color:#f2e8e8; font-size: 20px;}
+
+.contianer{position:absolute; top:38px; right:0; bottom:0; left:0; overflow:auto;}
+
+.contianer img{max-width:100%;}

@@ -3,6 +3,58 @@ require(['config'],function(){
 	require(['jquery','lazyload','fly','common','swiper'],function($,lazyload,fly,common,swiper){
 		$(function(){
 
+
+			//根据传进来的id请求数据
+			var big_proa=location.search
+            var big_id=big_proa.split('=')[1]
+            var productid;
+            // console.log(big_id)
+            $.ajax({
+              	type: "GET",
+             	url: "http://localhost:8080/details",
+             	data: {productid: big_id},
+             	success: function(msg){
+                 	// console.log(msg[0])
+
+                	$('.lbt1').html(`<img src="../images/${msg[0].banner1}" alt="" class="swiperWrapper1">`);
+					$('.lbt2').html(`<img src="../images/${msg[0].banner2}" alt="" class="swiperWrapper1">`);
+					$('.title').html(`${msg[0].name}`);
+					$('.price p').html(`${msg[0].price}`);
+					$('.Explain').html(`${msg[0].states}`);
+					$('.shuo').html(`${msg[0].des}`);
+					$('.img').html(`<img src="../images/${msg[0].img1}" alt="">
+						<img src="../images/${msg[0].img2}" alt="">
+						<img src="../images/${msg[0].img3}" alt="">
+						<img src="../images/${msg[0].img4}" alt="">
+						<img src="../images/${msg[0].img5}" alt="">
+						<img src="../images/${msg[0].img6}" alt="">
+						<img src="../images/${msg[0].img7}" alt="">
+						<img src="../images/${msg[0].img8}" alt="">
+						<img src="../images/${msg[0].img9}" alt="">
+						<img src="../images/${msg[0].img10}" alt="">
+						<img src="../images/${msg[0].img11}" alt="">
+						<img src="../images/${msg[0].img12}" alt="">
+						<img src="../images/${msg[0].img13}" alt="">
+						<img src="../images/${msg[0].img14}" alt="">
+						<img src="../images/${msg[0].img15}" alt="">
+						<img src="../images/${msg[0].img16}" alt="">
+						<img src="../images/${msg[0].img17}" alt="">
+		`);
+					$('.kucun').html(`库存${msg[0].kucun}件`);
+					$('.spName').html(`${msg[0].states}`);
+					$('.span1').text(`${msg[0].kind1}`);
+					$('.span2').text(`${msg[0].kind2}`);
+					$('.span3').text(`${msg[0].kind3}`);
+					$('.tu').html(`<img src="../images/${msg[0].banner1}" alt="">`);
+					// console.log(`${msg[0].kind3}`)
+					// console.log($('.title'))
+              		}
+              		
+              		
+
+            });
+
+
 			// 顶部轮播图
 			var mySwiper = new Swiper ('.swiper-container', {
 			    direction: 'horizontal',
@@ -41,6 +93,7 @@ require(['config'],function(){
 			});
 		
 			//选项
+			
 			$('.center span').eq(0).addClass('active');
 			$('.center').on('click','span',function(){
 				$('.leixing').text($(this).text());
@@ -48,16 +101,58 @@ require(['config'],function(){
 
 			});
 
+
+
+	
+			
+			setTimeout(function(){
+				$('.leixing').text($('.span1').text());
+				$('.txt .price').text((parseFloat($('.price p').text())*$('.count').val()).toFixed(2));
+				$('.center span').each(function(i,ele){
+					// console.log($(ele).text());
+				   if($(ele).text()==""){
+				   	// console.log($(ele));
+					$(ele).hide();
+					
+					}
+				});
+			},300);
+
+
+			setTimeout(function(){
+				
+				// console.log(($('.img img').attr('src')))
+				$('.img img').each(function(i,ele){
+					// console.log($(ele).attr('src'))
+				   if($(ele).attr('src') == '../images/'){
+						$(ele).hide();
+						// console.log(1)
+					}
+				});
+
+
+			},300);
+
+
+
+
+
 			$('.miao').click(function(){
 				$('.m').show();
 				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
 				$('main').animate({scrollTop:h},100)
+				$('.miao').css({"border-bottom":"1px solid #fff"});
+				$('.lun').css({"border-bottom":"1px solid #ccc"});
+				$('.xi').css({"border-bottom":"none"});
 				
 			})
 			$('.lun').click(function(){
 				var h = $('.swiper-container').height()  + $('.goods-title').height() + $('.goods .price').height() + $('.Explain').height() + 3 + 'rem';
 				$('main').animate({scrollTop:h},100)
 				$('.m').hide();
+				$('.lun').css({"border-bottom":"1px solid #fff"});
+				$('.miao').css({"border-bottom":"1px solid #ccc"});
+				$('.xi').css({"border-bottom":"none"});
 				
 			})
 
@@ -116,9 +211,9 @@ require(['config'],function(){
 			
 
 			$('.buy').click(function(){
-				console.log(555)
+				// console.log(555)
 				if(flag ==false){
-					$('.zhe').stop().animate({top:'45%'},300);
+					$('.zhe').stop().animate({top:'42%'},300);
 					$('.hei').stop().fadeIn(300);
 					flag = true;
 
@@ -128,10 +223,10 @@ require(['config'],function(){
 			$('.car').click(function(event){
 				
 				if(flag ==false){
-					$('.zhe').stop().animate({top:'45%'},300);
+					$('.zhe').stop().animate({top:'42%'},300);
 					$('.hei').stop().fadeIn(300);
 					flag = true;
-					console.log(555)
+					// console.log(555)
 
 				}
 				else if(flag == true){

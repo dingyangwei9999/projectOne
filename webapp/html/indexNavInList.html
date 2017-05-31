@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/indexNavInList.css">
+	<script src="../libs/lib/jquery-3.2.1.js"></script>
+	<script>   
+		$(function(){
+			//-------------------
+			var big_proa=location.search
+            var big_id=big_proa.split('=')[1]
+            var productid;
+            var navKeywordCn = decodeURIComponent(big_id)
+            console.log(big_id)
+            $.ajax({
+              	type: "GET",
+             	url: "http://localhost:8080/navKeywordSearch",
+             	data: {navKeyword: navKeywordCn},
+             	success: function(msg){
+                 	console.log(msg)
+                 	$('.indexNavInBanner').html(`<img src="../images/index/indexNavIn/${msg[0].navBigImg}" alt="">`)
+                 	$('.indexNavInListKeyword').html(msg[0].navKeyWord)
+                	msg.map(function(obj){
+                		var li = $('<li/>');
+                		li.html(`<a href="http://localhost:8080/webapp/html/detail.html?id=${obj.id}" class="indexListLink">
+	                 <img src="../images/index/no_picture.jpg" dataimg="../images/${obj.img}" class="indexListImage">
+	                 <p class="indexListName">${obj.goodsMsg}</p>
+	                </a>
+	                <p class="indexListPriceNow">￥${obj.vipPrice}</p>
+	                <p class="indexListPriceOriginal"><s>￥${obj.price}</s></p>
+	                <span class="indexListBottom">
+	                   <i class="iconfont icon-xin"></i>
+	                   <p class="salesVolume">销量${obj.sales}件</p>
+	                </span>`)
+                		$('.indexListUl').append(li);
+                	//实现图片懒加载
+		            var lazyload = {
+		              init : function(opt){
+		                var that = this;
+		                var op = {
+		                    anim: true,
+		                    extend_height:100
+		                };
+		                // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
+		                $.extend(op,opt);
+		                // 调用lazyload.img.init(op)函数
+		                that.img.init(op);
+
+		              },
+		              
+		              img : {
+		                init : function(n){
+
+		                  var that = this;
+		                  //console.log(n);
+
+		                  // 要加载的图片是不是在指定窗口内
+		                  function inViewport( el ) {
+		                      // 当前窗口的顶部
+		                    var top = window.pageYOffset
+		                    // 当前窗口的底部
+		                    var btm = window.pageYOffset + window.innerHeight
+		                    // 元素所在整体页面内的y轴位置
+		                    var elTop = $(el).offset().top;
+		                    // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
+		                    return elTop >= top && elTop - n.extend_height <= btm
+		                  }
+
+		                  // 滚动事件里判断，加载图片
+		                   $(window).bind('scroll', function() {
+		                      $('img').each(function(index,node) {
+		                        var $this = $(this)
+		                        if(!$this.attr('dataimg')){
+		                          return
+		                        }
+		                        if ( !inViewport(this) ) return
+		                        act($this)
+
+		                      })
+		                    }).trigger('scroll')
+
+		                   // 展示图片
+		                   function act(_self){
+		                          // 已经加载过了，则中断后续代码
+		                       if (_self.attr('loaded')) return;
+		                        var img = new Image(), original = _self.attr('dataimg')
+		                        // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
+		                        img.onload = function() {
+		                            _self.attr('src', original).removeClass('lazy');
+		                            n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
+		                        }
+		                        // 当你设置img.src的时候，浏览器就在发送图片请求了
+		                        original && (img.src = original);
+		                         _self.attr('loaded', true);
+		                   }
+		                }
+		              }
+		            };
+		            lazyload.init();
+                	})
+              	}
+            });
+		})
+	</script> 
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="javascript:history.go(-1)">
+				<i class="iconfont icon-jiantouxiangzuo"></i>
+			</a>
+			<h3 class="indexNavInListKeyword">粮油干货</h3>
+		</header>
+		<div class="indexNavInBanner">
+			<img src="../images/index/indexNavIn/indexNavInTop-1.png" alt="">
+		</div>
+		<div class="indexList">
+			<div class="indexListBox">
+	          <ul class="indexListUl">
+	            <!-- <li>
+	            	<a href="http://localhost:8080/webapp/html/detail.html" class="indexListLink">
+	                 <img src="../images/index/no_picture.jpg" dataimg="../images/1 (1).jpg" class="indexListImage">
+	                 <p class="indexListName">不知道什么商品 反正我是试样式的</p>
+	                </a>
+	                <p class="indexListPriceNow">￥99.99</p>
+	                <p class="indexListPriceOriginal"><s>￥100.99</s></p>
+	                <span class="indexListBottom">
+	                   <i class="iconfont icon-xin"></i>
+	                   <p class="salesVolume">销量122件</p>
+	                </span>
+	            </li> -->
+	          </ul>
+	        </div>
+		</div>
+        
+	</div>
+</body>
+</html>

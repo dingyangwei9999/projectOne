@@ -20,8 +20,13 @@
         loop: true,
         //自动播放
         autoplay:2000,
+       //播放速度
+        speed:650,
         // 如果需要分页器
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination',
+        // 这样，即使我们滑动之后， 定时器也不会被清除
+      　autoplayDisableOnInteraction : false,
+  
       })       
 
 
@@ -58,23 +63,26 @@
       //将数据库中数据导入indexList
       $.get('http://localhost:8080/getproduct',function(response){
            //console.log(response)
-          response.map(function(obj){
-            //console.log(obj)
+          
+    
+          for(var i=0;i<=13;i++){
+
+            //console.log(response[i])
             var li = $('<li/>');
             li.html(`
-                <a href="http://localhost:8080/webapp/html/detail.html?id=${obj._id}" class="indexListLink">
-                 <img src="images/index/no_picture.jpg" dataimg="${obj.imgUrl}" class="indexListImage">
-                 <p class="indexListName">${obj.goodsMsg}</p>
+                <a href="http://localhost:8080/webapp/html/detail.html?id=${response[i].id}" class="indexListLink">
+                 <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
+                 <p class="indexListName">${response[i].goodsMsg}</p>
                 </a>
-                <p class="indexListPriceNow">￥${obj.vipPrice}</p>
-                <p class="indexListPriceOriginal"><s>￥${obj.price}</s></p>
+                <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
+                <p class="indexListPriceOriginal"><s>￥${response[i].price}</s></p>
                 <span class="indexListBottom">
                    <i class="iconfont icon-xin"></i>
-                   <p class="salesVolume">销量122件</p>
+                   <p class="salesVolume">销量${response[i].sales}件</p>
                 </span>`)
             $('.indexListUl').append(li);
-             //实现图片懒加载
-              var lazyload = {
+            //实现图片懒加载
+            var lazyload = {
               init : function(opt){
                 var that = this;
                 var op = {
@@ -137,7 +145,96 @@
               }
             };
             lazyload.init();
+          }
+          $(window).scroll(function() {
+            if($(window).scrollTop() + $(window).height() == $(document).height()){
+              for(var i=14;i<=27;i++){
+
+                //console.log(response[i])
+                var li = $('<li/>');
+                li.html(`
+                    <a href="http://localhost:8080/webapp/html/detail.html?id=${response[i].id}" class="indexListLink">
+                     <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
+                     <p class="indexListName">${response[i].goodsMsg}</p>
+                    </a>
+                    <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
+                    <p class="indexListPriceOriginal"><s>￥${response[i].price}</s></p>
+                    <span class="indexListBottom">
+                       <i class="iconfont icon-xin"></i>
+                       <p class="salesVolume">销量${response[i].sales}件</p>
+                    </span>`)
+                $('.indexListUl').append(li);
+                //实现图片懒加载
+                var lazyload = {
+                  init : function(opt){
+                    var that = this;
+                    var op = {
+                        anim: true,
+                        extend_height:100
+                    };
+                    // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
+                    $.extend(op,opt);
+                    // 调用lazyload.img.init(op)函数
+                    that.img.init(op);
+
+                  },
+                  
+                  img : {
+                    init : function(n){
+
+                      var that = this;
+                      //console.log(n);
+
+                      // 要加载的图片是不是在指定窗口内
+                      function inViewport( el ) {
+                          // 当前窗口的顶部
+                        var top = window.pageYOffset
+                        // 当前窗口的底部
+                        var btm = window.pageYOffset + window.innerHeight
+                        // 元素所在整体页面内的y轴位置
+                        var elTop = $(el).offset().top;
+                        // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
+                        return elTop >= top && elTop - n.extend_height <= btm
+                      }
+
+                      // 滚动事件里判断，加载图片
+                       $(window).bind('scroll', function() {
+                          $('img').each(function(index,node) {
+                            var $this = $(this)
+                            if(!$this.attr('dataimg')){
+                              return
+                            }
+                            if ( !inViewport(this) ) return
+                            act($this)
+
+                          })
+                        }).trigger('scroll')
+
+                       // 展示图片
+                       function act(_self){
+                              // 已经加载过了，则中断后续代码
+                           if (_self.attr('loaded')) return;
+                            var img = new Image(), original = _self.attr('dataimg')
+                            // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
+                            img.onload = function() {
+                                _self.attr('src', original).removeClass('lazy');
+                                n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
+                            }
+                            // 当你设置img.src的时候，浏览器就在发送图片请求了
+                            original && (img.src = original);
+                             _self.attr('loaded', true);
+                       }
+                    }
+                  }
+                };
+                lazyload.init();
+              }
+            }
           })
+          
+        
+
+
         }
       )
 
@@ -156,6 +253,23 @@
       })
      
       
+
+      //点击轮播图 跳转到detail
+      $('#carousel1').on('click',function(){
+        window.location.href = 'html/detail.html?id=38';
+      })
+      $('#carousel2').on('click',function(){
+        window.location.href = 'html/detail.html?id=5';
+      })
+      $('#carousel3').on('click',function(){
+        window.location.href = 'html/detail.html?id=11';
+      })
+      $('#carousel4').on('click',function(){
+        window.location.href = 'html/detail.html?id=1';
+      })
+      $('#carousel5').on('click',function(){
+        window.location.href = 'html/detail.html?id=10';
+      })
       
     })
 
@@ -173,11 +287,11 @@
     <div class="banner">
       <div class="swiper-container">
           <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-1.jpg"></div>
-              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-2.jpg"></div>
-              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-3.jpg"></div>
-              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-4.jpg"></div>
-              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-5.jpg"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-1.jpg" id="carousel1"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-2.jpg" id="carousel2"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-3.jpg" id="carousel3"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-4.jpg" id="carousel4"></div>
+              <div class="swiper-slide"><img src="images/index/carousel/index-carousel-5.jpg" id="carousel5"></div>
           </div>
           <div class="swiper-pagination"></div>
       </div>
@@ -185,61 +299,61 @@
     <div class="nav">
       <ul>
         <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=口碑优选">
             <img src="images/index/nav/index-nav-1.png">
             <p>口碑优选</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=生态农品">
             <img src="images/index/nav/index-nav-2.png">
             <p>生态农品</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=精选水果">
             <img src="images/index/nav/index-nav-3.png">
             <p>精选水果</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=休闲零食">
             <img src="images/index/nav/index-nav-4.png">
             <p>休闲零食</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=生活用品">
             <img src="images/index/nav/index-nav-5.png">
             <p>生活用品</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=助农优品">
             <img src="images/index/nav/index-nav-6.png">
             <p>助农优品</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=育儿保健">
             <img src="images/index/nav/index-nav-7.png">
             <p>育儿保健</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=美妆个护">
             <img src="images/index/nav/index-nav-8.png">
             <p>美妆个护</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInList.html?navKeyword=试吃试用">
             <img src="images/index/nav/index-nav-9.png">
             <p>试吃试用</p>
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/indexNavInListKf.html">
             <img src="images/index/nav/index-nav-10.png">
             <p>联系客服</p>
           </a>
@@ -249,92 +363,92 @@
     <div class="featuredProduct">
       <ul>
         <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=42">
             <img src="images/index/featuredProduct/index-featuredProduct-1.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=18">
             <img src="images/index/featuredProduct/index-featuredProduct-2.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=73">
             <img src="images/index/featuredProduct/index-featuredProduct-3.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=127">
             <img src="images/index/featuredProduct/index-featuredProduct-4.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=38">
             <img src="images/index/featuredProduct/index-featuredProduct-5.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=11">
             <img src="images/index/featuredProduct/index-featuredProduct-6.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=87">
             <img src="images/index/featuredProduct/index-featuredProduct-7.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=107">
             <img src="images/index/featuredProduct/index-featuredProduct-8.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=113">
             <img src="images/index/featuredProduct/index-featuredProduct-9.png">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=50">
             <img src="images/index/featuredProduct/index-featuredProduct-10.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=6">
             <img src="images/index/featuredProduct/index-featuredProduct-11.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=4">
             <img src="images/index/featuredProduct/index-featuredProduct-12.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=38">
             <img src="images/index/featuredProduct/index-featuredProduct-13.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=116">
             <img src="images/index/featuredProduct/index-featuredProduct-14.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=132">
             <img src="images/index/featuredProduct/index-featuredProduct-15.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=100">
             <img src="images/index/featuredProduct/index-featuredProduct-16.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=46">
             <img src="images/index/featuredProduct/index-featuredProduct-17.jpg">
           </a>
         </li>
          <li>
-          <a href="#">
+          <a href="http://localhost:8080/webapp/html/detail.html?id=75">
             <img src="images/index/featuredProduct/index-featuredProduct-18.jpg">
           </a>
         </li>

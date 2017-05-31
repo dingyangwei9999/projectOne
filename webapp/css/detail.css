@@ -2,6 +2,7 @@
 @import url("base.css");
 @import url("../iconfont/iconfont.css");
 @import url("../css/swiper-3.4.2.min.css");
+@import url("../iconfont/font-index/iconfont.css");
 * { padding: 0; margin: 0 auto; text-decoration: none; }
 
 body, html { height: 100%; margin: 0; padding: 0; z-index: -1; }
@@ -118,9 +119,9 @@ body, html { height: 100%; margin: 0; padding: 0; z-index: -1; }
 
 #box .hei1 { width: 100%; height: 100%; background: #000; position: fixed; z-index: 10; opacity: 0.4; top: 0%; display: none; max-width: 640px; }
 
-#box .zhe { width: 100%; height: 650px; overflow-y: scroll; overflow-x: hidden; background: #fff; position: fixed; top: 100%; z-index: 8; max-width: 640px; }
+#box .zhe { width: 100%; height: 13rem; overflow-y: scroll; overflow-x: hidden; background: #fff; position: fixed; top: 100%; z-index: 8; max-width: 640px; }
 
-#box .zhe .xuan { width: 100%; height: 9.08rem; background: #fff; padding: 0.2rem; max-width: 640px; }
+#box .zhe .xuan { width: 100%; height: 16rem; background: #fff; padding: 0.2rem; max-width: 640px; }
 
 #box .zhe .xuan .top { position: relative; border-bottom: 0.02rem dotted #B3B3B3; }
 
@@ -142,7 +143,7 @@ body, html { height: 100%; margin: 0; padding: 0; z-index: -1; }
 
 #box .zhe .xuan .center p { font-size: 0.26rem; margin-top: 0.12rem; }
 
-#box .zhe .xuan .center span { display: inline-block; width: 31%; height: 0.56rem; border: 0.02rem solid #878787; text-align: center; line-height: 0.56rem; font-size: 0.24rem; margin-top: 0.16rem; }
+#box .zhe .xuan .center span { display: inline-block; width: 30%; height: 0.56rem; border: 0.02rem solid #878787; text-align: center; line-height: 0.56rem; font-size: 0.24rem; margin-top: 0.16rem; }
 
 #box .zhe .xuan .center .b { margin-top: 0.4rem; }
 

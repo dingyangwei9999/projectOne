@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/page.css" rel="stylesheet" />
+
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="col-xs-2"><i class="fa fa-angle-left"></i></a>
+        <a href="javascript:" class="col-xs-10" id="camera"><i class="fa fa-bell"></i></a>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#camera').on('touchstart', function () {
+                //第一个函数使用 time 参数。 此参数用于设置的振动的持续时间。 我们按下 VIBRATION 按钮设备会三秒钟震动一次
+                //第二个函数使用 pattern参数。因此此数组要求设备振动一秒钟，然后等待一秒钟，然后再重复上述过程。
+                var pattern = [1000, 1000, 1000, 1000];
+                navigator.vibrate(pattern);
+                //var time = 3000;
+                //navigator.vibrate(time);
+            })
+        })
+    </script>
+</body>
+</html>

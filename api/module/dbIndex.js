@@ -2,7 +2,7 @@ var mongodb = require('mongodb');
 
 var server = new mongodb.Server('localhost', 27017);
 
-var db = new mongodb.Db('allGoods', server);
+var db = new mongodb.Db('bbm', server);
 
 
 
@@ -22,9 +22,10 @@ var getIndexData = function(_collection, data, res){
 					//console.log(docs);
 					
 					res.send(docs);
+					db.close();
 				});
 			}
-			db.close();
+			
 		})
 	})	
 }
@@ -37,13 +38,14 @@ var exists = function(name, res){
 			console.log('connect db:', error);
 		}
 		//Account => 集合名（表名）
-		db.collection('index', function(error, collection){
+		db.collection('list', function(error, collection){
 			if(error){
 				console.log(error)	
 			} else {
-				collection.find({keyword:name}).toArray(function(err, docs){
-					console.log(docs)
-					res.send(docs)
+				var reg = new RegExp("^.*"+name+"\.*$","i");
+				collection.find({goodsMsg:{$regex:reg}}).toArray(function(err, docs){
+				    res.send(docs);
+					// console.log(docs);
 				});
 			}
 			db.close();
@@ -53,19 +55,67 @@ var exists = function(name, res){
 exports.exists=exists;
 
 
+
+var allexists = function(name, res){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection('list', function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				//var reg = new RegExp("^.*"+name+"\.*$","i");
+				collection.find({allKeyWord:name}).toArray(function(err, docs){
+				    res.send(docs);
+					// console.log(docs);
+				});
+			}
+			db.close();
+		})
+	})	
+}
+exports.allexists=allexists;
+
+var navSearch = function(name, res){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection('list', function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				//var reg = new RegExp("^.*"+name+"\.*$","i");
+				collection.find({navKeyWord:name}).toArray(function(err, docs){
+				    res.send(docs);
+					 //console.log(docs);
+				});
+			}
+			db.close();
+		})
+	})	
+}
+exports.navSearch=navSearch;
+
+
+
+
 var details = function(name, res){
 	db.open(function(error, db){
 		if(error){
 			console.log('connect db:', error);
 		}
 		//Account => 集合名（表名）
-		db.collection('index', function(error, collection){
+		db.collection('details', function(error, collection){
 			if(error){
 				console.log(error)	
 			} else {
-				collection.find({_id:name}).toArray(function(err, docs){
-					//console.log(name)
-					//console.log(docs)
+				collection.find({id:name}).toArray(function(err, docs){
+					console.log(typeof name)
+					console.log(docs)
 					res.send(docs)
 				});
 			}
@@ -87,14 +137,16 @@ var allList = function(_collection, data, res){
 			if(error){
 				console.log(error);	
 			} else {
-				collection.find().toArray(function(err, docs){
-
-					//console.log(docs);
+		 		collection.find().toArray(function(err,docs){
 					
+					//console.log(docs);
+					//console.log(111)
 					res.send(docs);
+					db.close();
 				});
+
 			}
-			db.close();
+			
 		})
 	})	
 }

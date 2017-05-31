@@ -13,6 +13,8 @@
 			//list页面接收参数
 			var big_proa=location.search
             var big_id=big_proa.split('=')[1]
+            var allKeyWord=big_proa.split('=')[0].slice(1);
+            console.log(allKeyWord);
             var productid;
             var keywordCn = decodeURIComponent(big_id)
             console.log(keywordCn)
@@ -20,12 +22,12 @@
 			if(big_proa == ''){
 				//将数据库中数据导入indexList
 				$.get('http://localhost:8080/allList',function(response){
-				       //console.log(response)
+				       console.log(response)
 				      response.map(function(obj){
 				        //console.log(obj) 
 				        var li = $('<li/>');
 				        li.html(`
-								<a href=""><img src="../${obj.imgUrl}" alt=""></a>
+								<a href="http://localhost:8080/webapp/html/detail.html?id=${obj.id}"><img src="../images/${obj.img}" alt=""></a>
 								<dt>
 									<h4>
 										<a href="" class="title-price">
@@ -53,18 +55,58 @@
 				      })
 				    }
 				)
-			}else{
+			}else if(allKeyWord == "keyword"){
 				$.ajax({
 	              	type: "GET",
 	              	url: "http://localhost:8080/keywordSearch",
 	              	data: {keywordbl: keywordCn},
 	              	success: function(msg){
-	                 console.log(msg);
+	                console.log(msg);
 	                 	 msg.map(function(obj){
-				        //console.log(obj) 
+				        console.log(obj) 
 				        var li = $('<li/>');
 				        li.html(`
-								<a href=""><img src="../${obj.imgUrl}" alt=""></a>
+								<a href="http://localhost:8080/webapp/html/detail.html?id=${obj.id}"><img src="../images/${obj.img}" alt=""></a>
+								<dt>
+									<h4>
+										<a href="" class="title-price">
+											${obj.goodsMsg}
+										</a>
+									</h4>
+								</dt>
+								<dd>
+									<span class="pri-left">
+										<strong class="prife-price">
+											<i>￥${obj.vipPrice}</i>
+										</strong>
+										<small class="ori-price">
+											<i>￥${obj.price}</i>
+										</small>
+									</span>
+								</dd>
+								<dd>
+									<span class="pri-right">
+										<i>销量:${obj.price}件</i>
+									</span>
+								</dd>
+							`)
+				        $('.f-cb').append(li);
+				      })
+	              	}
+
+	            });
+			}else if(allKeyWord == "allKeyWord"){
+				$.ajax({
+	              	type: "GET",
+	              	url: "http://localhost:8080/allkeywordSearch",
+	              	data: {keywordbl: keywordCn},
+	              	success: function(msg){
+	                console.log(msg);
+	                 	 msg.map(function(obj){
+				        console.log(obj) 
+				        var li = $('<li/>');
+				        li.html(`
+								<a href="http://localhost:8080/webapp/html/detail.html?id=${obj.id}"><img src="../images/${obj.img}" alt=""></a>
 								<dt>
 									<h4>
 										<a href="" class="title-price">
@@ -103,36 +145,36 @@
 			<header class="Header clearfix fixed">
 			    	<a href="javascript:history.go(-1)" class="Return"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
 			        <span class="Title">商品列表</span>
-			       	<a href="./" class="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
+			       	<a href="http://localhost:8080/webapp/index.html#" class="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
 			</header>
 			<div class="nav">
 				<div class="daohang">	
 					<ul class="fir-ul">
 						<li>
-							<span class="sort">排序</span>
+							<span class="sort"><i>排序</i></span>
 							
 						</li>
 						<li>
-							<span class="screen">筛选</span>
+							<span class="screen"><i>筛选</i></span>
 							
 						</li>
 						
 					</ul>
 					<ul class="sorts" style="display:none">
-						<li class="fir-sort">默认</li>
-						<li>销量<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
-						<li>人气<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
-						<li>价格<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li class="fir-sort active" type='default'>默认</li>
+						<li type='sales'>销量<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li type='moods'>人气<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li type='price'>价格<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
 					</ul>
 					<ul class="screens" style="display:none">
-						<li>全部</li>
-						<li>至IN美妆</li>
-						<li>星级个护</li>
-						<li>格调育儿</li>
-						<li>口碑保健</li>
-						<li>美好味蕾</li>
-						<li>生活日常</li>
-						<li>年货</li>
+						<li class="active">全部</li>
+						<li type="口碑优选">口碑优选</li>
+						<li type="育儿保健">育儿保健</li>
+						<li type="休闲零食">休闲零食</li>
+						<li type="美妆个护">美妆个护</li>
+						<li type="生态农品">生态农品</li>
+						<li type="生活用品">生活用品</li>
+						<li type="助农优品">助农优品 </li>
 					</ul>
 				</div>
 			</div>
@@ -166,10 +208,10 @@
 				</li> -->
 			</ul>
 			<div class="footer">
-			<p>© 2005-2017 帮帮卖 版权所有，并保留所有权利。</p>
+				<p>© 2005-2017 帮帮卖 版权所有，并保留所有权利。</p>
+				<p>技术支持:广州佳兴</p>
 			</div>
 		</div>
-		
 	</div>
 	<div class="indexToTop">
 	      <i class="iconfont icon-totop"></i>

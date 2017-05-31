@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/page.css" rel="stylesheet" />
+
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="col-xs-2"><i class="fa fa-angle-left"></i></a>
+        <a href="javascript:" class="col-xs-10" id="camera"><i class="fa fa-camera"></i></a>
+    </div>
+    <div class="contianer">
+        <img id="myImage" />
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#camera').on('touchstart', function () {
+                navigator.camera.getPicture(function (imageData) {
+                    // document.getElementById('myImage').src = "data:image/jpeg;base64," + imageData;
+                    console.log(imageData);
+                    $('#myImage').attr('src', imageData);
+                }, function (message) {
+                    console.log('Failed because: ' + message);
+                }, {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    saveToPhotoAlbum: true
+                });
+            })
+        })
+    </script>
+</body>
+</html>

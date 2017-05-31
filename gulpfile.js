@@ -1,23 +1,6 @@
 ﻿// 引入gulp模块
 // commonjs规范引用模块
 var gulp = require('gulp');
-<<<<<<< HEAD
-var sass = require('gulp-sass');
-
-gulp.task('buildSass',function(){
-	//先查找文件所在位置
-	gulp.src('webapp/sass/*.scss')
-	//通过pipe方法导入到gulp插件中实现编译
-	.pipe(sass({outputStyle:'expanded'}).on('error',sass.logError))
-	//文件输出
-	.pipe(gulp.dest('webapp/css'));
-})
-
-//监听文件修改  执行响应文件
-gulp.task('jtSass',function(){
-	gulp.watch('webapp/sass/*.scss',['buildSass']);
-<<<<<<< HEAD
-=======
 var sass = require('gulp-sass'); 
 
 
@@ -72,9 +55,6 @@ gulp.task('compressJS',function(){
 gulp.task('comJS',function(){
 	// 监听js文件，如果有修改，则编译
 	gulp.watch('webapp/js/*.js',['compressJS']);
->>>>>>> 7e1d08f1ba449a627989010960d260f258d70ce0
-=======
->>>>>>> 28eeb2c9842b112ca07b6811cf63017462235305
 });
 
 // 同步任务
