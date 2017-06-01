@@ -139,6 +139,7 @@ img {
 #box main .goods .price {
   width: 100%;
   height: 0.5rem;
+  overflow: hidden;
 }
 
 #box main .goods .price p {

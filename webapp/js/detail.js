@@ -9,39 +9,56 @@ require(['config'],function(){
         var productid;
         $.post(erp.baseUrl + "details",{id:big_id},function(msg){
         	// console.log(msg);
-        			$('.lbt1').html(`<img src="../images/${msg[0].banner1}" alt="" class="swiperWrapper1">`);
-					$('.lbt2').html(`<img src="../images/${msg[0].banner2}" alt="" class="swiperWrapper1">`);
+        			$('.lbt1').html(`<img src="${erp.baseUrl}webapp/images/${msg[0].banner1}" alt="" class="swiperWrapper1">`);
+					$('.lbt2').html(`<img src="${erp.baseUrl}webapp/images/${msg[0].banner2}" alt="" class="swiperWrapper1">`);
 					$('.title').html(`${msg[0].name}`);
 					$('.price p').html(`${msg[0].vipPrice}`);
 					$('.Explain').html(`${msg[0].states}`);
 					$('.shuo').html(`${msg[0].des}`);
-					$('.img').html(`<img src="../images/${msg[0].img1}" alt="">
-						<img src="../images/${msg[0].img2}" alt="">
-						<img src="../images/${msg[0].img3}" alt="">
-						<img src="../images/${msg[0].img4}" alt="">
-						<img src="../images/${msg[0].img5}" alt="">
-						<img src="../images/${msg[0].img6}" alt="">
-						<img src="../images/${msg[0].img7}" alt="">
-						<img src="../images/${msg[0].img8}" alt="">
-						<img src="../images/${msg[0].img9}" alt="">
-						<img src="../images/${msg[0].img10}" alt="">
-						<img src="../images/${msg[0].img11}" alt="">
-						<img src="../images/${msg[0].img12}" alt="">
-						<img src="../images/${msg[0].img13}" alt="">
-						<img src="../images/${msg[0].img14}" alt="">
-						<img src="../images/${msg[0].img15}" alt="">
-						<img src="../images/${msg[0].img16}" alt="">
-						<img src="../images/${msg[0].img17}" alt="">
+					$('.img').html(`<img src="${erp.baseUrl}webapp/images/${msg[0].img1}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img2}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img3}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img4}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img5}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img6}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img7}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img8}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img9}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img10}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img11}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img12}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img13}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img14}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img15}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img16}" alt="">
+						<img src="${erp.baseUrl}webapp/images/${msg[0].img17}" alt="">
 		`);
 					$('.kucun').html(`库存${msg[0].kucun}件`);
 					$('.spName').html(`${msg[0].states}`);
 					$('.span1').text(`${msg[0].kind1}`);
 					$('.span2').text(`${msg[0].kind2}`);
 					$('.span3').text(`${msg[0].kind3}`);
-					$('.tu').html(`<img src="../images/${msg[0].banner1}" alt="">`);
+					$('.tu').html(`<img src="${erp.baseUrl}webapp/images/${msg[0].banner1}" alt="">`);
 					$('.yuan').html(`${msg[0].price}`);
 					// console.log(`${msg[0].kind3}`)
 					// console.log($('.title'))
+					$('.img img').each(function(i,ele){
+					// console.log($(ele).attr('src'))
+					   if($(ele).attr('src') == erp.baseUrl+'webapp/images/'){
+							$(ele).hide();
+							// console.log(1)
+						}
+					});
+					$('.leixing').text($('.span1').text());
+					$('.txt .price').text((parseFloat($('.price p').text())*$('.count').val()).toFixed(2));
+					$('.center span').each(function(i,ele){
+						// console.log($(ele).text());
+					   if($(ele).text()==""){
+					   	// console.log($(ele));
+						$(ele).hide();
+						
+						}
+					});
         })
 
 
@@ -95,16 +112,7 @@ require(['config'],function(){
 
 		//隐藏空的选项
 		setTimeout(function(){
-			$('.leixing').text($('.span1').text());
-			$('.txt .price').text((parseFloat($('.price p').text())*$('.count').val()).toFixed(2));
-			$('.center span').each(function(i,ele){
-				// console.log($(ele).text());
-			   if($(ele).text()==""){
-			   	// console.log($(ele));
-				$(ele).hide();
-				
-				}
-			});
+			
 		},300);
 
 
@@ -112,13 +120,7 @@ require(['config'],function(){
 		setTimeout(function(){
 				
 				// console.log(($('.img img').attr('src')))
-				$('.img img').each(function(i,ele){
-					// console.log($(ele).attr('src'))
-				   if($(ele).attr('src') == '../images/'){
-						$(ele).hide();
-						// console.log(1)
-					}
-				});
+				
 
 
 			},300);

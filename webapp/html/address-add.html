@@ -4,13 +4,15 @@
 	<meta charset="UTF-8">
 	<title>新增地址</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<script type="text/javascript" src="../libs/common/global.js"></script>
+<script type="text/javascript" src="../../libs/global/global.js"></script>
 <script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" type="text/css" href="../css/personal.css">
 	<script type="text/javascript" src="../libs/jquery-3.1.1/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
+	<script src="../js/city.js"></script>
 	<script>
+		$.post(erp.baseUrl+'city',{})
 		$.ajax({
 			type:"get",
 			url:"city.json",

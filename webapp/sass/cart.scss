@@ -5,6 +5,7 @@
 body,html{
 	width:100%;
 	height:100%;
+	overflow-x:hidden;
 	background-color:#f7f7f7;
 }
 
@@ -113,6 +114,7 @@ body,html{
 							border-radius:50%;
 							border:1px solid #ccc;
 						}
+
 						.change_goods{
 							display:block;
 							text-align:center;
@@ -124,7 +126,13 @@ body,html{
 							border-radius:50%;
 							border:1px solid white;
 						}
-
+						.goods_name{
+							width:3.4rem;
+							white-space:nowrap;
+							word-break:keep-all;
+							text-overflow:ellipsis;
+							overflow:hidden;
+						}
 					}
 					span:last-child{
 						width:60%;
@@ -135,6 +143,11 @@ body,html{
 						}
 						
 						.norms{
+							width:3.4rem;
+							white-space:nowrap;
+							word-break:keep-all;
+							text-overflow:ellipsis;
+							overflow:hidden;
 							line-height:0.5rem;
 							color:#ccc;
 							strong{
@@ -160,11 +173,10 @@ body,html{
 							}
 							.change_num{
 								display:inline;
-								margin-left:0.12rem;
 								border:1px solid #ccc;
-								padding-bottom:0.02rem;
+								padding-bottom:0.06rem;
 								b{
-									padding:0 0.06rem 0.02rem 0.06rem;
+									padding:0 0.06rem 0.06rem;
 								}
 								b:first-child{
 									border-right:1px solid #ccc;

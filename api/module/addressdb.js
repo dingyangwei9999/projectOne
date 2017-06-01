@@ -43,5 +43,27 @@ var getSite = function(_collection,data,callback){
 		})
 	})	
 }
+//获取城市列表
+var saveCity = function(_collection,data,callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} 
+				collection.insert(data);
+				callback(docs);
+				db.close();
+					
+			
+		})
+	})	
+}
+//修改用户地址
+
 exports.addSite = addSite;
 exports.getSite = getSite;
+exports.saveCity = saveCity;

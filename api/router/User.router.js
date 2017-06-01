@@ -21,7 +21,7 @@ exports.handle = function(app){
 	//修改密码
 	app.post('/resetpsw',urlencodedParser,function(req,res){
 		// res.setHeader('Access-Control-Allow-Origin','*');
-		usedb.resetpsw('user',req.body,'email',function(data){
+		usedb.resetpsw('user',req.body,'username',function(data){
 			res.send(apiResult(true, '修改成功','修改成功'));
 		})
 	})

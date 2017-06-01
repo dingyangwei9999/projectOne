@@ -25,5 +25,10 @@ exports.handle = function(app){
 				res.send(apiResult(false,'无地址'));
 			}
 		});
+	});
+	app.get('/city',function(req,res){
+		ad.saveCity('city',req.body,function(){
+			
+		})
 	})
 }

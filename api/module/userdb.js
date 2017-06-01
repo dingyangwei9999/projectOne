@@ -104,10 +104,10 @@ var resetpsw = function(_collection, data,key,callback){
 			if(error){
 				console.log(error);	
 			} else {
-				collection.find({email:data[key]}).toArray(function(err, docs){
+				collection.find({username:data[key]}).toArray(function(err, docs){
 					console.log(docs)
 					if(docs[0]){
-						collection.update({email:data[key]},{$set:{password:data.password}});
+						collection.update({username:data[key]},{$set:{password:data.password}});
 						callback(docs);
 						db.close();
 					}else{

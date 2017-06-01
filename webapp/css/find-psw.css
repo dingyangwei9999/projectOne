@@ -107,6 +107,7 @@ body, html {
   border: none;
   width: 75%;
   font-size: 0.3rem;
+  outline: none;
 }
 
 .container main .form ul li i {

@@ -1,6 +1,49 @@
 require(['personal-config'],function(){
     require(['jquery'],function($){
-
+      $('.user_img').on('click',function(){
+          //显示提示
+          $('.tip').stop().fadeIn();
+          $('.hei1').stop().fadeIn();
+          
+      })
+      //提示关闭
+      $('.btn_close').click(function(){
+          $('.tip').stop().fadeOut();
+          $('.hei1').stop().fadeOut();
+      });
+      //拍照选取
+      $('.tip_no').on('touchstart',function(){
+        navigator.camera.getPicture(function (imageData) {
+            // document.getElementById('myImage').src = "data:image/jpeg;base64," + imageData;
+            console.log(imageData);
+            $('.user_img img').attr('src', imageData);
+        }, function (message) {
+            console.log('Failed because: ' + message);
+        }, {
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            saveToPhotoAlbum: true
+        });
+        $('.tip').stop().fadeOut();
+        $('.hei1').stop().fadeOut();
+      })
+      //本地文件
+      $('.tip_yes').on('touchstart',function(){
+        navigator.camera.getPicture(function (imageData) {
+            // document.getElementById('myImage').src = "data:image/jpeg;base64," + imageData;
+            console.log(imageData);
+            $('.user_img img').attr('src', imageData);
+        }, function (message) {
+            console.log('Failed because: ' + message);
+        }, {
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            saveToPhotoAlbum: true,
+            sourceType: 0
+        });
+        $('.tip').stop().fadeOut();
+        $('.hei1').stop().fadeOut();
+      })
       var $Htitle = $('title').html();
         $('.Htop').load('../html/personal-header.html',function(){
           return $('.h_2').html($Htitle);
