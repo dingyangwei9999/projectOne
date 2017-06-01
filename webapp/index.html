@@ -36,30 +36,16 @@
       $(window).scroll(function () {
         //console.log($(window).scrollTop())D:\jsdzt
         if ($(window).scrollTop() >= 800) {
-          $('.indexToTop').show();
+          $('.indexToTop').fadeIn();
         }else if($(window).scrollTop() < 800){
-          $('.indexToTop').hide();
+          $('.indexToTop').fadeOut();
         }
       });
 
-
-
-      //toTop点击事件回到顶部
-      $('.indexToTop').on('click',function(){
-          //创建定时器
-         timer=setInterval(function(){
-          //获取滚动条高度
-          var ostop=document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-          //每次上升高度的20%
-          var speed=Math.ceil(ostop/5);
-          //每次上升当前高度的80%
-          document.documentElement.scrollTop=document.body.scrollTop=ostop-speed;
-          //如果高度为0，清除定时器
-          if(ostop==0){
-           clearInterval(timer);
-          } 
-         },30); 
-      })
+       //toTop点击事件回到顶部
+       $('.indexToTop').on('click',function(){
+          $('body').animate({scrollTop:0},300);
+       })
 
       //将数据库中数据导入indexList
       $.get(erp.baseUrl + 'getproduct',function(response){

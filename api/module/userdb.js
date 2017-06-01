@@ -277,6 +277,81 @@ var updategoods = function(_collection, data,callback){
 		})
 	})	
 }
+//收藏产品 , 删除收藏
+var collectgoods = function(_collection, data,callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({userId:data.userId,goodsId:data.goodsId}).toArray(function(err,doc){
+					if(err){
+						console.log('userid : ',err);
+					}
+					if(!doc[0]){
+						collection.insert(data);
+						callback(true);
+					}
+					db.close();
+				})
+			}
+			
+		})
+	})	
+}
+//获取商品
+var fetchgoods = function(_collection,data,callback){
+	db.open(function(err,db){
+		if(err){
+			console.log('connect db:',err);
+			return;
+		}
+		db.collection(_collection,function(err,collection){
+			if(err){
+				console.log('connect collection:',err);
+				return;
+			}
+			collection.find({userId:data.userId}).toArray(function(err,doc){
+				if(err){
+					console.log('collection find:',err);
+					return;
+				}
+				callback(doc);
+				db.close();
+			})
+		})
+	})
+}
+var delgoods = function(_collection, data,callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({userId:data.userId,goodsId:data.goodsId}).toArray(function(err,doc){
+					if(err){
+						console.log('userid : ',err);
+					}
+					if(doc[0]){
+						collection.remove(data);
+						
+						callback(null);
+					}
+					db.close();
+				})
+			}
+			
+		})
+	})	
+}
 exports.register = register;
 exports.loginc = loginc;
 exports.findpsw = findpsw;
@@ -286,3 +361,6 @@ exports.usercart = usercart;
 exports.getgoods = getgoods;
 exports.removegoods = removegoods;
 exports.updategoods = updategoods;
+exports.collectgoods = collectgoods;
+exports.fetchgoods = fetchgoods;
+exports.delgoods = delgoods;

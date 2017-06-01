@@ -65,5 +65,27 @@ exports.handle = function(app){
 		usedb.updategoods('usercart',req.body,function(data){
 			res.send(data);			
 		});
-	})
+	});
+	//收藏商品
+	app.post('/collect',urlencodedParser,function(req,res){
+		usedb.collectgoods('collect',req.body,function(data){
+			res.send(apiResult(true, '收藏成功，请至个人中心查看'));	
+		});
+	});
+	//获取收藏商品
+	app.post('/fetch',urlencodedParser,function(req,res){
+		usedb.fetchgoods('collect',req.body,function(data){
+			if(data.length){
+				res.send(apiResult(true, '有收藏',data));
+			}else{
+				res.send(apiResult(false, '该用户没有收藏商品'));
+			}			
+		});
+	});
+	//删除收藏商品
+	app.post('/del',urlencodedParser,function(req,res){
+		usedb.delgoods('collect',req.body,function(data){
+			res.send(apiResult(null, '已取消收藏'));		
+		});
+	});
 }

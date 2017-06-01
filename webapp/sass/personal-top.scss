@@ -1,34 +1,41 @@
 #Htop {
     position: fixed;
-    background: #F4F4F4;
+    background: #3FB4EA;
     z-index: 99;
     top: 0;
-    height: 0.84rem;
+    height: 0.88rem;
     text-align: center;
     overflow: hidden;
     width: 100%;
-    
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 		.h_2{
-		font-size:0.4rem;
-		line-height:0.84rem;
+		font-size:0.32rem;
+		line-height:0.88rem;
+		font-weight:lighter;
+		color:#FFF;
+		width:100%;
 		}
 		.back{
 		position: absolute;
 		left:0.24rem;
-		top:0.22rem;
+		top:0;
+		line-height:0.88rem;
 		display:block;
-		height:0.48rem;
+		height:0.88rem;
 		font-size:0.36rem;
-		color:#555;
+		font-weight:lighter;
+		color:#FFF;
 		}
 		.index{
 		position: absolute;
 		right:0.24rem;
-		top:0.20rem;
+		top:0;
+		overflow:hidden;
+		line-height:0.88rem;
 		display:block;
-		height:0.48rem;
+		height: 0.84rem;
 		text-decoration:none;
 		font-size:0.48rem;
-		color:#555;
+		color:#FFF;
 		}
 	}

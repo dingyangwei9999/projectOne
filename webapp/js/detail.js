@@ -42,23 +42,46 @@ require(['config'],function(){
 					$('.yuan').html(`${msg[0].price}`);
 					// console.log(`${msg[0].kind3}`)
 					// console.log($('.title'))
+					
+					//隐藏空的选项
 					$('.img img').each(function(i,ele){
 					// console.log($(ele).attr('src'))
 					   if($(ele).attr('src') == erp.baseUrl+'webapp/images/'){
-							$(ele).hide();
+							$(ele).remove();
 							// console.log(1)
 						}
 					});
+
+					//隐藏空的图片
 					$('.leixing').text($('.span1').text());
 					$('.txt .price').text((parseFloat($('.price p').text())*$('.count').val()).toFixed(2));
 					$('.center span').each(function(i,ele){
 						// console.log($(ele).text());
 					   if($(ele).text()==""){
 					   	// console.log($(ele));
-						$(ele).hide();
+						$(ele).remove();
 						
 						}
 					});
+					if(!localStorage.getItem('user')){
+						return false;
+					}else{
+						//获取用户id
+						var user = JSON.parse(localStorage.getItem('user'));
+						var userid = user.userId;
+						$.post(erp.baseUrl + 'fetch',{userId:userid},function(res){
+							if(res.status){
+								res.data.forEach(function(item){
+									if(item.goodsId == big_id){
+										$('.goods-title a').css('color','red');
+										$('.goods-title a').prop('class','unlike');
+									}
+								})
+							}
+							goodsnum();
+						})
+					}
+					
         })
 
 
@@ -95,11 +118,49 @@ require(['config'],function(){
 	      	$('main').animate({scrollTop:0},500)
 	     })
 
-		//懒加载
-		// $("img").lazyload({threshold:1,effect: "fadeIn"});
-		
-		
-	
+		//点击收藏
+		$('.goods-title a').click(function(){
+			if(!localStorage.getItem('user')){
+	    		alert('请先登录');
+	    		location.href = 'login.html';
+	    		return false;
+	    	}
+	    	//获取用户id
+			var user = JSON.parse(localStorage.getItem('user'));
+			var userid = user.userId;
+
+			//获取存入购物车商品数据
+	    	var big_proa=location.search;
+        	var big_id= big_proa.split('=')[1];
+	    	if($(this).prop('class') == 'like'){
+				$(this).css('color','red').removeClass().addClass('unlike');
+		    	var goodsMsg = $(this).siblings('h4').text();
+		    	var price = $(this).closest('div').siblings('.price').find('.yuan').text();
+		    	var vipPrice = $(this).closest('div').siblings('.price').find('p').eq(0).text();
+	    		
+				$.post(erp.baseUrl + 'collect',{
+					userId:userid,
+					goodsId:big_id,
+					goodsMsg:goodsMsg,
+					price:price,
+					vipPrice:vipPrice
+				},function(res){
+					alert(res.message);
+				})
+	    	}else{
+	    		$(this).css('color','').removeClass().addClass('like');
+	    		$.post(erp.baseUrl + 'del',{
+					userId:userid,
+					goodsId:big_id
+				},function(res){
+					alert(res.message);
+				})
+
+	    	}
+	    	
+		})
+
+
 		//选项
 		$('.center span').eq(0).addClass('active');
 		$('.center').on('click','span',function(){
@@ -107,26 +168,7 @@ require(['config'],function(){
 			$(this).addClass('active').siblings().removeClass('active');
 
 		});
-
-
-
-		//隐藏空的选项
-		setTimeout(function(){
-			
-		},300);
-
-
-		//隐藏空的图片
-		setTimeout(function(){
-				
-				// console.log(($('.img img').attr('src')))
-				
-
-
-			},300);
-
-		
-		//
+	
 		//点击描述显示事件
 		$('.miao').click(function(){
 			$('.m').show();

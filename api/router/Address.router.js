@@ -26,9 +26,5 @@ exports.handle = function(app){
 			}
 		});
 	});
-	app.get('/city',function(req,res){
-		ad.saveCity('city',req.body,function(){
-			
-		})
-	})
+	
 }

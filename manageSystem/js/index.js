@@ -3,7 +3,7 @@ $(function(){
 		
 	// })
 	//获取数据库中已有商品  显示到页面
-	$.get(erp.baseUrl + 'getProduct',function(response){
+	$.get(erp.baseUrl + 'fetchproduct',function(response){
 		// console.log(response);
 		var res = JSON.parse(response);
 		$('tbody').html(res.map(function(item){

@@ -107,7 +107,7 @@
       font-size: 0.26rem;
       color:#F00;
       position: absolute;
-      right: 0;
+      right:0;
       top:0;
       display: block;
       width: 0.4rem;height: 0.4rem;
@@ -132,15 +132,26 @@
   }
 }
 
+input:focus {outline:none;}
+button:focus {outline:none;}
+html{
+ font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.Htop{
+  overflow:hidden; 
+}
+
 #Hmain{background:#e8e8e8;}
 .dibu-color{
   color:orange;
 }
 .pp-font{
-  font-size:0.3125rem;
+  font-size:0.250rem;
   a{
-  color: #555;
+  color: skyblue;
   text-decoration: none;
+  font-size:0.250rem;
+  margin:0 2px 0 4px;
   }
 }
 #personal-box{
@@ -202,23 +213,23 @@
     border-bottom: #e0e0e0 1px solid;
     height: auto;
     overflow: hidden;
-    padding-left: 0.671875rem;
-    font-size:0.3125rem;
+    padding-left: 0.571875rem;
+    font-size:0.250rem;
     height:0.78125rem;
     line-height:0.78125rem;
-    color: #555;
+    color: #4A4A4A;
     text-decoration: none;
     }
     .zb{
     	position: absolute;
     	top:0.195312rem;
-    	font-size:0.375rem;
+    	font-size:0.350rem;
     }
     .yb{
     	position: absolute;
     	top:0.195312rem;
     	right:0.195312rem;
-    	font-size:0.359375rem;
+    	font-size:0.259375rem;
     	transform: rotate(180deg);
     }
     }
@@ -244,7 +255,7 @@
 		border-right:1px solid #e3e3e3;
 		.tab1,.tab2,.tab3{
 		line-height:0.625rem;
-		font-size:0.3125rem;
+		font-size:0.250rem;
 		}
 		
 	}
@@ -288,8 +299,9 @@
 		border-bottom:1px solid #e3e3e3;
 		.a-exit{
 			line-height:0.78125rem;
-			font-size:0.3125rem;
+			font-size:0.25rem;
 			color:#565656;
+      display:block;
 		}
 	}
 	
@@ -321,7 +333,8 @@
   }
 
 	.btn-info{
-	display:block;
+	display:inline-block;
+  width:72%;
 	height:0.625rem;
 	line-height:0.625rem;
     background: #fb3f3e;
@@ -338,7 +351,7 @@
 		text-align:right;
 		height:0.78125rem;
 		.user-yue{
-			font-size:0.28125rem;
+			font-size:0.23rem;
 			line-height:0.78125rem;
 			.user-money{
 				color:#fb3f3e;
@@ -359,7 +372,7 @@
 	.user-b{
 	line-height:0.78125rem;
 	font-weight: 400;
-    font-size: 0.28125rem;
+    font-size: 0.23rem;
     color: #858585;
     text-indent: 0;
     margin-left:0.15625rem;
@@ -369,14 +382,14 @@
 	.text-area{
 		border:0px;
 		padding-left:0.15625rem;
-    	font-size: 0.28125rem;
+    font-size: 0.23rem;
     	color: #858585;
     	resize: none;
 	}
 	.user-liub{
    				line-height:0.78125rem;
 				font-weight: 400;
-			    font-size: 0.28125rem;
+    font-size: 0.23rem;
 			    color: #858585;
 			    text-indent: 0;
 			    margin-left:0.15625rem;
@@ -388,7 +401,7 @@
 	.use-email{
 	line-height:0.78125rem;
 	font-weight: 400;
-    font-size: 0.28125rem;
+    font-size: 0.23rem;
     color: #858585;
     text-indent: 0;
     width: auto;
@@ -451,15 +464,53 @@
     width: 90%;
     border-bottom: 1px solid #e3e3e3;
     position: relative;
+    overflow:hidden;
     .user-addb,.now-addb{
       line-height: 0.78125rem;
     font-weight: 400;
-    font-size: 0.28125rem;
+    font-size: 0.23rem;
     color: #858585;
     text-indent: 0;
     margin-left: 0.15625rem;
     margin-right: 0.21875rem;
     width: auto;
+    }
+    select{
+      outline:none;
+    }
+    .seldizhi{
+    line-height: 0.78125rem;
+    font-weight: 400;
+    font-size: 0.23rem;
+    color: #858585;
+    text-indent: 0;
+    margin-left: 0.15625rem;
+    margin-right: 0.21875rem;
+    width: 100%;
+    display: block;
+    }
+
+    .divselect{
+    overflow:hidden;
+    padding:0.15625rem;
+    text-align:center;
+    
+    .province,.city,.county{
+    float:left;
+    margin: 0;
+    width: 44%;
+    text-align:center;
+    margin-bottom:10px;
+    margin-right: 6px;
+    font-size: 0.28rem;
+    color: #858585;
+
+    text-align:center;
+    option{
+    text-align: center;
+    height: 40px;
+    }
+    }
     }
     .use-addname,.use-addphone,.now-addname,.now-addphone{
       border:0;
@@ -467,7 +518,7 @@
     .user-xiangxi,.now-xiangxi{
     line-height: 0.78125rem;
     font-weight: 400;
-    font-size: 0.28125rem;
+    font-size: 0.23rem;
     color: #858585;
     text-indent: 0;
     margin-left: 0.15625rem;
@@ -478,7 +529,7 @@
     .text-xiangxi,.nows-xiangxi{
     border: 0px;
     padding-left: 0.15625rem;
-    font-size: 0.28125rem;
+    font-size: 0.23rem;
     color: #858585;
     resize: none;
     }
@@ -527,38 +578,176 @@
     }
     }
 }
-
-#main1,#main2{
-  background:#FFF;
+//订单和付款
+#main1,#main2,.dd-xx{
+  background:#e8e8e8;
   width:100%;
   overflow:hidden;
-  padding:0.15625rem;
+  
   .perindexListUl{
       overflow:hidden;
       width:100%;
       .weifukuanli{
-        float:left;
-        width:48%;
-        margin: 0 1% 0.8em;
-        border: 1px solid #e5e5e5;
+        width: 100%;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        margin-bottom: 10px;
+        position: relative;
+        
+        .dd-xd,.dd-fq{
+          width: 100%;
+          background: #FFF;
+          overflow: hidden;
+          padding-top: 10px;
+          margin-bottom: 6px;
+          .dd-xd1{
+            overflow: hidden;
+            text-indent: 6px;
+            padding-bottom: 4px;
+            font-size: 0.24rem;
+          }
+          .dd-xd2{
+            text-indent: 6px;
+            font-size: 0.24rem;
+            line-height: 40px;
+            border-bottom: 1px solid #e5e5e5;
+          }
+          .dd-xd-a{
+            font-size: 0.20rem;
+            color: #4A4A4A;
+          }
+          .dd-xd-jiage{
+            float: right;
+            margin-right: 10px;
+            font-size: 0.20rem;
+            color: #4A4A4A;
+          }
+          .dd-sf{
+            line-height: 40px;
+            text-align: right;
+            font-size: 0.3rem;
+            .dd-sf-pay{
+              font-size: 0.28rem;
+              margin-right: 6px;
+              margin-left: 4px;
+              color: red;
+            }
+          }
+        }
+        .dd-address{
+          overflow: hidden;
+          width: 100%;
+          padding: 10px;
+          background: #FFF;
+          margin-bottom: 6px;
+        }
+        .touxiangxi{
+          overflow:hidden;
+          width:100%;
+        }   
+    .address-name,.adress-phone{
+      float:left;
+      margin-right:0.234375rem;
+      color:black;
+      font-size:0.28rem;
+    }
+    .adress-xiangxi{
+      padding-top:4px;
+      font-size:0.26rem;
+      color:#ccc;
+    }
+        .P-zt{
+          width: 100%;
+          font-size: 0.20rem;
+          color: #4A4A4A;
+          padding: 10px;
+          overflow: hidden;
+
+          .F-zt{
+            float: right;
+            color:red;
+          }
+        }
             img{
-              width: 100%;
-              height: auto;
+              width: 20%;
+              height: 20%;
+              float: left;
+              margin-right: 10px;
+              display: inline-block;
             } 
         .weifukuanlink{
-          display:inline-block;
+          display:block;
           color: #555;
           text-decoration: none;
-          font-size:0.3125rem;
+          font-size:0.26rem;
+          overflow: hidden;
+          background: #FAFAFA;
+          padding: 10px;
+        }
+        .dd-sl{
+          float: right;
+          width: 30%;
+          overflow:hidden;
+          .btnjn{
+          width: 0.46875rem;
+          height: 0.5825rem;
+
+          border: 1px solid #dddddd;
+          background-color: #f9f9f9;
+          float:left;
+          }
+          #dd-num1{
+            height: 0.578125rem;
+            width: 0.828125rem;
+            border: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            line-height: 34px;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 16px;
+            background: #fff;
+            float:left;
+          }
+        }
+        .weifukuanname{
+          float: left;
+          overflow:hidden;
+          width: 60%;
+          color: #4A4A4A;
+          font-size: 0.24rem;
+          font-family: '微软雅黑';
         }
         .weifukuanmoney{
-          font-size:0.3125rem;
+          font-size:0.26rem;
           color:red;
+          text-align: right;
+          width: 100%;
+          border-bottom: 1px solid #e5e5e5;
+          padding: 10px;
+          .permon{
+            font-size:0.34rem;
+          }
+        }
+        .btn-2dd{
+          width: 100%;
+          overflow: hidden;
+          padding: 10px;
+        }
+        .q-dd,.qr-dd{
+          float: right;
+          color: #4A4A4A;
+          border-radius: 25px;
+          background:#FFF;
+          border:2px solid #e5e5e5;
+          font-size: 0.26rem;
         }
     }
   }
 }
 
+//订单详情
 
 
 

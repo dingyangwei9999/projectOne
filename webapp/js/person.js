@@ -63,32 +63,32 @@ require(['personal-config'],function(){
       alert('退出成功');
       })
           //获取到用户的浏览记录
-          $.post(erp.baseUrl+'personal_index',function(response){
-             console.log(response);
-             //判断浏览记录是否存在
-            if(response.length==0){
-              var pi = $('<p/>');
-              pi.html(`<p class="pp-font">暂无浏览记录，点击
-                <a href="">进入</a>浏览商品</p>`);
-              $('.shuju').html(pi);
-            }
-            //遍历商品
-            response.map(function(obj){
-              console.log(123);
-              console.log(obj);
-              var li = $('<li/>');
-              li.html(`
-                  <li class="personalgodsli">
-                    <a href="" class="godslink">
-                    <img src="../images/default.jpg">
-                    <p class="godname">这是商品名</p></a>
-                    <p class="godmoney">￥123</p>
-                    </li>`);
-              console.log(li);
-              var $s = $('.perindexListUl').append(li);
-              $('.shuju').html($s);
-            });
-          });
+          // $.post(erp.baseUrl+'personal_index',function(response){
+          //    console.log(response);
+          //    //判断浏览记录是否存在
+          //   if(response.length==0){
+          //     var pi = $('<p/>');
+          //     pi.html(`<p class="pp-font">暂无浏览记录，点击
+          //       <a href="">进入</a>浏览商品</p>`);
+          //     $('.shuju').html(pi);
+          //   }
+          //   //遍历商品
+          //   response.map(function(obj){
+          //     console.log(123);
+          //     console.log(obj);
+          //     var li = $('<li/>');
+          //     li.html(`
+          //         <li class="personalgodsli">
+          //           <a href="" class="godslink">
+          //           <img src="../images/default.jpg">
+          //           <p class="godname">这是商品名</p></a>
+          //           <p class="godmoney">￥123</p>
+          //           </li>`);
+          //     console.log(li);
+          //     var $s = $('.perindexListUl').append(li);
+          //     $('.shuju').html($s);
+          //   });
+          // });
         }
 
 
@@ -166,57 +166,57 @@ var nowname;
           }); 
           }
   //未付款
-  if($Htitle==='未付款'){
-    $.post(erp.baseUrl+'personal_index',function(response){
-             console.log(response);
-             //判断浏览记录是否存在
-            if(response.length==0){
-              $('#main1').html('不存在未付款的订单')
-            }
-            //遍历商品
-            response.map(function(obj){
-              console.log(123);
-              console.log(obj);
-              var li = $('<li/>');
-              li.html(`
-                  <li class="weifukuanli">
-                    <a href="" class="weifukuanlink">
-                    <img src="../images/default.jpg">
-                    <p class="weifukuanname">这是商品名</p></a>
-                    <p class="weifukuanmoney">￥123</p>
-                    </li>`);
-              console.log(li);
-              var s = $('.perindexListUl').append(li);
-              $('#main1').html(s);
-            });
-          });
-  }
+  // if($Htitle==='未付款'){
+  //   $.post(erp.baseUrl+'personal_index',function(response){
+  //            console.log(response);
+  //            //判断浏览记录是否存在
+  //           if(response.length==0){
+  //             $('#main1').html('不存在未付款的订单')
+  //           }
+  //           //遍历商品
+  //           response.map(function(obj){
+  //             console.log(123);
+  //             console.log(obj);
+  //             var li = $('<li/>');
+  //             li.html(`
+  //                 <li class="weifukuanli">
+  //                   <a href="" class="weifukuanlink">
+  //                   <img src="../images/default.jpg">
+  //                   <p class="weifukuanname">这是商品名</p></a>
+  //                   <p class="weifukuanmoney">￥123</p>
+  //                   </li>`);
+  //             console.log(li);
+  //             var s = $('.perindexListUl').append(li);
+  //             $('#main1').html(s);
+  //           });
+  //         });
+  // }
   //全部订单
-   if($Htitle==='全部订单'){
-    $.post(erp.baseUrl+'personal_index',function(response){
-             console.log(response);
-             //判断浏览记录是否存在
-            if(response.length==0){
-              $('#main2').html('不存在未付款的订单')
-            }
-            //遍历商品
-            response.map(function(obj){
-              console.log(123);
-              console.log(obj);
-              var li = $('<li/>');
-              li.html(`
-                  <li class="weifukuanli">
-                    <a href="" class="weifukuanlink">
-                    <img src="../images/default.jpg">
-                    <p class="weifukuanname">这是商品名</p></a>
-                    <p class="weifukuanmoney">￥123</p>
-                    </li>`);
-              console.log(li);
-              var s = $('.perindexListUl').append(li);
-              $('#main2').html(s);
-            });
-          });
-  }
+  //  if($Htitle==='全部订单'){
+  //   $.post(erp.baseUrl+'personal_index',function(response){
+  //            console.log(response);
+  //            //判断浏览记录是否存在
+  //           if(response.length==0){
+  //             $('#main2').html('不存在未付款的订单')
+  //           }
+  //           //遍历商品
+  //           response.map(function(obj){
+  //             console.log(123);
+  //             console.log(obj);
+  //             var li = $('<li/>');
+  //             li.html(`
+  //                 <li class="weifukuanli">
+  //                   <a href="" class="weifukuanlink">
+  //                   <img src="../images/default.jpg">
+  //                   <p class="weifukuanname">这是商品名</p></a>
+  //                   <p class="weifukuanmoney">￥123</p>
+  //                   </li>`);
+  //             console.log(li);
+  //             var s = $('.perindexListUl').append(li);
+  //             $('#main2').html(s);
+  //           });
+  //         });
+  // }
 
   //修改密码
     if($Htitle==='修改密码'){
@@ -243,23 +243,23 @@ var nowname;
       })
       
     }
-    if($Htitle==='个人资料'){
-      $('.btn-info').click(function(){
-        usename = obj.username;
-        var useemail = $('.use-email').val();
-        if(useemail==''){
-          return alert('不能为空');
-        }
-        if(!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(useemail)){
-      alert('请输入正确的邮箱');
-      return false;
-          }
-        $.post(erp.baseUrl+'resetemail',{username: usename,email:useemail},function(response){
-        console.log(response);
-      })
-        alert('修改成功');
-      })
-    }
+    // if($Htitle==='个人资料'){
+    //   $('.btn-info').click(function(){
+    //     usename = obj.username;
+    //     var useemail = $('.use-email').val();
+    //     if(useemail==''){
+    //       return alert('不能为空');
+    //     }
+    //     if(!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(useemail)){
+    //   alert('请输入正确的邮箱');
+    //   return false;
+    //       }
+    //     $.post(erp.baseUrl+'resetemail',{username: usename,email:useemail},function(response){
+    //     console.log(response);
+    //   })
+    //     alert('修改成功');
+    //   })
+    // }
 //红包
 $('.redbb').click(function(){
   if($('#red-baobao').val()==''){
@@ -296,5 +296,24 @@ $('.tuiguang').click(function(){
   alert('提交成功')
 });
 
+if($Htitle==='个人资料'){
+   $.post(erp.baseUrl+'email_show',{username:obj.username},function(response){
+     $('.use-email').val(response.data);
+    });
+
+    $('.change-email').click(function(){
+      var emailval = $('.use-email').val();
+      $.post(erp.baseUrl+'resetemail',{username:obj.username,email:emailval},function(response){
+    });
+      alert('修改成功');
+   })
+}
+
+    var num=1;
+    $('.btnjia').click(function(){
+      num++;
+      
+      $('.dd-num1').text(num);
+    });
 });
 });
