@@ -137,13 +137,14 @@ require(['config'],function(){
 		    	var goodsMsg = $(this).siblings('h4').text();
 		    	var price = $(this).closest('div').siblings('.price').find('.yuan').text();
 		    	var vipPrice = $(this).closest('div').siblings('.price').find('p').eq(0).text();
-	    		
+	    		var img = $(this).closest('.goods').siblings('.swiper-container').find('img').eq(0).prop('src');
 				$.post(erp.baseUrl + 'collect',{
 					userId:userid,
 					goodsId:big_id,
 					goodsMsg:goodsMsg,
 					price:price,
-					vipPrice:vipPrice
+					vipPrice:vipPrice,
+					img:img
 				},function(res){
 					alert(res.message);
 				})

@@ -254,11 +254,14 @@ html{
 		text-align:center;
 		border-right:1px solid #e3e3e3;
 		.tab1,.tab2,.tab3{
-		line-height:0.625rem;
-		font-size:0.250rem;
-		}
-		
-	}
+  		line-height:0.625rem;
+  		font-size:0.250rem;
+		  }
+
+    }
+    .tab-li:first-child{
+      border-bottom:none;
+    }
 	}
 	.shuju{
     width:100%;
@@ -280,11 +283,22 @@ html{
           display:block;
           color: #555;
           text-decoration: none;
-          font-size:0.265625rem;
+          font-size:0.24rem;
         }
         .godmoney{
-          font-size:0.234375rem;
-          color:red;
+          line-height:0.5rem;
+          strong{
+            color:red;
+          }
+          del{
+            color:#bbb;
+          }
+          span{
+            margin-left:0.8rem;
+            font-size:0.24rem;
+            padding:0.04rem;
+            border:1px solid #ccc;
+          }
         }    
       }
     }

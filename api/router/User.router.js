@@ -78,7 +78,7 @@ exports.handle = function(app){
 			if(data.length){
 				res.send(apiResult(true, '有收藏',data));
 			}else{
-				res.send(apiResult(false, '该用户没有收藏商品'));
+				res.send(apiResult(false, '您还没有收藏任何商品'));
 			}			
 		});
 	});

@@ -93,19 +93,19 @@ require(['personal-config'],function(){
 
 
         //主页面功能
-         $('.shuju').hide();
+         // $('.shuju').hide();
          //点击三个导航栏的时候变色
-        $('.tab-ul').on('click','>li',function(){
+        // $('.tab-ul').on('click','>li',function(){
 
-          $(this).addClass('dibu-color').siblings().removeClass('dibu-color');
-            var idx = $(this).index();
-            if(idx == 2){
-            //点击查看浏览记录
-            $('.shuju').show();
-            }else{
-               $('.shuju').hide(); 
-            }
-        });
+        //   $(this).addClass('dibu-color').siblings().removeClass('dibu-color');
+        //     var idx = $(this).index();
+        //     // if(idx == 2){
+        //     // //点击查看浏览记录
+        //     // $('.shuju').show();
+        //     // }else{
+        //     //    $('.shuju').hide(); 
+        //     // }
+        // });
   
     
 var nowname;
@@ -315,5 +315,61 @@ if($Htitle==='个人资料'){
       
       $('.dd-num1').text(num);
     });
+    collect();
+    $('.tab1').click(function(){
+      collect();
+      $(this).closest('.tab-li').css('border-bottom','none').siblings()
+      .css({'borderBottomWidth':'1px','borderBottomStyle':'solid','borderBottomColor':'#ccc'});
+    })
+    $('.tab2').click(function(){
+      $('.perindexListUl').html('用户评论正在开发中......敬请期待');
+      $(this).closest('.tab-li').css('border-bottom','none').siblings()
+      .css({'borderBottomWidth':'1px','borderBottomStyle':'solid','borderBottomColor':'#ccc'});
+    })
+    $('.tab3').click(function(){
+      $('.perindexListUl').html('浏览记录正在开发中......敬请期待');
+      $(this).closest('.tab-li').css('border-bottom','none').siblings()
+      .css({'borderBottomWidth':'1px','borderBottomStyle':'solid','borderBottomColor':'#ccc'});
+    });
+
+    //显示用户收藏商品
+    function collect(){
+      //获取用户id
+      var user = JSON.parse(localStorage.getItem('user'));
+      var userid = user.userId;
+      $.post(erp.baseUrl + 'fetch',{userId:userid},function(res){
+        if(res.status){
+          var data = res.data;
+
+          $('.perindexListUl').html(data.map(function(item){
+            return `<li class="personalgodsli" data-number=${item.goodsId}>
+                    <a href="detail.html?id=${item.goodsId}" class="godslink">
+                    <img src="${item.img}">
+                    <p class="godname">${item.goodsMsg}</p></a>
+                    <p class="godmoney"><strong>${item.vipPrice}</strong><del>${item.price}</del>
+                    <span class="del-collect">删除</span></p>
+                    </li>`
+          }));
+          //点击删除商品
+          $('.del-collect').click(function(){
+            var goodsId = $(this).closest('.personalgodsli').attr('data-number');
+            //获取用户id
+            var user = JSON.parse(localStorage.getItem('user'));
+            var userid = user.userId;
+            //删除该节点
+            $(this).closest('.personalgodsli').remove();
+            $.post(erp.baseUrl + 'del',{
+              goodsId:goodsId,
+              userId:userid
+            },function(res){
+              console.log(res);
+            })
+          })
+        }else{
+          $('.perindexListUl').html(res.message);
+        }
+      })
+    }
+    
 });
 });
