@@ -47,101 +47,86 @@
           $('body').animate({scrollTop:0},300);
        })
 
-      //将数据库中数据导入indexList
-      $.get(erp.baseUrl + 'getproduct',function(response){
-           //console.log(response)
-          
-    
-          for(var i=0;i<=13;i++){
+      //实现图片懒加载
+      var lazyload = {
+        init : function(opt){
+          var that = this;
+          var op = {
+              anim: true,
+              extend_height:100
+          };
+          // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
+          $.extend(op,opt);
+          // 调用lazyload.img.init(op)函数
+          that.img.init(op);
 
-            // console.log(JSON.parse(response));
-            var li = $('<li/>');
-            li.html(`
-                <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
-                 <img src="${erp.baseUrl}webapp/images/index/no_picture.jpg" dataimg="${erp.baseUrl}webapp/images/${response[i].img}" class="indexListImage">
-                 <p class="indexListName">${response[i].goodsMsg}</p>
-                </a>
-                <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
-                <p class="indexListPriceOriginal"><s>￥${response[i].price}</s></p>
-                <span class="indexListBottom">
-                   <i class="iconfont icon-xin"></i>
-                   <p class="salesVolume">销量${response[i].sales}件</p>
-                </span>`)
-            $('.indexListUl').append(li);
-            //实现图片懒加载
-            var lazyload = {
-              init : function(opt){
-                var that = this;
-                var op = {
-                    anim: true,
-                    extend_height:100
-                };
-                // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
-                $.extend(op,opt);
-                // 调用lazyload.img.init(op)函数
-                that.img.init(op);
+        },
+        
+        img : {
+          init : function(n){
 
-              },
-              
-              img : {
-                init : function(n){
+            var that = this;
+            //console.log(n);
 
-                  var that = this;
-                  //console.log(n);
+            // 要加载的图片是不是在指定窗口内
+            function inViewport( el ) {
+                // 当前窗口的顶部
+              var top = window.pageYOffset
+              // 当前窗口的底部
+              var btm = window.pageYOffset + window.innerHeight
+              // 元素所在整体页面内的y轴位置
+              var elTop = $(el).offset().top;
+              // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
+              return elTop >= top && elTop - n.extend_height <= btm
+            }
 
-                  // 要加载的图片是不是在指定窗口内
-                  function inViewport( el ) {
-                      // 当前窗口的顶部
-                    var top = window.pageYOffset
-                    // 当前窗口的底部
-                    var btm = window.pageYOffset + window.innerHeight
-                    // 元素所在整体页面内的y轴位置
-                    var elTop = $(el).offset().top;
-                    // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
-                    return elTop >= top && elTop - n.extend_height <= btm
+            // 滚动事件里判断，加载图片
+             $(window).bind('scroll', function() {
+                $('img').each(function(index,node) {
+                  var $this = $(this)
+                  if(!$this.attr('dataimg')){
+                    return
                   }
+                  if ( !inViewport(this) ) return
+                  act($this)
 
-                  // 滚动事件里判断，加载图片
-                   $(window).bind('scroll', function() {
-                      $('img').each(function(index,node) {
-                        var $this = $(this)
-                        if(!$this.attr('dataimg')){
-                          return
-                        }
-                        if ( !inViewport(this) ) return
-                        act($this)
+                })
+              }).trigger('scroll')
 
-                      })
-                    }).trigger('scroll')
-
-                   // 展示图片
-                   function act(_self){
-                          // 已经加载过了，则中断后续代码
-                       if (_self.attr('loaded')) return;
-                        var img = new Image(), original = _self.attr('dataimg')
-                        // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
-                        img.onload = function() {
-                            _self.attr('src', original).removeClass('lazy');
-                            n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
-                        }
-                        // 当你设置img.src的时候，浏览器就在发送图片请求了
-                        original && (img.src = original);
-                         _self.attr('loaded', true);
-                   }
-                }
-              }
-            };
-            lazyload.init();
+             // 展示图片
+             function act(_self){
+                    // 已经加载过了，则中断后续代码
+                 if (_self.attr('loaded')) return;
+                  var img = new Image(), original = _self.attr('dataimg')
+                  // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
+                  img.onload = function() {
+                      _self.attr('src', original).removeClass('lazy');
+                      n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
+                  }
+                  // 当你设置img.src的时候，浏览器就在发送图片请求了
+                  original && (img.src = original);
+                   _self.attr('loaded', true);
+             }
           }
-          $(window).scroll(function() {
-            if($(window).scrollTop() + $(window).height() == $(document).height()){
-              for(var i=14;i<=27;i++){
+        }
+      };
+      lazyload.init();
 
+      var j = 0;
+      var juge = true;
+      function getMore(j) { 
+       if(j<=104){
+          $.get(erp.baseUrl + 'getproduct',function(response){
+           //console.log(response)
+            if(j<=91){
+              for(i=j;i<j+13;i++){
+                console.log(j,i)
                 //console.log(response[i])
                 var li = $('<li/>');
                 li.html(`
+
                     <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
-                     <img src="${erp.baseUrl}webapp/images/index/no_picture.jpg" dataimg="${erp.baseUrl}webapp/images/${response[i].img}" class="indexListImage">
+                     <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
                      <p class="indexListName">${response[i].goodsMsg}</p>
                     </a>
                     <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
@@ -151,79 +136,45 @@
                        <p class="salesVolume">销量${response[i].sales}件</p>
                     </span>`)
                 $('.indexListUl').append(li);
-                //实现图片懒加载
-                var lazyload = {
-                  init : function(opt){
-                    var that = this;
-                    var op = {
-                        anim: true,
-                        extend_height:100
-                    };
-                    // 合并对象，已有的{anim:true}+用户自定义对象。也就是op = op + opt
-                    $.extend(op,opt);
-                    // 调用lazyload.img.init(op)函数
-                    that.img.init(op);
+              }
+            }else if(j=104){
+              for(i=j;i<=j+1;i++){
+                console.log(j,i)
+                //console.log(response[i])
+                var li = $('<li/>');
+                li.html(`
 
-                  },
-                  
-                  img : {
-                    init : function(n){
-
-                      var that = this;
-                      //console.log(n);
-
-                      // 要加载的图片是不是在指定窗口内
-                      function inViewport( el ) {
-                          // 当前窗口的顶部
-                        var top = window.pageYOffset
-                        // 当前窗口的底部
-                        var btm = window.pageYOffset + window.innerHeight
-                        // 元素所在整体页面内的y轴位置
-                        var elTop = $(el).offset().top;
-                        // 判断元素，是否在当前窗口，或者当前窗口延伸400像素内
-                        return elTop >= top && elTop - n.extend_height <= btm
-                      }
-
-                      // 滚动事件里判断，加载图片
-                       $(window).bind('scroll', function() {
-                          $('img').each(function(index,node) {
-                            var $this = $(this)
-                            if(!$this.attr('dataimg')){
-                              return
-                            }
-                            if ( !inViewport(this) ) return
-                            act($this)
-
-                          })
-                        }).trigger('scroll')
-
-                       // 展示图片
-                       function act(_self){
-                              // 已经加载过了，则中断后续代码
-                           if (_self.attr('loaded')) return;
-                            var img = new Image(), original = _self.attr('dataimg')
-                            // 图片请求完成后的事件，把dataimg指定的图片，放到src里面，浏览器显示
-                            img.onload = function() {
-                                _self.attr('src', original).removeClass('lazy');
-                                n.anim && _self.css({ opacity: .2 }).animate({ opacity: 1 }, 280);
-                            }
-                            // 当你设置img.src的时候，浏览器就在发送图片请求了
-                            original && (img.src = original);
-                             _self.attr('loaded', true);
-                       }
-                    }
-                  }
-                };
-                lazyload.init();
+                    <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
+                     <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
+                     <p class="indexListName">${response[i].goodsMsg}</p>
+                    </a>
+                    <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
+                    <p class="indexListPriceOriginal"><s>￥${response[i].price}</s></p>
+                    <span class="indexListBottom">
+                       <i class="iconfont icon-xin"></i>
+                       <p class="salesVolume">销量${response[i].sales}件</p>
+                    </span>`)
+                $('.indexListUl').append(li);
               }
             }
-          })
-          
-        
-
-
+          })    
+        }else{
+            var span = $('<span/>');
+            span.html('没有更多商品了')
+            $('.indexListBox').append(span);
+            juge = false;
+            return false;
         }
-      )
+      };  
+        
+      $(window).bind("scroll", function () {  
+        if(juge == true){
+          if ($(document).scrollTop() + $(window).height() > $(document).height() -5) { 
+              getMore(j);
+              j += 13; 
+          } 
+        }
+      });
 
 
 

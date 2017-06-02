@@ -12,7 +12,6 @@
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
 	<script src="../js/city.js"></script>
 	<script>
-		$.post(erp.baseUrl+'city',{})
 		$.ajax({
 			type:"get",
 			url:"city.json",
@@ -115,7 +114,9 @@
 	</li>
 
 	</ul>
+	<!-- <p style="line-height:0.8rem;padding-left:0.2rem;"><input type="checkbox">是否设置为默认地址</p> -->
 	</div>
+	
 	<div class="btn-tijiao"><a href="personal-address.html" class="btn-info dq-address">新增收货地址</a></div>
 	<footer class="Hfoot"></footer>
 </div>

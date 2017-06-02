@@ -124,7 +124,6 @@ $(function(){
 					var goodsid = $(this).attr('data-number');
 					window.location.href = 'detail.html?id=' + goodsid;
 				})
-				var orderId = 0;
 				//点击结算
 				$('.clearing').click(function(){
 					//判断是否已选取商品
@@ -155,10 +154,10 @@ $(function(){
 					})
 					// console.log(userOrder);
 					var totalPrice = $('.totalprice').text();
-					orderId++;
+					var orderId = Math.round(totalPrice.slice(1));
 					$.post(erp.baseUrl + 'userorder',{
 						userId:userid,
-						orderId:orderId,
+						orderId:userid + orderId + parseInt(Math.random()*100000),
 						userOrder:JSON.stringify(userOrder),
 						totalPrice:totalPrice
 					},function(res){

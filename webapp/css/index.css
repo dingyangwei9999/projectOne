@@ -253,7 +253,6 @@ body, html {
   display: flex;
   flex-wrap: wrap;
   padding: 6px;
-  margin-bottom: 50px;
   justify-content: space-between;
 }
 
@@ -303,6 +302,19 @@ body, html {
 
 .container .indexList ul li .indexListBottom > p {
   display: inline-block;
+  color: #888888;
+}
+
+.container .indexList .indexListBox {
+  margin-bottom: 50px;
+}
+
+.container .indexList .indexListBox > span {
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
   color: #888888;
 }
 

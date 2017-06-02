@@ -24,7 +24,18 @@ exports.handle = function(app){
 			}
 			
 		})
-	})
+	});
+	//取消用户订单
+	app.post('/delorder',urlencodedParser,function(req,res){
+		db.delOrder('order',req.body,function(data){
+			if(data.length){
+				res.send(apiResult(true,'取消成功'));
+			}else{
+				res.send(apiResult(false,'获取失败','用户没有订单'));
+			}
+			
+		})
+	});
 	app.get('/getordersbyid',function(req,res){
 		res.send('yes');
 	})

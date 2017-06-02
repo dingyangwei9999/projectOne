@@ -708,12 +708,12 @@ html {
   overflow: hidden;
 }
 
-#personal-box #main1 .perindexListUl, #personal-box #main2 .perindexListUl, #personal-box .dd-xx .perindexListUl {
+#personal-box #main1 .perindexList, #personal-box #main2 .perindexList, #personal-box .dd-xx .perindexList {
   overflow: hidden;
   width: 100%;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli, #personal-box #main2 .perindexListUl .weifukuanli, #personal-box .dd-xx .perindexListUl .weifukuanli {
+#personal-box #main1 .perindexList .weifukuanli, #personal-box #main2 .perindexList .weifukuanli, #personal-box .dd-xx .perindexList .weifukuanli {
   width: 100%;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
@@ -722,7 +722,46 @@ html {
   position: relative;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq {
+#personal-box #main1 .perindexList .weifukuanli .person_address, #personal-box #main2 .perindexList .weifukuanli .person_address, #personal-box .dd-xx .perindexList .weifukuanli .person_address {
+  padding: 0 0.4rem;
+}
+
+#personal-box #main1 .perindexList .weifukuanli .person_address li, #personal-box #main2 .perindexList .weifukuanli .person_address li, #personal-box .dd-xx .perindexList .weifukuanli .person_address li {
+  background-color: white;
+  padding: 0.2rem 0 0.2rem 0.4rem;
+  border-radius: 0.16rem;
+  position: relative;
+}
+
+#personal-box #main1 .perindexList .weifukuanli .person_address li .icon-fanhui, #personal-box #main2 .perindexList .weifukuanli .person_address li .icon-fanhui, #personal-box .dd-xx .perindexList .weifukuanli .person_address li .icon-fanhui {
+  transform: rotateY(-180deg);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -0.2rem;
+}
+
+#personal-box #main1 .perindexList .weifukuanli .person_address li .check, #personal-box #main2 .perindexList .weifukuanli .person_address li .check, #personal-box .dd-xx .perindexList .weifukuanli .person_address li .check {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.2rem;
+  left: 0;
+}
+
+#personal-box #main1 .perindexList .weifukuanli .person_address li .default, #personal-box #main2 .perindexList .weifukuanli .person_address li .default, #personal-box .dd-xx .perindexList .weifukuanli .person_address li .default {
+  padding: 0 0.04rem;
+  margin-right: 0.2rem;
+  border-radius: 50%;
+  text-align: center;
+  background: red;
+  color: white;
+}
+
+#personal-box #main1 .perindexList .weifukuanli .person_address li .default::before, #personal-box #main2 .perindexList .weifukuanli .person_address li .default::before, #personal-box .dd-xx .perindexList .weifukuanli .person_address li .default::before {
+  content: '√';
+}
+
+#personal-box #main1 .perindexList .weifukuanli .dd-xd, #personal-box #main1 .perindexList .weifukuanli .dd-fq, #personal-box #main2 .perindexList .weifukuanli .dd-xd, #personal-box #main2 .perindexList .weifukuanli .dd-fq, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq {
   width: 100%;
   background: #FFF;
   overflow: hidden;
@@ -730,46 +769,46 @@ html {
   margin-bottom: 6px;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-xd1, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-xd1, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-xd1, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-xd1, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-xd1, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-xd1 {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-xd1, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-xd1, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-xd1, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-xd1, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-xd1, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-xd1 {
   overflow: hidden;
   text-indent: 6px;
   padding-bottom: 4px;
   font-size: 0.24rem;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-xd2, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-xd2, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-xd2, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-xd2, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-xd2, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-xd2 {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-xd2, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-xd2, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-xd2, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-xd2, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-xd2, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-xd2 {
   text-indent: 6px;
   font-size: 0.24rem;
   line-height: 40px;
   border-bottom: 1px solid #e5e5e5;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-xd-a, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-xd-a, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-xd-a, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-xd-a, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-xd-a, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-xd-a {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-xd-a, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-xd-a, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-xd-a, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-xd-a, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-xd-a, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-xd-a {
   font-size: 0.20rem;
   color: #4A4A4A;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-xd-jiage, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-xd-jiage, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-xd-jiage, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-xd-jiage, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-xd-jiage, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-xd-jiage {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-xd-jiage, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-xd-jiage, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-xd-jiage, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-xd-jiage, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-xd-jiage, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-xd-jiage {
   float: right;
   margin-right: 10px;
   font-size: 0.20rem;
   color: #4A4A4A;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-sf, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-sf, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-sf, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-sf, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-sf, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-sf {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-sf, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-sf, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-sf, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-sf, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-sf, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-sf {
   line-height: 40px;
   text-align: right;
   font-size: 0.3rem;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box #main1 .perindexListUl .weifukuanli .dd-fq .dd-sf .dd-sf-pay, #personal-box #main2 .perindexListUl .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box #main2 .perindexListUl .weifukuanli .dd-fq .dd-sf .dd-sf-pay, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-fq .dd-sf .dd-sf-pay {
+#personal-box #main1 .perindexList .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box #main1 .perindexList .weifukuanli .dd-fq .dd-sf .dd-sf-pay, #personal-box #main2 .perindexList .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box #main2 .perindexList .weifukuanli .dd-fq .dd-sf .dd-sf-pay, #personal-box .dd-xx .perindexList .weifukuanli .dd-xd .dd-sf .dd-sf-pay, #personal-box .dd-xx .perindexList .weifukuanli .dd-fq .dd-sf .dd-sf-pay {
   font-size: 0.28rem;
   margin-right: 6px;
   margin-left: 4px;
   color: red;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-address, #personal-box #main2 .perindexListUl .weifukuanli .dd-address, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-address {
+#personal-box #main1 .perindexList .weifukuanli .dd-address, #personal-box #main2 .perindexList .weifukuanli .dd-address, #personal-box .dd-xx .perindexList .weifukuanli .dd-address {
   overflow: hidden;
   width: 100%;
   padding: 10px;
@@ -777,38 +816,39 @@ html {
   margin-bottom: 6px;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .touxiangxi, #personal-box #main2 .perindexListUl .weifukuanli .touxiangxi, #personal-box .dd-xx .perindexListUl .weifukuanli .touxiangxi {
+#personal-box #main1 .perindexList .weifukuanli .touxiangxi, #personal-box #main2 .perindexList .weifukuanli .touxiangxi, #personal-box .dd-xx .perindexList .weifukuanli .touxiangxi {
   overflow: hidden;
   width: 100%;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .address-name, #personal-box #main1 .perindexListUl .weifukuanli .adress-phone, #personal-box #main2 .perindexListUl .weifukuanli .address-name, #personal-box #main2 .perindexListUl .weifukuanli .adress-phone, #personal-box .dd-xx .perindexListUl .weifukuanli .address-name, #personal-box .dd-xx .perindexListUl .weifukuanli .adress-phone {
+#personal-box #main1 .perindexList .weifukuanli .address-name, #personal-box #main1 .perindexList .weifukuanli .adress-phone, #personal-box #main2 .perindexList .weifukuanli .address-name, #personal-box #main2 .perindexList .weifukuanli .adress-phone, #personal-box .dd-xx .perindexList .weifukuanli .address-name, #personal-box .dd-xx .perindexList .weifukuanli .adress-phone {
   float: left;
   margin-right: 0.234375rem;
   color: black;
   font-size: 0.28rem;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .adress-xiangxi, #personal-box #main2 .perindexListUl .weifukuanli .adress-xiangxi, #personal-box .dd-xx .perindexListUl .weifukuanli .adress-xiangxi {
+#personal-box #main1 .perindexList .weifukuanli .adress-xiangxi, #personal-box #main2 .perindexList .weifukuanli .adress-xiangxi, #personal-box .dd-xx .perindexList .weifukuanli .adress-xiangxi {
   padding-top: 4px;
   font-size: 0.26rem;
   color: #ccc;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .P-zt, #personal-box #main2 .perindexListUl .weifukuanli .P-zt, #personal-box .dd-xx .perindexListUl .weifukuanli .P-zt {
+#personal-box #main1 .perindexList .weifukuanli .P-zt, #personal-box #main2 .perindexList .weifukuanli .P-zt, #personal-box .dd-xx .perindexList .weifukuanli .P-zt {
   width: 100%;
   font-size: 0.20rem;
   color: #4A4A4A;
   padding: 10px;
   overflow: hidden;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .P-zt .F-zt, #personal-box #main2 .perindexListUl .weifukuanli .P-zt .F-zt, #personal-box .dd-xx .perindexListUl .weifukuanli .P-zt .F-zt {
+#personal-box #main1 .perindexList .weifukuanli .P-zt .F-zt, #personal-box #main2 .perindexList .weifukuanli .P-zt .F-zt, #personal-box .dd-xx .perindexList .weifukuanli .P-zt .F-zt {
   float: right;
   color: red;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli img, #personal-box #main2 .perindexListUl .weifukuanli img, #personal-box .dd-xx .perindexListUl .weifukuanli img {
+#personal-box #main1 .perindexList .weifukuanli img, #personal-box #main2 .perindexList .weifukuanli img, #personal-box .dd-xx .perindexList .weifukuanli img {
   width: 20%;
   height: 20%;
   float: left;
@@ -816,7 +856,7 @@ html {
   display: inline-block;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .weifukuanlink, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanlink, #personal-box .dd-xx .perindexListUl .weifukuanli .weifukuanlink {
+#personal-box #main1 .perindexList .weifukuanli .weifukuanlink, #personal-box #main2 .perindexList .weifukuanli .weifukuanlink, #personal-box .dd-xx .perindexList .weifukuanli .weifukuanlink {
   display: block;
   color: #555;
   text-decoration: none;
@@ -826,13 +866,13 @@ html {
   padding: 10px;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-sl, #personal-box #main2 .perindexListUl .weifukuanli .dd-sl, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-sl {
+#personal-box #main1 .perindexList .weifukuanli .dd-sl, #personal-box #main2 .perindexList .weifukuanli .dd-sl, #personal-box .dd-xx .perindexList .weifukuanli .dd-sl {
   float: right;
   width: 30%;
   overflow: hidden;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-sl .btnjn, #personal-box #main2 .perindexListUl .weifukuanli .dd-sl .btnjn, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-sl .btnjn {
+#personal-box #main1 .perindexList .weifukuanli .dd-sl .btnjn, #personal-box #main2 .perindexList .weifukuanli .dd-sl .btnjn, #personal-box .dd-xx .perindexList .weifukuanli .dd-sl .btnjn {
   width: 0.46875rem;
   height: 0.5825rem;
   border: 1px solid #dddddd;
@@ -840,7 +880,7 @@ html {
   float: left;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .dd-sl #dd-num1, #personal-box #main2 .perindexListUl .weifukuanli .dd-sl #dd-num1, #personal-box .dd-xx .perindexListUl .weifukuanli .dd-sl #dd-num1 {
+#personal-box #main1 .perindexList .weifukuanli .dd-sl #dd-num1, #personal-box #main2 .perindexList .weifukuanli .dd-sl #dd-num1, #personal-box .dd-xx .perindexList .weifukuanli .dd-sl #dd-num1 {
   height: 0.578125rem;
   width: 0.828125rem;
   border: none;
@@ -854,7 +894,7 @@ html {
   float: left;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .weifukuanname, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanname, #personal-box .dd-xx .perindexListUl .weifukuanli .weifukuanname {
+#personal-box #main1 .perindexList .weifukuanli .weifukuanname, #personal-box #main2 .perindexList .weifukuanli .weifukuanname, #personal-box .dd-xx .perindexList .weifukuanli .weifukuanname {
   float: left;
   overflow: hidden;
   width: 60%;
@@ -863,7 +903,7 @@ html {
   font-family: '微软雅黑';
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .weifukuanmoney, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanmoney, #personal-box .dd-xx .perindexListUl .weifukuanli .weifukuanmoney {
+#personal-box #main1 .perindexList .weifukuanli .weifukuanmoney, #personal-box #main2 .perindexList .weifukuanli .weifukuanmoney, #personal-box .dd-xx .perindexList .weifukuanli .weifukuanmoney {
   font-size: 0.26rem;
   color: red;
   text-align: right;
@@ -872,21 +912,55 @@ html {
   padding: 10px;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .weifukuanmoney .permon, #personal-box #main2 .perindexListUl .weifukuanli .weifukuanmoney .permon, #personal-box .dd-xx .perindexListUl .weifukuanli .weifukuanmoney .permon {
+#personal-box #main1 .perindexList .weifukuanli .weifukuanmoney .permon, #personal-box #main2 .perindexList .weifukuanli .weifukuanmoney .permon, #personal-box .dd-xx .perindexList .weifukuanli .weifukuanmoney .permon {
   font-size: 0.34rem;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .btn-2dd, #personal-box #main2 .perindexListUl .weifukuanli .btn-2dd, #personal-box .dd-xx .perindexListUl .weifukuanli .btn-2dd {
+#personal-box #main1 .perindexList .weifukuanli .btn-2dd, #personal-box #main2 .perindexList .weifukuanli .btn-2dd, #personal-box .dd-xx .perindexList .weifukuanli .btn-2dd {
   width: 100%;
   overflow: hidden;
   padding: 10px;
 }
 
-#personal-box #main1 .perindexListUl .weifukuanli .q-dd, #personal-box #main1 .perindexListUl .weifukuanli .qr-dd, #personal-box #main2 .perindexListUl .weifukuanli .q-dd, #personal-box #main2 .perindexListUl .weifukuanli .qr-dd, #personal-box .dd-xx .perindexListUl .weifukuanli .q-dd, #personal-box .dd-xx .perindexListUl .weifukuanli .qr-dd {
+#personal-box #main1 .perindexList .weifukuanli .q-dd, #personal-box #main1 .perindexList .weifukuanli .qr-dd, #personal-box #main2 .perindexList .weifukuanli .q-dd, #personal-box #main2 .perindexList .weifukuanli .qr-dd, #personal-box .dd-xx .perindexList .weifukuanli .q-dd, #personal-box .dd-xx .perindexList .weifukuanli .qr-dd {
   float: right;
   color: #4A4A4A;
   border-radius: 25px;
   background: #FFF;
   border: 2px solid #e5e5e5;
   font-size: 0.26rem;
+}
+
+.showbbbox .address {
+  padding: 0.4rem;
+}
+
+.showbbbox .address li {
+  margin-bottom: 0.2rem;
+  background-color: white;
+  padding: 0.2rem;
+  border-radius: 0.16rem;
+  position: relative;
+}
+
+.showbbbox .address li .icon-fanhui {
+  transform: rotateY(-180deg);
+  position: absolute;
+  right: 0.32rem;
+  top: 50%;
+  margin-top: -0.2rem;
+}
+
+.showbbbox .address li p:last-child {
+  line-height: 0.4rem;
+  margin-top: 0.1rem;
+  border-top: 1px dashed #ccc;
+}
+
+.showbbbox .address li .sure_def {
+  padding: 0 0.16rem;
+  margin-right: 0.2rem;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  text-align: center;
 }

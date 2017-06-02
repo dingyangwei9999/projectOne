@@ -598,7 +598,7 @@ html{
   width:100%;
   overflow:hidden;
   
-  .perindexListUl{
+  .perindexList{
       overflow:hidden;
       width:100%;
       .weifukuanli{
@@ -608,7 +608,49 @@ html{
         overflow: hidden;
         margin-bottom: 10px;
         position: relative;
-        
+        .person_address{
+          padding:0 0.4rem;
+          li{
+            background-color:white;
+            padding:0.2rem 0 0.2rem 0.4rem;
+            border-radius:0.16rem;
+            position:relative;
+            .icon-fanhui{
+              transform:rotateY(-180deg);
+              position:absolute;
+              right:0;
+              top:50%;
+              margin-top:-0.2rem;
+            }
+            .check{
+              position:absolute;
+              top:50%;
+              margin-top:-0.2rem;
+              left:0;
+            }
+            // p:last-child{
+            //   line-height:0.4rem;
+            //   margin-top:0.1rem;
+            //   border-top:1px dashed #ccc;
+            //   a{
+            //     color:blue;
+            //     margin-left:2.0rem;
+            //   }
+            // } 
+            .default{
+              padding:0 0.04rem;
+              margin-right:0.2rem;
+              border-radius:50%;
+              text-align:center;
+              // line-height:0.2rem;
+              background:red;
+              color:white;
+            }
+            .default::before{
+              content:'√'
+            }
+          }
+        }
         .dd-xd,.dd-fq{
           width: 100%;
           background: #FFF;
@@ -677,7 +719,7 @@ html{
           color: #4A4A4A;
           padding: 10px;
           overflow: hidden;
-
+          border-bottom:1px solid #e5e5e5;
           .F-zt{
             float: right;
             color:red;
@@ -773,4 +815,37 @@ html{
 
 
 //这里不用管他  
+}
+.showbbbox{
+  .address{
+    padding:0.4rem;
+    li{
+      margin-bottom:0.2rem;
+      background-color:white;
+      padding:0.2rem;
+      border-radius:0.16rem;
+      position:relative;
+      .icon-fanhui{
+        transform:rotateY(-180deg);
+        position:absolute;
+        right:0.32rem;
+        top:50%;
+        margin-top:-0.2rem;
+      }
+      p:last-child{
+        line-height:0.4rem;
+        margin-top:0.1rem;
+        border-top:1px dashed #ccc;
+        
+      } 
+      .sure_def{
+        padding:0 0.16rem;
+        margin-right:0.2rem;
+        border-radius:50%;
+        border:1px solid #ccc;
+        text-align:center;
+        // line-height:0.2rem;
+      }
+    }
+  }
 }

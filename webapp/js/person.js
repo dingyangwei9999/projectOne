@@ -107,64 +107,76 @@ require(['personal-config'],function(){
         //     // }
         // });
   
-    
+    collect();//获取收藏商品
 var nowname;
   var nowphone;
   var nowadress;
   //获取当前地址
-   if($Htitle==='地址管理'){
-     $.post(erp.baseUrl+'addressss_show',function(response){
-      console.log(response);
-      response.map(function(obj){
-              console.log(123);
-              console.log(obj);
-              var li = $('<li/>');
-              var ul = $('<ul/>');
-              li.html(`
-                  <li class="showaddress-li">
-                  <a href="adress-nowadd.html" class="adresslink">
-                  <div class="touxiangxi">
-                  <p class="address-name">${obj.usename}</p><p class="adress-phone">${obj.phone}</p></div>
-                  <div class="adress-xiangxi">${obj.address}</div>
-                  <span class="iconfont icon-fanhui addyb"></span>
-                  </a>
-                  </li>`);
-              console.log(li);
-              ul.addClass('showccc').append(li);
-              $('.showbbbox').addClass('showaddress').append(ul);
+   // if($Htitle==='地址管理'){
+   //   $.post(erp.baseUrl+'getsite',function(response){
+   //    console.log(response);
+   //    response.map(function(obj){
+   //            console.log(123);
+   //            console.log(obj);
+   //            var li = $('<li/>');
+   //            var ul = $('<ul/>');
+   //            li.html(`
+   //                <li class="showaddress-li">
+   //                <a href="adress-nowadd.html" class="adresslink">
+   //                <div class="touxiangxi">
+   //                <p class="address-name">${obj.usename}</p><p class="adress-phone">${obj.phone}</p></div>
+   //                <div class="adress-xiangxi">${obj.address}</div>
+   //                <span class="iconfont icon-fanhui addyb"></span>
+   //                </a>
+   //                </li>`);
+   //            console.log(li);
+   //            ul.addClass('showccc').append(li);
+   //            $('.showbbbox').addClass('showaddress').append(ul);
               
-            });
-     })
-   }
+   //          });
+   //   })
+   // }
 
   //增加地址
   $('.dq-address').click(function(){
+    //获取用户id
+    var user = JSON.parse(localStorage.getItem('user'));
+    var userid = user.userId;
     var addphone = $('#addphone').val();
     var addname = $('#addname').val();
+    var province = $('#province').val();
+    province = $('#province option[value='+province+']').text();
+    var city = $('#city').val();
+    city = $('#city option[value='+city+']').text();
+    var county = $('#county').val();
+    county = $('#county option[value='+county+']').text();
     var textxiangxi = $('.text-xiangxi').val();
     if(addphone===''||addname===''||textxiangxi===''){
-      return alert('提交的内容不能为空');
+      alert('提交的内容不能为空');
+      return false;
+    }else if(province == '000000' || city == '000000' || county == '000000'){
+      alert('省市区必填');
+      return false;
     }
-    $.post(erp.baseUrl+'addressss_add',
-      {usename: addname, phone: addphone , 
-      address: textxiangxi},function(response){
+    $.post(erp.baseUrl+'addsite',
+      {userId:userid,usename: addname, phone: addphone,province:province, 
+      city:city,county:county,address: textxiangxi,defalut:change},function(response){
         console.log(response);
       })
-    alert('添加成功');
   })
 
   //修改地址
   //先获取原页面的数据
    //点击的时候就修改
-  if($Htitle==='编辑地址'){
-    $.post(erp.baseUrl+'addressss_show',function(response){
-          response.map(function(obj){
-          $('#nowname').val(obj.usename);
-          $('#nowphone').val(obj.phone);
-          $('.nows-xiangxi').val(obj.address);
-        })
-          }); 
-          }
+  // if($Htitle==='编辑地址'){
+  //   $.post(erp.baseUrl+'getsite',function(response){
+  //         response.map(function(obj){
+  //         $('#nowname').val(obj.usename);
+  //         $('#nowphone').val(obj.phone);
+  //         $('.nows-xiangxi').val(obj.address);
+  //       })
+  //         }); 
+  //         }
   //未付款
   // if($Htitle==='未付款'){
   //   $.post(erp.baseUrl+'personal_index',function(response){
@@ -315,7 +327,7 @@ if($Htitle==='个人资料'){
       
       $('.dd-num1').text(num);
     });
-    collect();
+    
     $('.tab1').click(function(){
       collect();
       $(this).closest('.tab-li').css('border-bottom','none').siblings()

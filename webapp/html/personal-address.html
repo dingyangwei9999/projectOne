@@ -5,13 +5,46 @@
 	<title>地址管理</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<script type="text/javascript" src="../../libs/global/global.js"></script>
-<script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" type="text/css" href="../css/personal.css">
 	<script type="text/javascript" src="../libs/jquery-3.1.1/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
 	
-	
+	<script>
+		$(function(){
+			var $Htitle = $('title').html();
+		    $('.Htop').load('../html/personal-header.html',function(){
+		      return $('.h_2').html($Htitle);
+		    });
+		    $('.Hfoot').load('../html/personal-footer.html');
+
+			//获取用户id
+		    var user = JSON.parse(localStorage.getItem('user'));
+		    var userid = user.userId;
+			//获取用户已添加地址
+			$.post(erp.baseUrl + 'getsite',{userId:userid},function(res){
+				if(res.status){
+					var data = res.data;
+					console.log(data);
+					$('.address').html(data.map(function(item){
+						return `<li data-id=${item.userId}>
+									<p>${item.province} ${item.city} ${item.county} ${item.address}</p>
+									<p>收件人:${item.usename}</p>
+									<p>电话:${item.phone}</p>
+									<span class="iconfont icon-fanhui"></span>
+								</li>`
+					}));
+					//点击设置默认地址<p class="last_address"><span class="sure_def"></span>设为默认地址</p>
+					// $('.sure_def').click(function(){
+					// 	$('.sure_def').css({'borderWidth':'1px','borderStyle':'solid','borderColor':'#ccc','backgroundColor':'white'}).text('');
+					// 	$(this).css({'border':'none','color':'white','backgroundColor':'red'}).text('√');
+
+					// })
+
+				}
+			})
+		})
+	</script>
 </head>
 <body>
 <div id="personal-box">
@@ -19,7 +52,9 @@
 	<header class="Htop">
 	</header>
 	<div class="showbbbox">
-
+		<ul class="address">
+			
+		</ul>
 	</div>
 	<div class="btn-tijiao"><a href="address-add.html" class="btn-info add-address">新增收货地址</a></div>
 	<footer class="Hfoot"></footer>
