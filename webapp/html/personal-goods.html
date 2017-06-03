@@ -28,8 +28,8 @@
 					$('.person_address').html(data.map(function(item){
 						return `<li data-id=${item.userId} class="change_address">
 									<span class="check"><input type="checkbox" /></span>
-									<p>${item.province} ${item.city} ${item.county} ${item.address}</p>
-									<p>收件人:${item.usename}</p>
+									<p>${item.address}</p>
+									<p>收件人:${item.username}</p>
 									<p>电话:${item.phone}</p>
 									<span class="iconfont icon-fanhui"></span>
 								</li>`

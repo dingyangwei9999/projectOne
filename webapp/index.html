@@ -126,7 +126,7 @@
                 li.html(`
 
                     <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
-                     <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
+                     <img src="images/index/no_picture.jpg" dataimg="${erp.baseUrl}webapp/images/${response[i].img}" class="indexListImage">
                      <p class="indexListName">${response[i].goodsMsg}</p>
                     </a>
                     <p class="indexListPriceNow">￥${response[i].vipPrice}</p>
@@ -145,7 +145,7 @@
                 li.html(`
 
                     <a href="html/detail.html?id=${response[i].id}" class="indexListLink">
-                     <img src="images/index/no_picture.jpg" dataimg="images/${response[i].img}" class="indexListImage">
+                     <img src="images/index/no_picture.jpg" dataimg="${erp.baseUrl}webapp/images/${response[i].img}" class="indexListImage">
                      <p class="indexListName">${response[i].goodsMsg}</p>
                     </a>
                     <p class="indexListPriceNow">￥${response[i].vipPrice}</p>

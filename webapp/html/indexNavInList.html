@@ -29,7 +29,7 @@
 	                	msg.map(function(obj){
 	                		var li = $('<li/>');
 	                		li.html(`<a href="detail.html?id=${obj.id}" class="indexListLink">
-		                 <img src="../images/index/no_picture.jpg" dataimg="../images/${obj.img}" class="indexListImage">
+		                 <img src="../images/index/no_picture.jpg" dataimg="${erp.baseUrl}webapp/images/${obj.img}" class="indexListImage">
 		                 <p class="indexListName">${obj.goodsMsg}</p>
 		                </a>
 		                <p class="indexListPriceNow">￥${obj.vipPrice}</p>
