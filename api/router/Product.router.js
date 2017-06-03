@@ -8,31 +8,55 @@ var dbIndex = require('../module/dbIndex.js');
 var bodyParser = require('body-parser');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-//如果要使用session，需要单独包含这个模块
-var session = require('express-session');
+
 exports.handle = function(app){
-	app.get('/getsession', function(req, res){
-		console.log(req.session);
-		res.setHeader('Access-Control-Allow-Origin','*');
-		res.send(apiResult(req.session.name != null, null, req.session.name));
-	})
+	
 	app.get('/fetchproduct',function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
+		// res.setHeader('Access-Control-Allow-Origin','*');
 		db.output('allgoods', res);
 		
 	})
 	app.post('/searchproduct',urlencodedParser,function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
+		// res.setHeader('Access-Control-Allow-Origin','*');
 		db.searchproduct('allgoods', req.body,res);
 
 	})
 	app.post('/addproduct',urlencodedParser,function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
+		// res.setHeader('Access-Control-Allow-Origin','*');
 		db.addproduct('allgoods', req.body, 'id', function(data){
 			if(!data.length){
 				res.send(apiResult(true,'插入成功'));
 			}else{
 				res.send(apiResult(false,'插入失败'));
+			}
+		});
+	});
+	app.post('/chggoods',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		db.chggoods('allgoods', req.body,function(data){
+			if(data.length){
+				res.send(apiResult(true,'修改成功'));
+			}else{
+				res.send(apiResult(false,'修改失败'));
+			}
+		});
+
+	})
+	app.post('/delgoods',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		db.delgoods('allgoods', req.body, function(data){
+			if(data.length){
+				res.send(apiResult(true,'删除成功',data));
+			}else{
+				res.send(apiResult(false,'删除失败'));
+			}
+		});
+	});
+	app.post('/fetchgoods',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		db.fetchgoods('allgoods', req.body, function(data){
+			if(data.length){
+				res.send(apiResult(true,'获取成功',data));
 			}
 		});
 	});

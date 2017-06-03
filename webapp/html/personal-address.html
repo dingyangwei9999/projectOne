@@ -27,9 +27,9 @@
 					var data = res.data;
 					console.log(data);
 					$('.address').html(data.map(function(item){
-						return `<li data-id=${item.userId}>
-									<p>${item.province} ${item.city} ${item.county} ${item.address}</p>
-									<p>收件人:${item.usename}</p>
+						return `<li data-id=${item.addressId} data-num=${item.userId} class="personer_address">
+									<p>${item.address}</p>
+									<p>收件人:${item.username}</p>
 									<p>电话:${item.phone}</p>
 									<span class="iconfont icon-fanhui"></span>
 								</li>`
@@ -40,7 +40,11 @@
 					// 	$(this).css({'border':'none','color':'white','backgroundColor':'red'}).text('√');
 
 					// })
-
+					$('.personer_address').click(function(){
+						var addressId = $(this).attr('data-id');
+						var userId = $(this).attr('data-num');
+						location.href = 'adress-nowadd.html?_id='+addressId + '&userId=' + userId;
+					})
 				}
 			})
 		})

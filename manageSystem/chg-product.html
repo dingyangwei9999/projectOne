@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.container{
+			margin:0 auto;
+		}
+		.box{
+			width:100%;
+			height:50px;
+			background-color:#eee;
+			font-size:16px;
+			padding:0 40px;
+			line-height:50px;
+			margin-bottom:20px;
+		}
+	
+		.title{
+			float:left;
+		}
+		.closed{
+			float:right;
+			font-size:30px;
+			cursor:pointer;
+		}
+	</style>
+	<script src="../libs/jquery/jquery-2.1.1.min.js"></script>
+	<script src="../libs/global/global.js"></script>
+	<script src="../libs/jquery/jquery.form.js"></script>
+	<script src="js/chg-product.js"></script>
+</head>
+<body>
+	<div class="box clear">
+		<p class="title">修改产品</p>
+		<div class="closed">×</div>
+	</div>
+	
+	<div class="container">
+		<form>
+  		
+  		<div class="form-group">
+    		<label for="inputPassword3" class="col-sm-2 control-label">原价</label>
+    		<div class="col-sm-9">
+      		<input type="text" class="form-control price" id="inputPassword3" placeholder="原价">
+    	</div>
+    	<div class="form-group">
+    		<label for="inputPassword3" class="col-sm-2 control-label">现价</label>
+    		<div class="col-sm-9">
+      		<input type="text" class="form-control vipPrice" id="inputPassword3" placeholder="现价">
+    	</div>
+    	<div class="form-group">
+    		<label for="inputPassword3" class="col-sm-2 control-label">说明</label>
+    		<div class="col-sm-9">
+      		<input type="text" class="form-control state" id="inputPassword3" placeholder="说明">
+    	</div>
+    	<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">商品名称</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="form-control goodsName" id="inputEmail3" placeholder="商品名称">
+    		</div>
+  		</div>
+    	<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">文字描述</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="form-control desc" id="inputEmail3" placeholder="文字描述">
+    		</div>
+  		</div>
+  		
+    	<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">种类1</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="form-control kind1" id="inputEmail3" placeholder="种类1">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputPassword3" class="col-sm-2 control-label">种类2</label>
+    		<div class="col-sm-9">
+      		<input type="text" class="form-control kind2" id="inputPassword3" placeholder="种类2">
+    	</div>
+    	<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">种类3</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="form-control kind3" id="inputEmail3" placeholder="种类3">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">库存</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="form-control kucun" id="inputEmail3" placeholder="库存">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">缩略图</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="picture" class="banner1">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">轮播图1</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="banner" class="banner1">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">轮播图2</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="banner" class="banner2">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图1</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo1">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图2</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo2">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图3</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo3">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图4</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo4">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图5</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo5">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图6</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo6">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图7</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo7">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图8</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo8">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图9</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo9">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图10</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo10">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图11</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo11">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图12</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo12">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图13</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo13">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图14</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo14">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图15</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo15">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图16</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo16">
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="inputEmail3" class="col-sm-2 control-label">详情图17</label>
+    		<div class="col-sm-9">
+      			<input type="file" name="photo" class="photo17">
+    		</div>
+  		</div>
+  		<div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button class="btn btn-default btn-sure col-sm-2">确认修改</button>
+		      <button class="btn btn-default btn-closed col-sm-2">关闭</button>
+		    </div>
+		</div>
+  		</form>
+  	</div>
+  
+</body>
+</html>

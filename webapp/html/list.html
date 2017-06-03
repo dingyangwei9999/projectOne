@@ -2,28 +2,29 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>帮帮买</title>
+	<title>惠众</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="../css/list.css">
 	<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="../css/font-index/iconfont.css">
 	<script src="../libs/lib/jquery-3.2.1.js"></script>
 	<script src="../../libs/global/global.js"></script>
+	<script src="../js/rem.js"></script>
 	<script>
 		$(function(){
 			//list页面接收参数
 			var big_proa=location.search
             var big_id=big_proa.split('=')[1]
             var allKeyWord=big_proa.split('=')[0].slice(1);
-            console.log(allKeyWord);
+            // console.log(allKeyWord);
             var productid;
             var keywordCn = decodeURIComponent(big_id)
-            console.log(keywordCn)
+            // console.log(keywordCn)
 
 			if(big_proa == ''){
 				//将数据库中数据导入indexList
 				$.get(erp.baseUrl + 'allList',function(response){
-				       console.log(response)
+				       // console.log(response)
 				      response.map(function(obj){
 				        //console.log(obj) 
 				        var li = $('<li/>');
@@ -36,23 +37,23 @@
 										</a>
 									</h4>
 								</dt>
-								<dd>
+								<dd class="Price">
 									<span class="pri-left">
 										<strong class="prife-price">
-											<i>￥${obj.vipPrice}</i>
+											<i>￥${obj.vipPrice.toFixed(2)}</i>
 										</strong>
 										<small class="ori-price">
-											<i>￥${obj.price}</i>
+											<i>￥${obj.price.toFixed(2)}</i>
 										</small>
 									</span>
 								</dd>
-								<dd>
+								<dd class="sale">
 									<span class="pri-right">
 										<i>销量:${obj.price}件</i>
 									</span>
 								</dd>
 							`)
-				        $('.f-cb').append(li);
+				        $('.f-cc').append(li);
 				      })
 				    }
 				)
@@ -75,17 +76,17 @@
 										</a>
 									</h4>
 								</dt>
-								<dd>
+								<dd class="Price">
 									<span class="pri-left">
 										<strong class="prife-price">
-											<i>￥${obj.vipPrice}</i>
+											<i>￥${obj.vipPrice.toFixed(2).toFixed(2)}</i>
 										</strong>
 										<small class="ori-price">
-											<i>￥${obj.price}</i>
+											<i>￥${obj.price.toFixed(2)}</i>
 										</small>
 									</span>
 								</dd>
-								<dd>
+								<dd class="Sale">
 									<span class="pri-right">
 										<i>销量:${obj.price}件</i>
 									</span>
@@ -105,6 +106,7 @@
 	                console.log(msg);
 	                 	 msg.map(function(obj){
 				        console.log(obj) 
+
 				        var li = $('<li/>');
 				        li.html(`
 								<a href="detail.html?id=${obj.id}"><img src="${erp.baseUrl}webapp/images/${obj.img}" alt=""></a>
@@ -115,17 +117,17 @@
 										</a>
 									</h4>
 								</dt>
-								<dd>
+								<dd class="Price">
 									<span class="pri-left">
 										<strong class="prife-price">
-											<i>￥${obj.vipPrice}</i>
+											<i>￥${obj.vipPrice.toFixed(2)}</i>
 										</strong>
 										<small class="ori-price">
-											<i>￥${obj.price}</i>
+											<i>￥${obj.price.toFixed(2).toFixed(2)}</i>
 										</small>
 									</span>
 								</dd>
-								<dd>
+								<dd class="sale">
 									<span class="pri-right">
 										<i>销量:${obj.price}件</i>
 									</span>
@@ -137,16 +139,137 @@
 
 	            });
 			}
+			$('.screens li').click(function(){
+				console.log($(this));
+				var keyword = $(this).text();
+				if(keyword == '全部'){
+					location.reload();
+				}else{
+					location.href = 'indexNavInList.html?navKeyword=' + keyword;
+				}
+			});
+			//商品按销量排序
+			$('.sorts li').click(function(){
+				$('.sorts li').css('color','');
+				$(this).css('color','#f59d2b');
+				var word = $(this).text();
+				
+				// console.log(word);
+				if(word == '默认'){
+					location.reload();
+				}else if(word == '销量'){
+					$.ajax({
+		              	type: "GET",
+		              	url: erp.baseUrl + "allList",
+		              	success: function(msg){
+		                	// console.log(msg);
+		                	//将数据选择排序
+		                	 for(var i=0;i<msg.length;i++){
+		                	 	for(var j=i+1;j<msg.length;j++){
+		                	 		if(Number(msg[i].sales)>Number(msg[j].sales)){
+		                	 			goods = msg[j];
+		                	 			msg[j] = msg[i];
+		                	 			msg[i] = goods;
+		                	 		}
+		                	 	}
+		                	 }
+		                	 // console.log(msg);
+		                	 showMsg(msg);
+		                	
+		              	}
+
+		            });
+				}else if(word == '人气'){
+					$.ajax({
+		              	type: "GET",
+		              	url: erp.baseUrl + "allList",
+		              	success: function(msg){
+		                	// console.log(msg);
+		                	//将数据选择排序
+		                	 for(var i=0;i<msg.length;i++){
+		                	 	for(var j=i+1;j<msg.length;j++){
+		                	 		if(Number(msg[i].moods)>Number(msg[j].moods)){
+		                	 			goods = msg[j];
+		                	 			msg[j] = msg[i];
+		                	 			msg[i] = goods;
+		                	 		}
+		                	 	}
+		                	 }
+		                	 // console.log(msg);
+		                	 showMsg(msg);
+		                	
+		              	}
+
+		            });
+				}else if(word = '价格'){
+					$.ajax({
+		              	type: "GET",
+		              	url: erp.baseUrl + "allList",
+		              	success: function(msg){
+		                	// console.log(msg);
+		                	//将数据选择排序
+		                	 for(var i=0;i<msg.length;i++){
+		                	 	for(var j=i+1;j<msg.length;j++){
+		                	 		if(Number(msg[i].vipPrice)>Number(msg[j].vipPrice)){
+		                	 			goods = msg[j];
+		                	 			msg[j] = msg[i];
+		                	 			msg[i] = goods;
+		                	 		}
+		                	 	}
+		                	 }
+		                	 // console.log(msg);
+		                	 showMsg(msg);
+		        
+		              	}
+
+		            });
+				}
+			})
+			function showMsg(msg){
+				$('.f-cc').html(msg.map(function(items){
+        		// console.log(items) 
+		       
+		        return `<li class=".f-cb">
+						<a href="detail.html?id=${items.id}"><img src="${erp.baseUrl}webapp/images/${items.img}" alt=""></a>
+						<dt>
+							<h4>
+								<a href="detail.html?id=${items.id}" class="title-price">
+									${items.goodsMsg}
+								</a>
+							</h4>
+						</dt>
+						<dd class="Price">
+							<span class="pri-left">
+								<strong class="prife-price">
+									<i>￥${items.vipPrice.toFixed(2)}</i>
+								</strong>
+								<small class="ori-price">
+									<i>￥${items.price.toFixed(2)}</i>
+								</small>
+							</span>
+						</dd>
+						<dd class="sale">
+							<span class="pri-right">
+								<i>销量:${items.sales}件</i>
+							</span>
+						</dd>
+					</li>`;
+		         
+		      }))
+			}
 		})
+
 	</script>
 </head>
 <body>
 	<div class="list">
 		<div class="wra">
 			<header class="Header clearfix fixed">
-			    	<a href="javascript:history.go(-1)" class="Return"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-			        <span class="Title">商品列表</span>
-			       	<a href="../index.html#" class="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
+			    <div id="Htop">
+					<a href="javascript:history.go(-1)" class="iconfont icon-fanhui back"></a>
+					<h2 class="h_2">商品列表</h2>
+					<a class="iconfont icon-shouyeshouye index" href="../index.html"></a>
+				</div>
 			</header>
 			<div class="nav">
 				<div class="daohang">	
@@ -161,11 +284,12 @@
 						</li>
 						
 					</ul>
+					<div class="jiao"></div>
 					<ul class="sorts" style="display:none">
-						<li class="fir-sort active" type='default'>默认</li>
-						<li type='sales'>销量<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
-						<li type='moods'>人气<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
-						<li type='price'>价格<i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li class="fir-sort active"><span>默认</span></li>
+						<li type='sales'><span>销量</span><i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li type='moods'><span>人气</span><i class="fa fa-arrow-up" aria-hidden="true"></i></li>
+						<li type='price'><span>价格</span><i class="fa fa-arrow-up" aria-hidden="true"></i></li>
 					</ul>
 					<ul class="screens" style="display:none">
 						<li class="active">全部</li>
@@ -181,7 +305,7 @@
 			</div>
 		</div>
 		<div class="center">
-			<ul class="f-cb">
+			<ul class="f-cc">
 				<!-- <li class="f-cb">
 					<a href=""><img src="../images/4.jpg" alt=""></a>
 					<dt>

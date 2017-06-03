@@ -1,4 +1,3 @@
-var db = require('../module/db.js');
 var apiResult = require('../module/apiResult.js');
 var userdb = require('../module/userdb.js');
 var bodyParser = require('body-parser');
@@ -14,30 +13,34 @@ exports.handle = function(app){
 	app.use(session({
 		secret: '12345',//用来对session数据进行加密的字符串.这个属性值为必须指定的属性
 		name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-		cookie: {maxAge: 800000000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+		cookie: {maxAge: 1000*60*60*60 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
 		resave: false,
 		saveUninitialized: true,
 	}))
 	//后台登录路由
 	app.post('/login',urlencodedParser,function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
-		db.exists('min', req.body, 'name', function(data){
-			console.log(data);
-			if(data){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		userdb.managerLogin('admin',req.body, function(data){
+			if(data.length){
 				req.session.name = req.body.name;
-				console.log(req.session.name);
+				// console.log(req.session);
 				res.send(apiResult(true));
 			} else {
-				res.send(apiResult(false, '用户名错误'));
+				res.send(apiResult(false, '无此用户'));
 			}
 		})
 	})
 	app.post('/logout',urlencodedParser,function(req,res){
 		res.send('yes');
 	})
+	app.get('/getsession', function(req, res){
+		// console.log(req.session);
+		res.setHeader('Access-Control-Allow-Origin','*');
+		res.send(apiResult(req.session.name != null, null, req.session.name));
+	})
 	//客户端注册路由
 	app.post('/register',urlencodedParser,function(req,res){
-		res.setHeader('Access-Control-Allow-Origin','*');
+		// res.setHeader('Access-Control-Allow-Origin','*');
 		userdb.register('user', req.body, 'username', function(data){
 			console.log(data);
 			if(!data){

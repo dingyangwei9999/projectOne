@@ -1,4 +1,5 @@
 var db = require('./db.js')();
+
 //注册
 var register = function(_collection, data, key, callback){
 	db.open(function(error, db){
@@ -352,6 +353,28 @@ var delgoods = function(_collection, data,callback){
 		})
 	})	
 }
+var managerLogin = function(_collection,data,callback){
+	db.open(function(err,db){
+		if(err){
+			console.log('connect db:',err);
+		}
+
+		db.collection(_collection,function(err,collection){
+			if(err){
+				console.log('connect collection:',err);
+			}
+
+			collection.find({name:data.name,password:data.password}).toArray(function(err,doc){
+				if(err){
+					console.log('find err:',err);
+				}
+				callback(doc);
+				db.close();
+			})
+		})
+	})
+}
+exports.managerLogin = managerLogin;
 exports.register = register;
 exports.loginc = loginc;
 exports.findpsw = findpsw;

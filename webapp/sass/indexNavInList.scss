@@ -18,14 +18,14 @@ body,html{height: 100%;}
 		height: 43px;
 		width: 100%;
 		line-height: 43px;
-		background-color: #F4F4F4;
+		background-color: #3FB4EA;
 		border-bottom:1px solid #E3E3E4;
 		display:flex;
 		padding-left:17px;
 		padding-right:17px;
 		a,i,h3{
 			display:inline-block;
-			color:#8A8A8A;
+			color:white;
 		}
 		i{
 			flex:1;
@@ -40,7 +40,10 @@ body,html{height: 100%;}
 	}
 	.indexNavInBanner{
 		margin-top:43px;
-		img{width: 100%}
+		border:1px solid #fff;
+		img{
+			width: 100%;
+		}
 	}
 	.indexList{
 		ul{
@@ -90,11 +93,11 @@ body,html{height: 100%;}
 	.loading{
 		display:none;
 		position:fixed;
-		top:0;
+		top:43px;
 		left:0;
 		width: 100%;
 		height: 100%;
-		//background-color: #ccc;
+		background-color: #fff;
 
 		//z-index:999;
 		img{

@@ -67,17 +67,17 @@ body, html {
   height: 0.84rem;
   width: 100%;
   display: flex;
-  background-color: #F4F4F4;
+  background-color: #3FB4EA;
   justify-content: space-between;
   border-bottom: 0.02rem solid #ccc;
   align-items: center;
-  color: #7D7D7D;
+  color: white;
 }
 
 .container header i {
   font-size: 0.4rem;
   margin: 0 0.2rem;
-  color: #888;
+  color: white;
 }
 
 .container header i:last-child {

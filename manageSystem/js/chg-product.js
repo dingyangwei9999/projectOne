@@ -2,8 +2,24 @@ $(function(){
 	$('.closed,.btn-closed').click(function(){
 		location.href = 'index.html';
 	});
-	
-	//点击添加商品
+	//获取商品Id  修改商品
+	var goodsId = location.search.split('=')[1];
+	console.log(goodsId);
+	$.post(erp.baseUrl + 'fetchgoods',{id:goodsId},function(res){
+		var data = res.data;
+		console.log(res,data);
+		data.forEach(function(item){
+			$('.price').val(item.price);
+			$('.vipPrice').val(item.vipPrice);
+			$('.state').val(item.states);
+			$('.goodsName').val(item.goodsMsg);
+			$('.desc').val(item.des);
+			$('.kind1').val(item.kind1);
+			$('.kind2').val(item.kind2);
+			$('.kind3').val(item.kind3);
+			$('.kucun').val(item.kucun);
+		});
+	});
 	$('.btn-sure').click(function(e){
 		var goodsName = $('.goodsName').val();
 		var price = $('.price').val();
@@ -14,7 +30,6 @@ $(function(){
 		var kind1 = $('.kind1').val();
 		var kind2 = $('.kind2').val();
 		var kind3 = $('.kind3').val();
-		var num = Math.floor(Math.random()*1000000);
 		$('form').ajaxSubmit({
 			type: 'post',
 			url: erp.baseUrl + 'upload',
@@ -40,7 +55,7 @@ $(function(){
 	                	picture = item.filename;
 	                });
                 }else{
-                	picture = null;
+                	picture = '';
                 }
                
                 if(ban){
@@ -49,7 +64,7 @@ $(function(){
 	                	banner.push(item.filename);
 	                });
                 }else{
-                	banner = null;
+                	banner = [];
                 }
                 
                 if(pho){
@@ -58,9 +73,9 @@ $(function(){
 	                	photo.push(item.filename);
 	                });
                 }else{
-                	photo = null;
+                	photo = [];
                 }
-                console.log(banner);
+                // console.log(banner);
                 banner ? JSON.stringify(banner) : '';
                 photo ? JSON.stringify(photo) : '';
                 // console.log(picture,banner,photo);
@@ -68,8 +83,8 @@ $(function(){
                 	alert('商品名，种类，原价，现价为必填项');
                 	return false;
                 }
-                $.post(erp.baseUrl + 'addproduct',{
-					id:num,
+                $.post(erp.baseUrl + 'chggoods',{
+					id:goodsId,
 					pic:picture,
 					kucun:kucun,
 					kind1:kind1,
@@ -83,13 +98,11 @@ $(function(){
 					banner:banner,
 					photo:photo
 				},function(res){
+					console.log(res);
 					if(res.status){
 						location.href = 'index.html';
-					}else{
-						alert('id一致，请重新确认');
 					}
 				});
-				
             },
             error:function(XmlHttpRequest,textStatus,errorThrown){
                 console.log(XmlHttpRequest);
@@ -99,4 +112,5 @@ $(function(){
 		})
 		e.preventDefault();
 	})
+	
 })

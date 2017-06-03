@@ -1,3 +1,5 @@
+@import url('../iconfont/iconfont.css');
+@import url('../iconfont/font-index/iconfont.css');
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@ ul{list-style: none;}
 body {
     background: #f7f7f7;
     color: #555;
-    font-size: 12px;
+    font-size: 0.24rem;
     margin: 0 auto;
     max-width: 640px;
     font-weight:normal;
@@ -27,21 +29,36 @@ img{
     top: 0; 
     max-width: 640px;   
 }
-.Header{
-
-    width: 100%;
-    background: #f4f4f4;
-    height: 2.5rem;
-    border-bottom: .1rem solid #cccccc;
-    display:flex;
-    justify-content:space-between;
-    margin:0 auto;
-    padding-left:1rem;
-    a{
-        display:inline-block;
-        flex:1
+header{
+        height:0.84rem;
+        text-align:center;
+        position: relative;
+        background: #3FB4EA;
+        width: 100%;
+        // box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        z-index:15;
+        .h_2{
+        font-size:0.32rem;
+        line-height:0.84rem;
+        font-weight:normal;
+        color:#fff;
+        }
+        .back{
+        position: absolute;
+        left:0.3rem;
+        top:0.2rem;
+        font-size: 0.36rem;
+        color: #fff;
+        }
+        .index{
+        position: absolute;
+        right:0.3rem;
+        top:0.12rem;
+        text-decoration:none;
+        font-size: 0.52rem;
+        color: #fff;
+        }
     }
-}
 .Title {
     flex:5;
     //padding: 0 4rem;
@@ -49,12 +66,12 @@ img{
     line-height: 2.5rem;
     display: block;
     color: #7d7d7d;
-    font-size: 16px;
+    font-size: 0.32rem;
     text-align: center;
 }
 .Return, .Home {
     display:inline-block;
-    font-size:18px;
+    font-size:0.36rem;
     margin:0 auto;
     line-height: 2.5rem;
     font-weight:normal;
@@ -64,29 +81,39 @@ img{
 .nav{
     width: 100%;
     .daohang{
-        .fir-ul{
+         height: 0.76rem;
+         // .jiao{
+         //    width: 0.2rem;
+         //    height: 0.2rem;
+         //    background:#FFF;
+         //    position: fixed;
+         //    transform:rotate(45deg);
+         //    left:1.36rem;
+         //    top: 1.52rem;
+         //    display:none;
+         // }
+         .fir-ul{
             background: #e7e7e7;
-            height: 2.325rem;
-
-        }
-        //display:flex;
-        ul{
-            background:#fff;
             display:flex;
+            height: 0.76rem;
+         }
+        ul{
+           
             li:first-child{
                 border-left:none;
             }
             li{               
                 border-bottom:1px solid #ccc;
                 flex:1;
-                span{
+                height: 0.76rem;
+                .sort,.screen{
                     color: #000;
                     display: block;
-                    margin: 0.48rem 0;
-                    //padding: 0.48rem 0;
-                    border-left: #ccc 1px solid;
+                    border-left: #ccc 0.02rem solid;
                     text-align: center;
-                    font-size:14px;
+                    font-size:0.28rem;
+                    line-height: 0.76rem;
+                    font-size: 0.26rem;
                 }
                 .sort{
                     border:0;
@@ -96,37 +123,40 @@ img{
         }
         .sorts{
             width: 100%;
-            display:flex;
-            font-size:14px;
+            font-size: 0.24rem;
+            background:#fff;
+            box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,.3);
+            z-index:12;
             .active{
                 color: #f59d2b;
-                border-bottom: #f59d2b 0.15rem solid;
+                 
             }
-            .fir-sort{
-                margin-left:0.3rem;
-            }
-
+           
             li{
                 text-align: center;
                 display:inline-block;
-                width: 23%; 
+                width: 24%; 
                 height: auto;
                 line-height: 1;
-                padding: 0.87rem 0;
-                border-bottom:none;            
+                padding: 0.2rem 0;
+                border-bottom:none; 
+
             }
         }
         .screens{
             width: 100%;
-            font-size:14px;
-            padding-bottom:0.8rem;
+            font-size: 0.24rem;
+            background:#fff;
+            box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,.3);
+            padding-bottom: 0.3rem;
             li{
                 display:inline-block;
                 width: 28%;
                 text-align: center;
-                height: 1.9rem;
-                line-height: 1.9rem;
-                margin: 1.43rem 2% 0;
+                height: 0.7rem;
+                line-height: 0.7rem;
+                margin: 17px 7px;
+                margin-bottom: 0;
                 padding: 0;
                 border: 0;
                 white-space: nowrap;
@@ -144,48 +174,75 @@ img{
 }
 .center{
     background-color:#fff;
-    padding-top: 5.6rem;
+    padding-top: 1.6rem;
+    padding-bottom: 0.24rem;
     ul{
         display:flex;
         flex-wrap: wrap;
-        padding:6px;
-        margin-bottom:50px;
+        padding:0.12rem;
         justify-content:space-between;
         li{
-            padding:3px;
+            padding:0.06rem;
             width: 47%;
-            border:1px solid #E5E5E5;
-            margin-bottom:6px;
+            border:0.02rem solid #E5E5E5;
+            margin-bottom:0.12rem;
             background-color: #FFF;
+            position: relative;
+            padding-bottom: 0.9rem;
             dt{
                 display:inline-block;
                 margin-top:0.046875rem;
                 margin-bottom:0.046875rem;
-                a{font-weight:normal;font-size:13px;line-height:16px;display:block;height:2.64rem;overflow:hidden;}
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                display:-webkit-box; 
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:2; 
+                padding:0 0.1rem ;
+                a{font-weight:normal;
+                    font-size:0.26rem;
+                    line-height:0.32rem;
+                    display:block;
+                    // height:2.64rem;
+                    overflow:hidden;}
+            }
+            .sale{
+                position: absolute;
+                top:200px;width:100%;
+            }
+            .Price{
+                position: absolute;
+                top:3.82rem;
+                 padding:0 0.1rem ;
+                 .pri-left{
+                    .prife-price{
+                       color: #fb3f3e;
+                       font-size: 0.26rem;
+                       font-style: normal; 
+                    }
+                    .ori-price{
+                       font-size: 0.24rem;
+                       font-style: normal; 
+                       text-decoration:line-through;
+                    }
+                }
             }
             .title-price{
-                padding-bottom: 0.46rem;
+                font-size: 0.26rem;
+                // padding-bottom: 0.46rem;
             }
-            .pri-left{
-                .prife-price{
-                   color: #fb3f3e;
-                   font-size: 0.6rem;
-                   font-style: normal; 
-                }
-                .ori-price{
-                   font-size: 0.5rem;
-                   font-style: normal; 
-                   text-decoration:line-through;
-                }
-            }
+            
             .pri-right{
-                margin-top: 0.34rem;
+                margin-top: 0.2rem;
                 display:block;
                 width: 100%;
                 text-align:right;
-                font-size:0.55rem;
+                font-size: 0.24rem;
                 margin-right: 0.34rem;
                 color: #888;
+                i{
+                    padding-right: 0.24rem;
+                }
             }
         }
     }
@@ -238,26 +295,25 @@ img{
 
 .footer p {
     width: 100%;
-    padding: 0.57rem 0;
-    line-height: 1.5;
     text-align: center;
-    font-size:0.75rem;
+    font-size:0.24rem;
+    margin: 0.2rem 0;
 }
 
 .indexToTop{
         display:none;
         opacity:0.8;
         position:fixed;
-        bottom:51px;
-        right:14px;
-        width: 44px;
-        height: 44px;
+        bottom:1.02rem;
+        right:0.28rem;
+        width: 0.88rem;
+        height: 0.88rem;
         border-radius:50%;
         background-color: #FF4D4D;
         text-align:center;
-        line-height: 44px;
+        line-height: 0.88rem;
         i{
-            font-size:24px;
+            font-size:0.48rem;
             color:white;
         }
     }

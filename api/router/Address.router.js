@@ -11,7 +11,9 @@ exports.handle = function(app){
 	app.post('/addsite',urlencodedParser,function(req,res){
 		// res.setHeader('Access-Control-Allow-Origin','*');
 		ad.addSite('address',req.body,function(data){
-			res.send(apiResult(true));
+			if(data){
+				res.send(apiResult(true));
+			}
 		});
 		
 	});
@@ -19,6 +21,7 @@ exports.handle = function(app){
 	app.post('/getsite',urlencodedParser,function(req,res){
 		// res.setHeader('Access-Control-Allow-Origin','*');
 		ad.getSite('address',req.body,function(data){
+			// console.log(req.body._id);
 			if(data.length){
 				res.send(apiResult(true,'默认地址',data));
 			}else{
@@ -26,5 +29,33 @@ exports.handle = function(app){
 			}
 		});
 	});
-	
+	app.post('/fetchsite',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		ad.fetchSite('address',req.body,function(data){
+			// console.log(req.body._id);
+			if(data.length){
+				res.send(apiResult(true,'地址',data));
+			}
+		});
+	});
+	//修改地址
+	app.post('/amend',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		ad.amendSite('address',req.body,function(data){
+			// console.log(req.body._id);
+			if(data.length){
+				res.send(apiResult(true,'修改成功'));
+			}
+		});
+	});
+	//删除地址
+	app.post('/removeAddress',urlencodedParser,function(req,res){
+		// res.setHeader('Access-Control-Allow-Origin','*');
+		ad.removeSite('address',req.body,function(data){
+			// console.log(req.body._id);
+			if(data.length){
+				res.send(apiResult(true,'已成功删除'));
+			}
+		});
+	});
 }

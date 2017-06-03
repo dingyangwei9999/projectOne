@@ -58,7 +58,7 @@ var searchproduct = function(_collection,data,res){
 			} else {
 				console.log(data);
 				var reg = new RegExp("^.*"+data.keyword+"\.*$","i");
-				collection.find({goodsMsg:{$regex:reg}}).toArray(function(err,dos){	
+				collection.find({'$or':[{goodsMsg:{$regex:reg}},{id:data.keyword}]}).toArray(function(err,dos){	
 					if(err){
 						console.log(err);
 					}
@@ -90,8 +90,83 @@ var details = function(name, res){
 		})
 	})	
 }
-exports.details=details;
+var delgoods = function(_collection,data, callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({id:data.id}).toArray(function(err, docs){
+					if(err){
+						console.log('find err:',err);
+					}
 
+					collection.remove(data);
+					callback(docs);
+					db.close();
+				});
+			}
+			
+		})
+	})	
+}
+var fetchgoods = function(_collection,data, callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({id:data.id}).toArray(function(err, docs){
+					if(err){
+						console.log('find err:',err);
+					}
+					callback(docs);
+					db.close();
+				});
+			}
+			
+		})
+	})	
+}
+var chggoods = function(_collection,data, callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error)	
+			} else {
+				collection.find({id:data.id}).toArray(function(err, docs){
+					if(err){
+						console.log('find err:',err);
+					}
+					collection.update({id:data.id},
+						{$set:{pic:data.pic,kucun:data.kucun,goodsMsg:data.goodsMsg,
+							price:data.price,vipPrice:data.vipPrice,states:data.states,
+							des:data.des,banner:data.banner,photo:data.photo,kind1:data.kind1,
+							kind2:data.kind2,kind3:data.kind3}},{multi:true});
+					callback(docs);
+					db.close();
+				});
+			}
+			
+		})
+	})	
+}
+exports.details=details;
+exports.delgoods=delgoods;
+exports.fetchgoods=fetchgoods;
+exports.chggoods=chggoods;
 exports.output = output;
 exports.addproduct = addproduct;
 exports.searchproduct = searchproduct;

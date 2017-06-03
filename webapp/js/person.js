@@ -151,6 +151,8 @@ var nowname;
     var county = $('#county').val();
     county = $('#county option[value='+county+']').text();
     var textxiangxi = $('.text-xiangxi').val();
+    var address = province + city + county + textxiangxi;
+    var addressId = $('#city').val() + parseInt(Math.random()*100000);
     if(addphone===''||addname===''||textxiangxi===''){
       alert('提交的内容不能为空');
       return false;
@@ -159,9 +161,9 @@ var nowname;
       return false;
     }
     $.post(erp.baseUrl+'addsite',
-      {userId:userid,usename: addname, phone: addphone,province:province, 
-      city:city,county:county,address: textxiangxi,defalut:change},function(response){
+      {addressId:addressId,userId:userid,username: addname, phone: addphone,address: address},function(response){
         console.log(response);
+        location.href = 'personal-address.html';
       })
   })
 

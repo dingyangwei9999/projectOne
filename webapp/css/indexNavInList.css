@@ -130,7 +130,7 @@ body, html {
   height: 43px;
   width: 100%;
   line-height: 43px;
-  background-color: #F4F4F4;
+  background-color: #3FB4EA;
   border-bottom: 1px solid #E3E3E4;
   display: flex;
   padding-left: 17px;
@@ -139,7 +139,7 @@ body, html {
 
 .container header a, .container header i, .container header h3 {
   display: inline-block;
-  color: #8A8A8A;
+  color: white;
 }
 
 .container header i {
@@ -156,6 +156,7 @@ body, html {
 
 .container .indexNavInBanner {
   margin-top: 43px;
+  border: 1px solid #fff;
 }
 
 .container .indexNavInBanner img {
@@ -222,10 +223,11 @@ body, html {
 .container .loading {
   display: none;
   position: fixed;
-  top: 0;
+  top: 43px;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: #fff;
 }
 
 .container .loading img {

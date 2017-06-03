@@ -40,7 +40,7 @@ img {
   height: 0.84rem;
   text-align: center;
   position: relative;
-  background: #f4f4f4;
+  background: #3FB4EA;
   width: 100%;
   z-index: 15;
 }
@@ -49,6 +49,7 @@ img {
   font-size: 0.32rem;
   line-height: 0.84rem;
   font-weight: normal;
+  color: white;
 }
 
 #box header .back {
@@ -56,7 +57,7 @@ img {
   left: 0.3rem;
   top: 0.2rem;
   font-size: 0.4rem;
-  color: #888;
+  color: white;
 }
 
 #box header .index {
@@ -65,7 +66,7 @@ img {
   top: 0.12rem;
   text-decoration: none;
   font-size: 0.58rem;
-  color: #888;
+  color: white;
 }
 
 #box main {

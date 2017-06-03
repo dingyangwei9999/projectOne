@@ -5,12 +5,67 @@
 	<title>编辑地址</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <script type="text/javascript" src="../../libs/global/global.js"></script>
-<script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script>
+<!-- <script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" type="text/css" href="../css/personal.css">
 	<script type="text/javascript" src="../libs/jquery-3.1.1/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
-	
+	<script>
+		$(function(){
+			var $Htitle = $('title').html();
+		    $('.Htop').load('../html/personal-header.html',function(){
+		      return $('.h_2').html($Htitle);
+		    });
+		    $('.Hfoot').load('../html/personal-footer.html');
+
+
+			var userId = location.search.split('=')[2];
+			var addressId = location.search.split('=')[1].split('&')[0];
+			console.log(userId,addressId);
+			$.post(erp.baseUrl + 'fetchsite',{
+				userId:userId,addressId:addressId
+			},function(res){
+				var data = res.data;
+				console.log(data);
+				data.forEach(function(item){
+					$('.now-addname').val(item.username);
+					$('.now-addphone').val(item.phone);
+					$('.nows-xiangxi').val(item.address);
+				})
+				
+			});
+			//点击修改该地址
+			$('.qr-adress').click(function(){
+				var username = $('.now-addname').val();
+				var phone = $('.now-addphone').val();
+				var address = $('.nows-xiangxi').val();
+				$.post(erp.baseUrl + 'amend',{
+					username:username,
+					phone:phone,
+					address:address,
+					userId:userId,
+					addressId:addressId
+				},function(res){
+					if(res.status){
+						alert(res.message);
+						location.href = 'personal-address.html';
+					}
+				})
+			})
+			//点击删除地址
+			$('.del-adress').click(function(){
+				$.post(erp.baseUrl + 'removeAddress',{
+					userId:userId,
+					addressId:addressId
+				},function(res){
+					if(res.status){
+						alert(res.message);
+						location.href = 'personal-address.html';
+					}
+				})
+			})
+		})
+	</script>
 	
 </head>
 <body>
@@ -30,7 +85,7 @@
 	<li class="now-addli">
 	<b class="now-addb">手机号 :</b><input type="phone" class="now-addphone" id="nowphone" placeholder="手机号">
 	</li>
-
+	
 	<li class="now-xiangxiadress">
 	<b class="now-xiangxi">详细地址 ：</b>
 	<textarea class="nows-xiangxi" placeholder="详细地址" cols="30" rows="4" wrap="virtual"></textarea>
@@ -39,8 +94,8 @@
 	</ul>
 	</div>
 	<div class="btn-tijiao">
-	<a href="" class="del-adress del-left">删除</a>
-	<a href="" class="qr-adress">确认修改</a>
+	<a href="javascript:;" class="del-adress del-left">删除</a>
+	<a href="javascript:;" class="qr-adress">确认修改</a>
 	</div>
 	<footer class="Hfoot"></footer>
 </div>

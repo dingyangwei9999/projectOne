@@ -1,0 +1,54 @@
+.tip {
+  width: 30%;
+  height: 200px;
+  background: #ccc;
+  position: absolute;
+  display: none;
+  border-radius: 20px;
+  z-index: 15;
+  left: 50%;
+  top: 50%;
+  margin-left: -15%;
+  margin-top: -50px;
+}
+
+.tip .b1 {
+  text-align: center;
+  line-height:100px;
+}
+
+.tip .b1 span {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background: #F00;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+ 
+}
+
+.tip .top1 {
+  height: 50px;
+  width: 100%;
+  border-bottom: 2px dashed #eee;
+  text-align: center;
+}
+
+.tip .top1 .close {
+  font-size: 20px;
+  color: #F00;
+  position: absolute;
+  right:0;
+  top:0;
+  display: block;
+  
+}
+
+.tip .top1 p {
+  line-height: 50px;
+  font-size: 20px;
+}
+
