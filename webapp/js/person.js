@@ -310,18 +310,18 @@ $('.tuiguang').click(function(){
   alert('提交成功')
 });
 
-if($Htitle==='个人资料'){
-   $.post(erp.baseUrl+'email_show',{username:obj.username},function(response){
-     $('.use-email').val(response.data);
-    });
+// if($Htitle==='个人资料'){
+//    $.post(erp.baseUrl+'email_show',{username:obj.username},function(response){
+//      $('.use-email').val(response.data);
+//     });
 
-    $('.change-email').click(function(){
-      var emailval = $('.use-email').val();
-      $.post(erp.baseUrl+'resetemail',{username:obj.username,email:emailval},function(response){
-    });
-      alert('修改成功');
-   })
-}
+//     $('.change-email').click(function(){
+//       var emailval = $('.use-email').val();
+//       $.post(erp.baseUrl+'resetemail',{username:obj.username,email:emailval},function(response){
+//     });
+//       alert('修改成功');
+//    })
+// }
 
     var num=1;
     $('.btnjia').click(function(){

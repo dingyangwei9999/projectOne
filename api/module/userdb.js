@@ -122,33 +122,33 @@ var resetpsw = function(_collection, data,key,callback){
 		})
 	})	
 }
-var resetemail = function(_collection, data,key,callback){
-	db.open(function(error, db){
-		if(error){
-			console.log('connect db:', error);
-		}
-		//Account => 集合名（表名）
-		db.collection(_collection, function(error, collection){
-			if(error){
-				console.log(error);	
-			} else {
-				collection.find({username:data[key]}).toArray(function(err, docs){
-					console.log(docs,data)
-					if(docs[0]){
-						collection.update({username:data[key]},{$set:{email:data.email}});
-						callback(docs);
-						db.close();
-					}else{
-						callback(null);
-						db.close();
-					}
+// var resetemail = function(_collection, data,key,callback){
+// 	db.open(function(error, db){
+// 		if(error){
+// 			console.log('connect db:', error);
+// 		}
+// 		//Account => 集合名（表名）
+// 		db.collection(_collection, function(error, collection){
+// 			if(error){
+// 				console.log(error);	
+// 			} else {
+// 				collection.find({username:data[key]}).toArray(function(err, docs){
+// 					console.log(docs,data)
+// 					if(docs[0]){
+// 						collection.update({username:data[key]},{$set:{email:data.email}});
+// 						callback(docs);
+// 						db.close();
+// 					}else{
+// 						callback(null);
+// 						db.close();
+// 					}
 					
-				});
-			}
+// 				});
+// 			}
 			
-		})
-	})	
-}
+// 		})
+// 	})	
+// }
 //购物车商品根据用户id存入数据库
 var usercart = function(_collection, data,callback){
 	db.open(function(error, db){
@@ -374,12 +374,74 @@ var managerLogin = function(_collection,data,callback){
 		})
 	})
 }
+//重置邮件
+var resetemail = function(_collection, data,key,callback){
+	db.open(function(error, db){
+		if(error){
+			console.log('connect db:', error);
+		}
+		//Account => 集合名（表名）
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error);	
+			} else {
+				collection.find({username:data[key]}).toArray(function(err, docs){
+					console.log(docs,data)
+					if(docs[0]){
+						collection.update({username:data[key]},{$set:{email:data.email}});
+						callback(docs);
+						db.close();
+					}else{
+						callback(null);
+						db.close();
+					}
+					
+				});
+			}
+			
+		})
+	})	
+}
+//获取当前用户的email
+var getIndexemail = function(_collection, data,key, callback){
+
+	db.open(function(error, db){
+
+		if(error){
+			console.log('connect db:', error);
+		}
+		db.collection(_collection, function(error, collection){
+			if(error){
+				console.log(error);	
+			} else {
+				collection.find({username:data[key]}).toArray(function(err, docs){
+				if(docs[0]){
+					
+						if(docs[0].username === data.username){
+							callback(docs[0]);
+							db.close();
+						}else{
+							callback(null);
+							db.close();
+						}	
+					}else{
+						callback(0);
+						db.close();
+					}
+				});
+			}
+			db.close();
+		})
+	})	
+}
+
 exports.managerLogin = managerLogin;
 exports.register = register;
 exports.loginc = loginc;
 exports.findpsw = findpsw;
 exports.resetpsw = resetpsw;
 exports.resetemail = resetemail;
+exports.getIndexemail = getIndexemail;
 exports.usercart = usercart;
 exports.getgoods = getgoods;
 exports.removegoods = removegoods;

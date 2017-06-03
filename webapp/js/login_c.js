@@ -14,11 +14,11 @@ $(function(){
 				if(res.status){
 					alert('登陆成功');
 
-					var obj = {"username": name,"userId":res.data};
-						obj = JSON.stringify(obj);
-						window.localStorage.setItem("user", obj);
+					var obj = {"username": name,"userId":res.data,"password":psw};
+					obj = JSON.stringify(obj);
+					window.localStorage.setItem("user", obj);
 					if($('.chance :checkbox').prop('checked')){
-						var obj = {"username": name,"userId":res.data};
+						var obj = {"username": name,"userId":res.data,"password":psw};
 						obj = JSON.stringify(obj);
 						window.localStorage.setItem("user", obj);
 					}

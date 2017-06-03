@@ -25,13 +25,35 @@ exports.handle = function(app){
 			res.send(apiResult(true, '修改成功','修改成功'));
 		})
 	})
-	app.post('/resetemail',urlencodedParser,function(req,res){
-		// res.setHeader('Access-Control-Allow-Origin','*');
-		usedb.resetemail('user',req.body,'username',function(data){
+	// app.post('/resetemail',urlencodedParser,function(req,res){
+	// 	// res.setHeader('Access-Control-Allow-Origin','*');
+	// 	usedb.resetemail('user',req.body,'username',function(data){
 			
+	// 		res.send(apiResult(true, '修改成功','修改成功'));
+	// 	})
+	// });
+	//获取邮箱地址
+	app.post('/email_show',urlencodedParser,function(req,res){
+	res.setHeader('Access-Control-Allow-Origin','*');
+	usedb.getIndexemail('user', req.body,'username', function(data){
+		if(data){
+				res.send(apiResult(false,'获取成功' ,data.email));
+			}else if(data == 0){
+				res.send(apiResult(false, '获取失败','用户名错误'));
+			}else{
+				res.send(apiResult(false, '找回失败','邮箱未找到'));
+			}
+		
+	});
+});
+//修改邮箱
+	app.post('/resetemail',urlencodedParser,function(req,res){
+		res.setHeader('Access-Control-Allow-Origin','*');
+		usedb.resetemail('user',req.body,'username',function(data){
 			res.send(apiResult(true, '修改成功','修改成功'));
 		})
-	});
+	})
+
 	//用户存入购物车商品
 	app.post('/cartgoods',urlencodedParser,function(req,res){
 		// res.setHeader('Access-Control-Allow-Origin','*');

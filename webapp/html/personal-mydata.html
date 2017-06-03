@@ -9,8 +9,28 @@
 	<link rel="stylesheet" type="text/css" href="../css/personal.css">
 	<script type="text/javascript" src="../libs/jquery-3.1.1/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../libs/js-rem/personal-rem.js"></script>
-	<script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script>
-	
+	<!-- <script type="text/javascript" src="../js/require.js" data-main="../js/person.js"></script> -->
+	<script>
+		$(function(){
+			var $Htitle = $('title').html();
+		    $('.Htop').load('../html/personal-header.html',function(){
+		      return $('.h_2').html($Htitle);
+		    });
+		    $('.Hfoot').load('../html/personal-footer.html');
+		    var obj = JSON.parse(localStorage.getItem('user'));
+
+		    $.post(erp.baseUrl+'email_show',{username:obj.username},function(response){
+		     $('.use-email').val(response.data);
+		    });
+
+		    $('.change-email').click(function(){
+		      var emailval = $('.use-email').val();
+		      $.post(erp.baseUrl+'resetemail',{username:obj.username,email:emailval},function(response){
+		    });
+		      alert('修改成功');
+		   })
+		})
+	</script>
 </head>
 <body>
 <div id="personal-box">
@@ -21,7 +41,7 @@
 	<b class="user-b">电子邮件 :</b>
 	<input type="email" name="" class="use-email">
 	</div>
-	<div class="btn-tijiao mydata"><a href="personal.html" class="btn-info">确认修改</a></div>
+	<div class="btn-tijiao mydata"><a href="personal.html" class="btn-info change-email">确认修改</a></div>
 	</main>
 	<footer class="Hfoot"></footer>
 </div>
