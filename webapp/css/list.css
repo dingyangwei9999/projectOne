@@ -242,7 +242,7 @@ header .index {
   overflow: hidden;
 }
 
-.center ul li .sale {
+.center ul li .sale, .center ul li .Sale {
   position: absolute;
   top: 4.0rem;
   width: 100%;
